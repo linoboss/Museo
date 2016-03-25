@@ -1,0 +1,63 @@
+/*
+ * Author: Carlos Alvarez
+ * URL: http://alvarez.is
+ *
+ * Project Name: STANLEY - Free Bootstrap 3 Theme
+ * Version: 1.0
+ * URL: http://blacktie.co
+ */
+
+html {
+min-width: 550px;
+max-width: 1400px;
+position: relative;
+background: #ffffff;
+margin-left: auto;
+margin-right: auto;
+}
+
+#myCarousel{
+}
+
+.mapa{
+	padding: 0 15px;
+}
+.mapa img{
+	width: 150%;
+	height: 150%;
+	padding-top: 5em;       
+	padding-bottom: 5em;
+	border: 10px solid #000000;
+}
+
+#infomuseo{
+
+}
+ 
+.color-texto{
+
+	font-size: 40px;
+    color: white;
+}
+
+.link{ 
+	position: block;
+	width: 20%;
+	height: 20%;      
+	border: 10px solid #000000;
+}
+.about{	
+	padding-top: 4em;
+	padding-bottom: 4em;
+	background: #FFFF88;
+}
+
+.navbar-wrapper{
+	height:100px;
+}
+
+.enmarcar{        
+	padding:10px;       
+	border:10px solid #000000;
+}
+	
