@@ -43,17 +43,17 @@
   </div>
     
   <!-- MAPA !-->
-  <div class="container"> 
-    <figure class="mapa col-xs-4"><img src="images/mapa.png" class="mapa"></figure>
-    <div class="col-md-8">
-      <img class="link" src="images/link.png">
-      <h3>
-        Según la Guía de Museos publicada por el Ministerio de Cultura en el año 2012.
-        En cada región existen:
-      </h3>
-      <div class="col-sm-8 row col-md-offset-2">
-        <div class="col-sm-4">
-          <table class="table">
+  <div class="no-margins container about ">    
+    <figure class="col-sm-5 mapa"><img src="images/mapa.png"></figure>
+    <div id="mapa-info" class="col-sm-7 row">
+      <img src="images/link.png" class="link col-sm-offset-6">          
+        <h3 class="info">
+          Según la Guía de Museos publicada por el Ministerio de Cultura en el año 2012.
+          En cada región existen:
+        </h3>
+      <div id="container-tablas" class="row" >
+        <div class="col-sm-6 no-padding">
+          <table class="table table-hover pull-right r" id="tablaizq">
             <tbody>
               <tr>
                 <td >Amazonas</td>
@@ -78,8 +78,8 @@
             </tbody>
           </table>
         </div>
-        <div class="col-sm-4">
-          <table class="table">
+        <div class="col-sm-6 no-padding">
+          <table class="table table-hover pull-left" id="tableder">
             <tbody>
               <tr>
                 <td >La Libertad</td>
@@ -109,12 +109,13 @@
   </div>
 
   <!-- Header AMAZONAS -->
-  <div class="navbar-wrapper">
-    <div class="navbar navbar-inverse boder-none" role="navigation">
-       <div>&nbsp;</div>
-        <div class="text-center color-texto"> AMAZONAS </div>
-    </div>
-  </div>
+    <nav class="nav navbar navbar-inverse no-margins" role="navigation">
+      <div class="container">
+        <div class="as text-center"> 
+          <h4 class="nav-texto"><b>AMAZONAS</b></h4>
+        </div>
+      </div>
+    </nav>
 
   <!-- AMAZONAS -->
   <div class="container about">
@@ -140,7 +141,12 @@
     </div>     
   </div>
 
-
+<nav class="navbar-wrapper navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Vacation Rentals</a>
+          </div>
+        </div>
     
 
     <!-- jquery -->
