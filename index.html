@@ -10,8 +10,8 @@
   <!-- Google fonts 
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
   -->
-  <!-- font awesome -->
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+  <!-- font awesome 
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">-->
 
   <!--bootstrap -->
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
@@ -34,11 +34,15 @@
 
 <body>
    <!-- IMAGEN SUPERIOR !-->
-  <div id="myCarousel" class="carousel slide banner-slider animated" data-ride="carousel">     
-    <div class="carousel-inner">
-      <figure class="col-lg-offset-2 item active">
-        <img src="images/imgs_museos/museos_0007_Vector-Smart-Object.png">    
+  <div id="myCarousel" class="carousel" data-ride="carousel">   
+    <div id="myCarousel-inner" class="carousel-inner">    
+      <img id="barra-superior" src="images/carousel/barra-superior.png" class=""> 
+      <figure id="titulo-container">
+        <img id="titulo" src="images/carousel/titulo.png">
+        <img id="sub-titulo" src="images/carousel/sub-titulo.png">
       </figure>
+      <img id="edificio" class="" src="images/carousel/edificio.png">       
+      <img id="barra-inferior" class="" src="images/carousel/barra-inferior.png"> 
     </div>
   </div>
     
@@ -487,10 +491,10 @@
   <!-- gallery -->
   <script src="assets/gallery/jquery.blueimp-gallery.min.js"></script>
 
-  <!-- custom script -->
+  <!-- custom script--> 
   <script src="assets/script.js"></script>
-
-  <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
+<!--
+  <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">-->
 
 </body>
 </html>

@@ -1,9 +1,18 @@
 jQuery(document).ready(function($) {
-    $('.back-to-top').css({"display": "none"})
-    $('.carousel').hide();
-    $('.mapa').addClass('.transparent');
-    $('.carousel').fadeIn(4000).ready(function(){$('.mapa').fadeIn(1000);})
-
+    $("#titulo-container").hide();
+    $("#edificio").hide();
+    $("#barra-inferior").hide();
+    $("#barra-superior").hide();
+    $('.carousel').fadeIn(500, function() {
+        
+        $("#edificio").slideDown(500, function() {
+            $("#barra-inferior").fadeIn(500);
+            $("#barra-superior").fadeIn(1000, function(){
+                $("#titulo-container").fadeIn(3000);
+            });
+        });
+    });    
+    
     $('.scroll').click(function(){
         var id_part = $(this).attr('id');
         id_part = '#nav_' + id_part;

@@ -16,6 +16,36 @@ margin-right: auto;
 }
 
 #myCarousel{
+	background-image: url('../images/carousel/papel.png');
+	margin: 5em 0 10em 0;
+}
+#myCarousel-inner{
+	position: relative;
+}
+
+#edificio{
+	padding-top: 12em;
+	padding-bottom: 6em;
+}
+
+#titulo-container{
+	position: absolute;
+	padding-top: 2em;
+}
+
+#titulo{
+	right:0;
+	width:40%;
+	height:50%;
+	margin-left: 50em;
+}
+
+#sub-titulo{
+	right:0;
+	width:40%;
+	height:8em;
+	padding-top: 10px;
+	margin-left: 50em;
 }
 
 .transparent{
