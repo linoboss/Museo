@@ -18,21 +18,44 @@ margin-right: auto;
 #myCarousel{
 }
 
+.transparent{
+	opacity: 0;
+}
+
+
 .mapa img{
 	width: 100%;
 	height: 100%;      
 }
+#mapa-info{
+	padding: 0;
+}
 
+.tablas{
+	margin-right: 2em;
+
+}
+
+.table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th {
+    border: none;
+}
+
+.table-config{
+
+}
 #tablaizq{
 	padding-left: 5em;
 }
+
 #tablader{
 	padding-right: 5em;
 }
 
 .info{
-	padding: 2em 0em 3em 2em;
-	margin: 0;
+	padding-left: 3em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin: 1em;
 }
  
 .nav-texto{
@@ -43,7 +66,6 @@ margin-right: auto;
 	padding: 0.3em;
 }
 
-
 .link{    
 	width: 80%;  
 }
@@ -51,6 +73,21 @@ margin-right: auto;
 .about{	
 	padding-top: 2em;
 	padding-bottom: 2em;
+	padding-right: 0;
+	padding-left: 0;	
+}
+.about header{
+	padding: 1em;
+}
+.about table tbody tr td{
+	padding:0;
+	padding-right: 5px;
+	font-size: 90%;
+}
+
+.about article{
+	font-family: Arial;
+    font-size: 120%;
 }
 
 .navbar-wrapper{
@@ -58,12 +95,12 @@ margin-right: auto;
 }
 
 .enmarcar{        
-	padding:10px;       
-	border:10px solid #000000;
+	padding:5px;       
+	border:5px solid #000000;
 }
 
 .padding-top-6{
-	padding-top: 6%;
+	padding-top: 1em;
 	}
 .no-padding{
 	padding: 0;
