@@ -1,4 +1,5 @@
- jQuery(document).ready(function($) {
+jQuery(document).ready(function($) {
+    $('.back-to-top').css({"display": "none"})
     $('.carousel').hide();
     $('.mapa').addClass('.transparent');
     $('.carousel').fadeIn(4000).ready(function(){$('.mapa').fadeIn(1000);})
@@ -10,7 +11,15 @@
             scrollTop: $(id_part).offset().top
         },1000);
     });
-    
+
+    jQuery(window).scroll(function() {
+        var offset = $('#nav_amazonas').offset();
+        if (jQuery(this).scrollTop() > (offset.top - 20)) {
+           jQuery('.back-to-top').fadeIn(300);     
+        } else {
+            jQuery('.back-to-top').fadeOut(300);
+        } 
+    });
 });
 
 var wow = new WOW(

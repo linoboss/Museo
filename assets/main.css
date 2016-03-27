@@ -142,3 +142,21 @@ margin-right: auto;
 
 .back {	background:url(../images/museos_0000_Vector-Smart-Object.png) right no-repeat fixed #fff; 
 	}
+
+.back-to-top {
+	background: none;
+	margin: 0;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 60px;
+	height: 60px;
+	z-index: 100;
+	display: none;
+	text-decoration: none;
+}
+
+.scroll{
+	cursor: pointer;
+}
+
