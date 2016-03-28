@@ -4,11 +4,10 @@ jQuery(document).ready(function($) {
     $("#barra-inferior").hide();
     $("#barra-superior").hide();
     $('.carousel').fadeIn(500, function() {
-        
-        $("#edificio").slideDown(500, function() {
+        $("#edificio").slideDown(1000, function() {
             $("#barra-inferior").fadeIn(500);
-            $("#barra-superior").fadeIn(1000, function(){
-                $("#titulo-container").fadeIn(3000);
+            $("#barra-superior").fadeIn(500, function(){
+                $("#titulo-container").fadeIn(0);
             });
         });
     });    
@@ -31,20 +30,18 @@ jQuery(document).ready(function($) {
     });
 });
 
-var wow = new WOW(
-  {
-    boxClass:     'wowload',      // animated element css class (default is wow)
-    animateClass: 'animated', // animation css class (default is animated)
-    offset:       0,          // distance to the element when triggering the animation (default is 0)
-    mobile:       true,       // trigger animations on mobile devices (default is true)
-    live:         true        // act on asynchronously loaded content (default is true)
-  }
-);
-wow.init();
+amazonas = {img_scr: "images/amazonas.png",
+            titulo: "MUSEO LEYMEBAMBA",
+            contenido: "El Museo de Leymebamba, reúne piezas arqueológicas, momias, ofrendas funerarias y otros bienes culturales pertenecientes a la Cultura Chachapoyas.",
+            direccion: "Av. Austria s/n, San Miguel",
+            telefono: "(041) 816803 / (041) 816806",
+            horario: "martes a domingo<br>de 9:30 a.m. a 4:30 p.m. o previa cita",
+            email: "leymebamba@museoleymebamba.org"}
 
-
-
-
-$('.carousel').slideDown('slow');
-    
-
+ancash1 = {img_scr: "images/ancash.png",
+            titulo: 'MUSEO ARQUELÓGICO DE ANCASH "AUGUSTO SORIANO INFANTE"',
+            contenido: "La colección de este museo está dividido en 4 salas divididas en tres niveles, donde se exponen secuencialmente bienes culturales cerámica, textiles, líticos, metales, materiales orgánicos de los años 10500 a.C.  a 700 a. C. Junto a él se encuentra el parque Lítico, el más grande de América, donde se presentan 120 monolitos, dinteles, cabezas clavas y otras piezas lítica representativas de la Cultura Recuay.",
+            direccion: "Av. Luzuriaga 762",
+            telefono: "(043) 421551",
+            horario: "martes a domingo<br>de 9:00 a.m. a 5:00 p.m.",
+            email: "ancash@mcultura.gob.pe"}
