@@ -1,5 +1,11 @@
 jQuery(document).ready(function($) {
+    //Audio element
+    var tableHooverSound = document.createElement('audio');
+    tableHooverSound.setAttribute('src', 'sounds/water_droplet.mp3');
+    var scrollClick = document.createElement('audio');
+    scrollClick.setAttribute('src', 'sounds/button_click_on.mp3');
 
+    //Effects
     $("#titulo-container").hide();
     $("#edificio").hide();
     $("#barra-inferior").hide();
@@ -27,7 +33,7 @@ jQuery(document).ready(function($) {
                     '<header class="row">' +
                         '<h2 class="col-xs-8 col-xs-offset-1 wowload fadeInLeft width-60"><b>'+Museos[i].museo+'</b></h2>'+
                         '<figure class="col-xs-3 wowload fadeInRight width-40" style="padding-top: 1%">'+
-                            '<a href="#"><img class="pull-right link"src='+"images/link.png"+'></a>'+
+                            '<a href="----"><img class="pull-right link"src='+"images/link.png"+'></a>'+
                         '</figure>'+
                     ' </header>'+
                     '<div class="row">'+
@@ -65,11 +71,11 @@ jQuery(document).ready(function($) {
                     '</div>'+
                   '</div>';
                 $('#cuerpo').append(html_cuerpo);
-        };
-        
+        };        
     }); 
     
     $('.scroll').click(function(){
+        scrollClick.play(); 
         id_part = '#nav_ciudad';
         $('html, body').animate({
             scrollTop: $(id_part).offset().top
@@ -84,7 +90,40 @@ jQuery(document).ready(function($) {
             jQuery('.back-to-top').fadeOut(300);
         } 
     });
+
+    $('#tablaizq tbody tr').mouseenter(function() {
+        tableHooverSound.currentTime = 0;
+        tableHooverSound.play();        
+    });
+
+    $('#tablader tbody tr').mouseenter(function() {
+        tableHooverSound.currentTime = 0;
+        tableHooverSound.play();        
+    });
 });
+/*
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', '/water_droplet.mp3');
+    audioElement.setAttribute('autoplay', 'autoplay');
+    //audioElement.load()
+
+    $.get();
+
+    audioElement.addEventListener("load", function() {
+        audioElement.play();
+    }, true);
+
+    $('.play').click(function() {
+        audioElement.play();
+        console.log("cliack");
+    });
+
+    $('.pause').click(function() {
+        audioElement.pause();
+        console.log("cliack");
+    });
+});
+*/
 
 amazonas1 = {img_src: "images/amazonas.png",
             museo: "MUSEO LEYMEBAMBA",

@@ -8,15 +8,15 @@
  */
 
 html {
-max-width: 1400px;
+max-width: 1300px;
 position: relative;
 background: #ffffff;
 margin-left: auto;
 margin-right: auto;
 }
 
-#myCarousel{
-	background-image: url('../images/carousel/papel.png');
+.myCarousel{
+	/*background-image: url('../images/carousel/papel.png');*/
 	margin: 5em 0 10em 0;
 }
 #myCarousel-inner{
@@ -148,7 +148,7 @@ margin-right: auto;
 }
 
 .formato{
-	padding-top: 3em;
+	padding-top: 5em;
 	padding-bottom: 3em;
 }
 
