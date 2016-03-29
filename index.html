@@ -10,8 +10,8 @@
   <!-- Google fonts 
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
   -->
-  <!-- font awesome 
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">-->
+  <!-- font awesome -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
 
   <!--bootstrap -->
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
@@ -34,145 +34,154 @@
 
 <body>
    <!-- IMAGEN SUPERIOR !-->
-  <div id="myCarousel" class="carousel" data-ride="carousel">   
-    <div id="myCarousel-inner" class="carousel-inner">    
-      <img src="images/bg.png"> 
-      <!--
-      <figure id="titulo-container">
-        <img id="titulo" src="images/carousel/titulo.png">
-        <img id="sub-titulo" src="images/carousel/sub-titulo.png">
-      </figure>
-      <img id="edificio" class="" src="images/carousel/edificio.png">       
-      <img id="barra-inferior" class="" src="images/carousel/barra-inferior.png"> 
-      -->
-    </div>
-  </div>
+   <div class="carousel" data-ride="carousel">   
+     <div class="carousel-inner">    
+       <img src="images/bg.png" class="img-responsive"> 
+       <!--
+       <figure id="titulo-container">
+         <img id="titulo" src="images/carousel/titulo.png">
+         <img id="sub-titulo" src="images/carousel/sub-titulo.png">
+       </figure>
+       <img id="edificio" class="" src="images/carousel/edificio.png">       
+       <img id="barra-inferior" class="" src="images/carousel/barra-inferior.png"> 
+       -->
+     </div>
+   </div>
+  
   
     
   <!-- MAPA !-->
   <div class="no-margins container-fluid formato">    
-    <figure class="col-sm-4 col-sm-offset-1 mapa"><img src="images/mapa.png"></figure>
-    <div id="mapa-info" class="col-sm-7 row" style="padding-right: 0;">
-      <div class="col-sm-offset-7 col-sm-5" style="padding-right: 0;">
-        <a href="#"> <img src="images/link.png" class="link pull-right"> </a> 
-      </div> 
-      <div class="col-sm-10" id="nav_table_text">
-        <h3 class="info text-justify">
-          Según la Guía de Museos publicada por el Ministerio de Cultura en el año 2012.
-          En cada región existen:
-        </h3>
-      </div> 
-      <div class="col-sm-2"></div>
-      <div class="col-sm-7 col-sm-offset-3" >
-        <div class="tablas">
-          <div class="col-sm-6 no-padding">
-            <table class="table table-hover table-borderless pull-right " id="tablaizq">
-              <tbody >
-                <tr>
-                  <td id="amazonas">Amazonas</td>
-                  <td >3</td>
-                </tr>
-                <tr>
-                  <td id="ancash">Ancash</td>
-                  <td >8</td>
-                </tr>
-                <tr>
-                  <td id="apurimac">Apurimac</td>
-                  <td >1</td>
-                </tr>                
-                <tr>
-                  <td id="ayacucho">Ayacucho</td>
-                  <td >15</td>
-                </tr>
-                <tr>
-                  <td id="arequipa">Arequipa</td>
-                  <td >5</td>
-                </tr>
-                <tr>
-                  <td id="cajamarca">Cajamarca</td>
-                  <td >18</td>
-                </tr>
-                <tr>
-                  <td id="callao">Callao</td>
-                  <td >5</td>
-                </tr>
-                <tr>
-                  <td id="cusco">Cusco</td>
-                  <td >25</td>
-                </tr>
-                <tr>
-                  <td id="huancavelica">Huancavelica</td>
-                  <td >2</td>
-                </tr>
-                <tr>
-                  <td id="huanuco">Huánuco</td>
-                  <td >6</td>
-                </tr>
-                <tr>
-                  <td id="ica">Ica</td>
-                  <td >6</td>
-                </tr>
-                <tr>
-                  <td id="junin">Junín</td>
-                  <td >14</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="col-sm-6 no-padding">
-            <table class="table table-hover table-borderless pull-left" id="tableder">
-              <tbody>
+    <div class="row">
+      <div class="col-md-offset-1 col-md-5 col-xs-offset-1 col-xs-4 width-50" style="padding-bottom: 5%">
+        <figure class="mapa"><img src="images/mapa.png" class="img-responsive"></figure>
+      </div>
+      <div class="col-md-6 col-xs-7 width-100">
+        <div class="col-xs-offset-7 col-xs-5" style="padding-right: 0;">
+          <a href="#"> <img src="images/link.png" class="link pull-right"> </a> 
+        </div> 
+        <div class="col-md-offset-1 col-md-9 col-sm-12">
+            <p class="info text-justify">
+              Según la Guía de Museos publicada por el Ministerio de Cultura en el año 2012.
+              En cada región existen:
+            </p>
+        </div> 
+        <div class="col-md-2"></div>
+      </div>  
+      <div class="col-md-6 col-sm-7">
+        <div id="mapa-info" class="row" style="padding-right: 0;">
+          <div class="col-xs-7 col-xs-offset-3 small-col" >
+            <div class="tablas">
+              <div class="col-xs-6 no-padding">
+                <table class="table table-hover table-borderless pull-right " id="tablaizq">
+                  <tbody >
+                    <tr>
+                      <td id="amazonas" class="scroll">Amazonas</td>
+                      <td >3</td>
+                    </tr>
+                    <tr>
+                      <td id="ancash" class="scroll">Ancash</td>
+                      <td >8</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="apurimac">Apurimac</td>
+                      <td >1</td>
+                    </tr>                
+                    <tr>
+                      <td class="scroll" id="ayacucho">Ayacucho</td>
+                      <td >15</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="arequipa">Arequipa</td>
+                      <td >5</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="cajamarca">Cajamarca</td>
+                      <td >18</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="callao">Callao</td>
+                      <td >5</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="cusco">Cusco</td>
+                      <td >25</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="huancavelica">Huancavelica</td>
+                      <td >2</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="huanuco">Huánuco</td>
+                      <td >6</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="ica">Ica</td>
+                      <td >6</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="junin">Junín</td>
+                      <td >14</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-xs-6 no-padding">
+                <table class="table table-hover table-borderless pull-left" id="tableder">
+                  <tbody>
 
-                <tr>
-                  <td id="libertad">La Libertad</td>
-                  <td >14</td>
-                </tr>
-                <tr>
-                  <td id="lambayenque">Lambayenque</td>
-                  <td >10</td>
-                </tr>
-                <tr>
-                  <td id="lima">Lima</td>
-                  <td >70</td>
-                </tr>
-                <tr>
-                  <td id="loreto">Loreto</td>
-                  <td >2</td>
-                </tr>
-                <tr>
-                  <td id="moquegua">Moquegua</td>
-                  <td >3</td>
-                </tr>
-                <tr>
-                  <td id="pasco">Pasco</td>
-                  <td >6</td>
-                </tr>
-                <tr>
-                  <td id="piura">Piura</td>
-                  <td >9</td>
-                </tr>
-                <tr>
-                  <td id="puma">Puno</td>
-                  <td >13</td>
-                </tr>
-                <tr>
-                  <td id="martin">San Martin</td>
-                  <td >5</td>
-                </tr>
-                <tr>
-                  <td id="tacna">Tacna</td>
-                  <td >8</td>
-                </tr>
-                <tr>
-                  <td id="tumbes">Tumbes</td>
-                  <td >1</td>
-                </tr>
-                <tr>
-                  <td id="ucayali">Ucayali</td>
-                  <td >1</td>
-                </tr>
-              </tbody>
-            </table>      
+                    <tr>
+                      <td class="scroll" id="la_libertad">La Libertad</td>
+                      <td >14</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="lambayeque">Lambayeque</td>
+                      <td >10</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="lima">Lima</td>
+                      <td >70</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="loreto">Loreto</td>
+                      <td >2</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="moquegua">Moquegua</td>
+                      <td >3</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="pasco">Pasco</td>
+                      <td >6</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="piura">Piura</td>
+                      <td >9</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="puma">Puno</td>
+                      <td >13</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="san_martin">San Martin</td>
+                      <td >5</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="tacna">Tacna</td>
+                      <td >8</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="tumbes">Tumbes</td>
+                      <td >1</td>
+                    </tr>
+                    <tr>
+                      <td class="scroll" id="ucayali">Ucayali</td>
+                      <td >1</td>
+                    </tr>
+                  </tbody>
+                </table>      
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -181,7 +190,7 @@
 
   <!-- AMAZONAS -->
   <!-- Header !-->
-  <nav class="nav navbar navbar-inverse no-margins" role="navigation" id="nav_amazonas">
+  <nav class="nav navbar navbar-inverse no-margins hidden" role="navigation" id="nav_ciudad">
     <div class="container">
       <div class="as text-center"> 
         <h4 class="nav-texto"><b>AMAZONAS</b></h4>
@@ -189,293 +198,16 @@
     </div>
   </nav>
   <!-- Cuerpo !-->
-  <div class="about container-fluid">
-    <header class="row">
-      <h2 class="col-xs-8 col-xs-offset-1 wowload fadeInLeft width-60"><b>MUSEO LEYMEBAMBA</b></h2>
-      <figure class="col-xs-3 wowload fadeInRight width-40" style="padding-top: 1%">
-        <a href="#"><img class="pull-right link"src="images/link.png"></a>
-      </figure>
-    </header>
-    <div class="row">
-      <div class="col-sm-4 col-sm-offset-1 wowload fadeInLeft">
-        <figure class="padding-top-6">
-          <img src="images/amazonas.png" class="enmarcar img-responsive" alt="Responsive image">
-        </figure>
-      </div>
-      <div class="col-sm-7 wowload fadeInRight">
-        <article class="padding-top-6 col-sm-10">        
-          <p class="text-justify">
-          El Museo de Leymebamba, reúne piezas arqueológicas, momias, ofrendas funerarias y otros bienes culturales pertenecientes a la Cultura Chachapoyas.</p> 
-        </article>
-        <table class="table table-borderless table-config -center">
-          <tbody>
-            <tr>
-              <td class="text-right"><b>Dirección:</b></td>
-              <td class="text-left">Av. Austria s/n, San Miguel</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Teféfono:</b></td>
-              <td class="text-left">(041) 816803 / (041) 816806</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Horario:</b></td>
-              <td class="text-left">martes a domingo<br>de 9:30 a.m. a 4:30 p.m. o previa cita</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Email:</b></td>
-              <td class="text-left"><a>leymebamba@museoleymebamba.org</a></td>
-            </tr>
-          </tbody>
-        </table>       
-      </div>
-    </div>     
+  <div id="cuerpo">
   </div>
 
-  <!-- ANCASH -->
-  <!-- Header !-->
-  <nav class="nav navbar navbar-inverse no-margins" role="navigation" id="nav_ancash">
-    <div class="container">
-      <div class="as text-center"> 
-        <h4 class="nav-texto"><b>ANCASH</b></h4>
-      </div>
-    </div>
-  </nav>
-  <!-- Cuerpo !-->
-  <div class="about container-fluid">
-    <header class="row">
-      <h2 class="col-xs-8 col-xs-offset-1 wowload fadeInLeft width-60"><b>MUSEO ARQUELÓGICO DE ANCASH "AUGUSTO SORIANO INFANTE"</b></h2>
-      <figure class="col-xs-3 wowload fadeInRight width-40" style="padding-top: 1%">
-        <a href="#"><img class="pull-right link"src="images/link.png"></a>
-      </figure>
-    </header>
-    <div class="row">
-      <div class="col-sm-4 col-sm-offset-1 wowload fadeInLeft">
-        <figure class="padding-top-6">
-          <img src="images/amazonas.png" class="enmarcar img-responsive" alt="Responsive image">
-        </figure>
-      </div>
-      <div class="col-sm-7 wowload fadeInRight">
-        <article class="padding-top-6 col-sm-10">        
-          <p class="text-justify">
-          La colección de este museo está dividido en 4 salas divididas en tres niveles, donde se exponen secuencialmente bienes culturales cerámica, textiles, líticos, metales, materiales orgánicos de los años 10500 a.C.  a 700 a. C. Junto a él se encuentra el parque Lítico, el más grande de América, donde se presentan 120 monolitos, dinteles, cabezas clavas y otras piezas lítica representativas de la Cultura Recuay.</p> 
-        </article>
-        <table class="table table-borderless table-config -center">
-          <tbody>
-            <tr>
-              <td class="text-right"><b>Dirección:</b></td>
-              <td class="text-left">Av. Luzuriaga 762</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Teféfono:</b></td>
-              <td class="text-left">(043) 421551</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Horario:</b></td>
-              <td class="text-left">martes a domingo<br>de 9:00 a.m. a 5:00 p.m.</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Email:</b></td>
-              <td class="text-left"><a>ancash@mcultura.gob.pe</a></td>
-            </tr>
-          </tbody>
-        </table>       
-      </div>
-    </div>     
-  </div>
-
-  <!-- Cuerpo !-->
-  <div class="about container-fluid">
-    <header class="row">
-      <h2 class="col-xs-8 col-xs-offset-1 wowload fadeInLeft width-60"><b>MUSEO NACIONAL CHAVÍN</b></h2>
-      <figure class="col-xs-3 wowload fadeInRight width-40" style="padding-top: 1%">
-        <a href="#"><img class="pull-right link"src="images/link.png"></a>
-      </figure>
-    </header>
-    <div class="row">
-      <div class="col-sm-4 col-sm-offset-1 wowload fadeInLeft">
-        <figure class="padding-top-6">
-          <img src="images/amazonas.png" class="enmarcar img-responsive" alt="Responsive image">
-        </figure>
-      </div>
-      <div class="col-sm-7 wowload fadeInRight">
-        <article class="padding-top-6 col-sm-10">        
-          <p class="text-justify">
-          Posee una colección diversa de bienes culturales que datan desde las primeras investigaciones realizadas por el reconocido arqueólogo peruano Julio C. Tello en esta zona. <br>
-          En las salas se exhiben 19 conchas de caracol usadas como pututos o trompetas, cabezas clavas y lápidas, así como una maqueta de la zona monumental. En una sala se encuentra el Obelisco Tello, escultura emblemática de 2.52 metros de alto, que sintetiza la concepción religiosa del mundo Chavín.
-          </p> 
-        </article>
-        <table class="table table-borderless table-config -center">
-          <tbody>
-            <tr>
-              <td class="text-right"><b>Dirección:</b></td>
-              <td class="text-left">Prolongación Av. 17 de enero norte s/n</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Teféfono:</b></td>
-              <td class="text-left">(043) 454011</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Horario:</b></td>
-              <td class="text-left">martes a domingo<br>de 9:00 a.m. a 5:00 p.m.</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Email:</b></td>
-              <td class="text-left"><a>ancash@mcultura.gob.pe</a></td>
-            </tr>
-          </tbody>
-        </table>       
-      </div>
-    </div>     
-  </div>
-
-  <!-- AREQUIPA -->
-  <!-- Header !-->
-  <nav class="nav navbar navbar-inverse no-margins" role="navigation" id="nav_arequipa">
-    <div class="container">
-      <div class="as text-center"> 
-        <h4 class="nav-texto"><b>AREQUIPA</b></h4>
-      </div>
-    </div>
-  </nav>
-  <!-- Cuerpo !-->
-  <div class="about container-fluid">
-    <header class="row">
-      <h2 class="col-xs-8 col-xs-offset-1 wowload fadeInLeft width-60"><b>MUSEO DEL MONASTERIO<br>DE SANTA CATALINA</b></h2>
-      <figure class="col-xs-3 wowload fadeInRight width-40" style="padding-top: 1%">
-        <a href="#"><img class="pull-right link"src="images/link.png"></a>
-      </figure>
-    </header>
-    <div class="row">
-      <div class="col-sm-4 col-sm-offset-1 wowload fadeInLeft">
-        <figure class="padding-top-6">
-          <img src="images/amazonas.png" class="enmarcar img-responsive" alt="Responsive image">
-        </figure>
-      </div>
-      <div class="col-sm-7 wowload fadeInRight">
-        <article class="padding-top-6 col-sm-10">        
-          <p class="text-justify">
-          Este museo ubicado dentro del Monasterio de santa Catalina alberga bienes culturales que datan de la época colonial siglos XVII, XVIII y XIX, están constituídos por pinturas coloniales, ornamentos religiosos, mobiliario y bienes de uso cotidiano de la comunidad dominica que habitaron este monasterio de clausura.</p> 
-        </article>
-        <table class="table table-borderless table-config -center">
-          <tbody>
-            <tr>
-              <td class="text-right"><b>Dirección:</b></td>
-              <td class="text-left">Calle Santa Catalina Nº 301</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Teféfono:</b></td>
-              <td class="text-left">(054) 608282</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Horario:</b></td>
-              <td class="text-left">martes a domingo<br>de 8:00 a.m. a 5:00 p.m.</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Email:</b></td>
-              <td class="text-left"><a>informes@santacatalina.org.pe</a></td>
-            </tr>
-          </tbody>
-        </table>       
-      </div>
-    </div>     
-  </div>
-
-  <!-- AYACUCHO -->
-  <!-- Header !-->
-  <nav class="nav navbar navbar-inverse no-margins" role="navigation" id="nav_ayacucho">
-    <div class="container">
-      <div class="as text-center"> 
-        <h4 class="nav-texto"><b>AYACUCHO</b></h4>
-      </div>
-    </div>
-  </nav>
-  <!-- Cuerpo !-->
-  <div class="about container-fluid">
-    <header class="row">
-      <h2 class="col-xs-8 col-xs-offset-1 wowload fadeInLeft width-60"><b>MUSEO DE LA MEMORIA<br>"PARA QUE NO SE REPITA"</b></h2>
-      <figure class="col-xs-3 wowload fadeInRight width-40" style="padding-top: 1%">
-        <a href="#"><img class="pull-right link"src="images/link.png"></a>
-      </figure>
-    </header>
-    <div class="row">
-      <div class="col-sm-4 col-sm-offset-1 wowload fadeInLeft">
-        <figure class="padding-top-6">
-          <img src="images/amazonas.png" class="enmarcar img-responsive" alt="Responsive image">
-        </figure>
-      </div>
-      <div class="col-sm-7 wowload fadeInRight">
-        <article class="padding-top-6 col-sm-10">        
-          <p class="text-justify">
-          Este museo cuenta con cuatro salas en las que se exponen fotografías, pinturas, restos de vestimentas y otros objetos relacionados a la guerra interna que vivió el Perú en la década de 1980 y cuyo máximo impacto social se produjo en Ayacucho.</p> 
-        </article>
-        <table class="table table-borderless table-config -center">
-          <tbody>
-            <tr>
-              <td class="text-right"><b>Dirección:</b></td>
-              <td class="text-left">Urbanización Nery García Zárate, Jr. Libertad 1229</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Teféfono:</b></td>
-              <td class="text-left">(066) 317170</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Horario:</b></td>
-              <td class="text-left">martes a domingo<br>de 9:00 a.m. a 1:00 p.m. y de 3:00 p.m. a 6:00 p.m.</td>
-            </tr>
-          </tbody>
-        </table>       
-      </div>
-    </div>     
-  </div>
-  <!-- Cuerpo !-->
-  <div class="about container-fluid">
-    <header class="row">
-      <h2 class="col-xs-8 col-xs-offset-1 wowload fadeInLeft width-60"><b>MUSEO DEL SITIO DE QUINUA</b></h2>
-      <figure class="col-xs-3 wowload fadeInRight width-40" style="padding-top: 1%">
-        <a href="#"><img class="pull-right link"src="images/link.png"></a>
-      </figure>
-    </header>
-    <div class="row">
-      <div class="col-sm-4 col-sm-offset-1 wowload fadeInLeft">
-        <figure class="padding-top-6">
-          <img src="images/amazonas.png" class="enmarcar img-responsive" alt="Responsive image">
-        </figure>
-      </div>
-      <div class="col-sm-7 wowload fadeInRight">
-        <article class="padding-top-6 col-sm-10">        
-          <p class="text-justify">
-          Ubicado a 35 Km. Al noreste de Ayacucho. En la sala de exposición permanente podemos encontrar armas, uniformes, maquetas y otros objetos relacionados a la Batalla de Ayacucho. Destaca el ambiente donde se firmó la Capitulación de Ayacucho el 9 de diciembre de 1824.</p> 
-        </article>
-        <table class="table table-borderless table-config -center">
-          <tbody>
-            <tr>
-              <td class="text-right"><b>Dirección:</b></td>
-              <td class="text-left">Plaza Principal de Quinua</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Teféfono:</b></td>
-              <td class="text-left">(066) 312056</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Horario:</b></td>
-              <td class="text-left">martes a domingo<br>de 9:00 a.m. a 1:00 p.m. y de 3:00 a.m. a 5:00 p.m.</td>
-            </tr>
-            <tr>
-              <td class="text-right"><b>Email:</b></td>
-              <td class="text-left"><a>ayacucho@mcultura.gob.pe</a></td>
-            </tr>
-          </tbody>
-        </table>       
-      </div>
-    </div> 
-  </div>
-
-  <div class="back-to-top scroll" style="display: inline;" id="table_text">
+  <div class="back-to-top" style="display: none;" id="table_text">
     <span class="fa-stack fa-lg" style="color: white">
       <i class="fa fa-circle fa-stack-2x"></i>
       <i class="fa fa-arrow-circle-up fa-stack-2x" style="color: #3E5B99"></i>
     </span>
   </div>
+
    
   <!-- jquery -->
   <script src="assets/jquery.js"></script>
@@ -496,9 +228,7 @@
 
   <!-- custom script--> 
   <script src="assets/script.js"></script>
-<!--
-  <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">-->
 
+  <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
 </body>
 </html>
-
