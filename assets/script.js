@@ -1,5 +1,13 @@
 jQuery(document).ready(function($) {
+    //Audio element
+    var tableHooverSound = document.createElement('audio');
+    tableHooverSound.setAttribute('src', 'sounds/water_droplet.mp3');
+    var scrollClick = document.createElement('audio');
+    scrollClick.setAttribute('src', 'sounds/button_click_on.mp3');
+    var scrollBack = document.createElement('audio');
+    scrollBack.setAttribute('src', 'sounds/Sneeze-sound.mp3');
 
+    //Effects
     $("#titulo-container").hide();
     $("#edificio").hide();
     $("#barra-inferior").hide();
@@ -22,12 +30,23 @@ jQuery(document).ready(function($) {
         $('#nav_ciudad h4 b').text(ciudad.replace('_',' ').toUpperCase());
 
         for (var i = 0; i < Museos.length; i++) {
+            link = 'href= http://' + Museos[i].link;
+            hidden = '';
+            
+            if(!Museos[i].link){
+                link = '';
+                hidden = 'hidden';
+            }
+            var email = Museos[i].email ? '<td class="text-right"><b>Email:</b></td> <td class="text-left"><a>'+Museos[i].email+'</a></td>' : '' 
+            
+            link_html = '<a ' + link + '><img class="pull-right link '+ hidden + '"src='+"images/link.png"+'></a>';
+            console.log(link_html);
             html_cuerpo = 
                 '<div class="about container-fluid">'+
                     '<header class="row">' +
                         '<h2 class="col-xs-8 col-xs-offset-1 wowload fadeInLeft width-60"><b>'+Museos[i].museo+'</b></h2>'+
                         '<figure class="col-xs-3 wowload fadeInRight width-40" style="padding-top: 1%">'+
-                            '<a href="#"><img class="pull-right link"src='+"images/link.png"+'></a>'+
+                            link_html +
                         '</figure>'+
                     ' </header>'+
                     '<div class="row">'+
@@ -54,9 +73,7 @@ jQuery(document).ready(function($) {
                                     '<td class="text-right"><b>Horario:</b></td>'+
                                     '<td class="text-left">martes a domingo<br>'+Museos[i].horario+'</td>'+
                                 '</tr>'+
-                                '<tr>'+
-                                    '<td class="text-right"><b>Email:</b></td>'+
-                                    '<td class="text-left"><a>'+Museos[i].email+'</a></td>'+
+                                '<tr>'+ email +
                                 '</tr>'+
                             '</tbody>'+
                           '</table>'+                      
@@ -70,6 +87,7 @@ jQuery(document).ready(function($) {
     }); 
     
     $('.scroll').click(function(){
+        scrollClick.play(); 
         id_part = '#nav_ciudad';
         $('html, body').animate({
             scrollTop: $(id_part).offset().top
@@ -77,6 +95,7 @@ jQuery(document).ready(function($) {
     });
 
     $('.back-to-top').click(function(){
+        scrollBack.play();
         $('html, body').animate({
             scrollTop: $('.formato').offset().top
         },1000);
@@ -90,15 +109,21 @@ jQuery(document).ready(function($) {
             jQuery('.back-to-top').fadeOut(300);
         } 
     });
-});
 
-amazonas1 = {img_src: "images/amazonas.png",
+    $('table tr, .back-to-top').mouseenter(function() {
+        tableHooverSound.currentTime = 0;
+        tableHooverSound.play();        
+    });
+});
+amazonas = {img_src: "images/amazonas.png",
+            link:'www.museoleymebamba.org',
             museo: "MUSEO LEYMEBAMBA",
             contenido: "El Museo de Leymebamba, reúne piezas arqueológicas, momias, ofrendas funerarias y otros bienes culturales pertenecientes a la Cultura Chachapoyas.",
             direccion: "Av. Austria s/n, San Miguel",
             telefono: "(041) 816803 / (041) 816806",
             horario: "martes a domingo<br>de 9:30 a.m. a 4:30 p.m. o previa cita"};
-amazonas = [amazonas1]
+
+amazonas = [amazonas]
 
 ancash1 = {img_src: "images/ancash1.png",
             museo: 'MUSEO ARQUELÓGICO DE ANCASH "AUGUSTO SORIANO INFANTE"',
@@ -122,11 +147,14 @@ ancash = [ancash1, ancash2];
 
 arequipa = {img_src: "images/arequipa.png",
             museo: 'Museo del Monasterio de Santa Catalina',
+            link: 'www.santacatalina.org.pe',
             contenido: "Este museo ubicado dentro del Monasterio de santa Catalina alberga bienes culturales que datan de la época colonial siglos XVII, XVIII y XIX, están constituidos por pinturas coloniales, ornamentos religiosos, mobiliario y bienes de uso cotidiano de la comunidad dominica que habitaron este monasterio de clausura.",
             direccion: "Calle Santa Catalina Nº 301",
             telefono: "(054) 608282",
             horario: "lunes a domingo<br>de 8:00 a.m. a 5:00 p.m.",
             email: "informes@santacatalina.org.pe"};
+
+arequipa = [arequipa]
 
 ayacucho1 = {img_src: "images/ayacucho1.png",
 museo: "MUSEO DE LA MEMORIA  ",
@@ -182,7 +210,7 @@ cajamarca = [cajamarca1, cajamarca2, cajamarca3];
 
 callao1 = {img_src: "images/callao1.png",
 museo: "MUSEO DE SITIO NAVAL SUBMARINO ABTAO",
-web: "www.submarinoabtao.com",
+link: "www.submarinoabtao.com",
 contenido: "Cuenta con una sala de exhibición, donde se resume la evolución histórica de los submarinos en el Perú desde inicios del siglo XX. Cuenta con una sala de proyecciones y finalmente  hay un recorrido por el interior del submarino donde se aprecia al detalle sus compartimientos y finalmente se realiza una recreación en audio de un combate.",
 direccion: "Av. Jorge Chávez 120-A.",
 telefono: "(01) 7956900",
@@ -191,7 +219,7 @@ email: "museo.abtao@hotmail.com / reservas.abtao@hotmail.com"};
 
 callao2 = {img_src: "images/callao2.png",
 museo: "MUSEO DEL EJÉRCITO FORTALEZA REAL FELIPE",
-web: "www.museodelejercito.com.pe",
+link: "www.museodelejercito.com.pe",
 contenido: "La fortaleza del Real Felipe, edificada en el siglo XVIII, es una de las pocas obras de arquitectura militar en el país y la más grande que construyeron los españoles en América del Sur. Convertida hoy en museo, la construcción con forma pentagonal abre sus puertas y permite al visitante sumergirse en la época colonial. Ofrece un recorrido por la historia del Ejército del Perú y sus héroes. En su colección se aprecian armas de guerra, uniformes, medallas, la bandera nacional, entre otros bienes culturales.",
 direccion: "Fortaleza del Real Felipe s/n. Plaza Independencia",
 telefono: "(01) 4290532",
@@ -218,7 +246,7 @@ email: "museopisac@gmail.com"};
 
 cusco2 = {img_src: "images/cusco2.png",
 museo: "MUSEO DE ARTE CONTEMPORÁNEO",
-web: "www.municusco.gob.pe",
+link: "www.municusco.gob.pe",
 contenido: "El museo se encuentra ubicado en el inmueble de la Municipalidad Provincial de Cusco y tiene tres salas de exposición temporal en las que se exhiben pinturas, imaginería, esculturas y piezas textiles de artistas locales contemporáneos.",
 direccion: "Plaza Regocijo s/n.",
 telefono: "(084) 240006; (084) 231591",
@@ -227,7 +255,7 @@ email: " museomunicusco@hotmail.com"};
 
 cusco3 = {img_src: "images/cusco3.png",
 museo: "MUSEO DE ARTE PRECOLOMBINO",
-web: "www.map.museolarco.org",
+link: "www.map.museolarco.org",
 contenido: "El museo está ubicado en la Casa Cabrera, reconocida como Patrimonio Cultural de la Nación. Posee una colección de bienes culturales arqueológicos distribuidos en once salas referidas al periodo formativo, culturas Nasca, Moche, Wari, Chimú, Chancay e Inca. También cuenta con salas de joyería en concha y hueso, salas de madera, oro y plata.",
 direccion: "Plaza de las Nazarenas 231.",
 telefono: "(084) 233210",
@@ -362,7 +390,7 @@ email: "casaraimondi_sanpedrodelloc@hotmail.com"};
 
 libertad2 = {img_src: "images/libertad2.png",
 museo: "MUSEO CAO ",
-web: "www.fundacionwiese.com/arqueologia/museodesitiocao",
+link: "www.fundacionwiese.com/arqueologia/museodesitiocao",
 contenido: "El museo exhibe los bienes culturales recuperados a partir del Proyecto Arqueológico del Complejo El Brujo. Se presenta a la Señora de Cao, su ajuar funerario, joyas, símbolos de poder y ofrendas.",
 direccion: "Complejo El Brujo, Localidad Magdalena de Cao.",
 telefono: "(01) 6114343 anexo 127",
@@ -382,7 +410,7 @@ la_libertad = [libertad1, libertad2, libertad3];
 
 lambayeque1 = {img_src: "images/lambayeque1.png",
 museo: "MUSEO AFROPERUANO",
-web: "www.museoafroperuano.com",
+link: "www.museoafroperuano.com",
 contenido: "El Museo Afroperuano de Zaña se inauguró el año 2005 convirtiéndose en la primera institución de su género en el país. Presenta una colección de instrumentos musicales y discografía de afrodescendientes. Tiene carretas antiguas de madera que fueron utilizadas en las haciendas para el transporte de caña de azúcar. Cuenta con una colección de pinturas, dibujos, mapas y fotografías que explican la secuencia histórica de la presencia de los africanos y descendientes en las Américas y específicamente en el Perú desde el siglo XVI hasta el siglo XIX. Además se exhiben piezas de castigos y torturas a los esclavizados y elementos de supervivencia en la vida cotidiana.",
 direccion: "Calle Independencia 645.",
 telefono: "(074) 431042",
@@ -415,7 +443,7 @@ email: "museosican@hotmail.com"};
 
 lambayeque5 = {img_src: "images/lambayeque5.png",
 museo: "MUSEO TUMBAS REALES DE SIPÁN ",
-web: "www.museotumbasrealessipan.pe",
+link: "www.museotumbasrealessipan.pe",
 contenido: "El Museo Tumbas Reales de Sipán, exhibe ornamentos, emblemas y atuendos de rango pertenecientes al personaje llamado el Señor de Sipán.",
 direccion: "Av. Juan Pablo Vizcardo y Guzmán Nº 895.",
 telefono: "(074) 283977 / (074) 283978",
@@ -428,7 +456,7 @@ lambayeque = [lambayeque1, lambayeque2, lambayeque3, lambayeque4, lambayeque5];
 
 lima1 = {img_src: "images/lima1.png",
 museo: "MUSEO AMANO ",
-web: "http://vao.pe/315/museo-amano",
+link: "http://vao.pe/315/museo-amano",
 contenido: "La colección que protege esta entidad, está compuesta principalmente por piezas de cerámica y ejemplares de textiles que pertenecieron a las culturas precolombinas que habitaron en Perú. Pero la muestra más importante, que el Museo Amano conserva bajo siete llaves, está compuesta por ejemplares de cerámica y piezas de textiles que en su momento la cultura Chancay desarrolló. Pues la mayoría de las piezas pertenecen a aquellas civilizaciones que florecieron en las costas de Perú.",
 direccion: "Calle Retiro 160, Miraflores, Lima. A la altura de la cuadra 11 de la avenida Angamos Oeste.",
 telefono: "(511) 441-2909",
@@ -444,7 +472,7 @@ email: "comunicaciones-mnaahp@mcultura.gob.pe"};
 
 lima3 = {img_src: "images/lima3.png",
 museo: "MUSEO DE ARTE ITALIANO DE LIMA",
-web: "http://www.museos.cultura.pe/museos/museo-de-arte-italiano-de-lima",
+link: "http://www.museos.cultura.pe/museos/museo-de-arte-italiano-de-lima",
 contenido: "Es el único museo de arte europeo que se encuentra en nuestro país. Expone desde 1923 todas las expresiones artísticas realizadas por artistas italianos, desde principios del siglo XX.",
 direccion: "Av. Paseo de la República 250, Lima..",
 telefono: "(01) 423-9932",
