@@ -1,5 +1,6 @@
 jQuery(document).ready(function($) {
     myParaxify = paraxify('.paraxify');
+    console.log("hola)");
     //Audio element
     var tableHooverSound = document.createElement('audio');
     tableHooverSound.setAttribute('src', 'sounds/water_droplet.mp3');
@@ -8,6 +9,22 @@ jQuery(document).ready(function($) {
     var scrollBack = document.createElement('audio');
     scrollBack.setAttribute('src', 'sounds/Sneeze-sound.mp3');
 
+    //CARGAR EL SVG
+    var a = document.getElementById("svgMapa");
+    a.addEventListener("load",function() {
+        var svgDoc = a.getSVGDocument();
+        alert("SVG contentDocument Loaded!");
+        console.log(svgDoc);
+        var svgItem = svgDoc.getElementById("mapa_amazonas");
+        Set the colour to something else
+        svgItem.setAttribute("fill", "lime");
+    }, false);
+    
+
+
+    //var svgItem = svgDoc.getElementById("mapa_amazonas");
+    // Set the colour to something else
+    //svgItem.setAttribute("fill", "lime");
     //Effects
     $("#titulo-container").hide();
     $("#edificio").hide();
@@ -115,13 +132,13 @@ jQuery(document).ready(function($) {
             jQuery('.back-to-top').fadeOut(300);
         } 
     });
-
+/*
     $('table tr, .back-to-top').mouseenter(function() {
         tableHooverSound.currentTime = 0;
         tableHooverSound.play();        
-    });
+    });*/
 });
-amazonas = {img_src: "images/amazonas.png",
+amazonas1 = {img_src: "images/amazonas1.png",
             link:'www.museoleymebamba.org',
             museo: "MUSEO LEYMEBAMBA",
             contenido: "El Museo de Leymebamba, reúne piezas arqueológicas, momias, ofrendas funerarias y otros bienes culturales pertenecientes a la Cultura Chachapoyas.",
@@ -130,7 +147,7 @@ amazonas = {img_src: "images/amazonas.png",
             horario: "martes a domingo<br>de 9:30 a.m. a 4:30 p.m. o previa cita",
             fondo: "fondo_amazonas"};
 
-amazonas = [amazonas]
+amazonas = [amazonas1]
 
 ancash1 = {img_src: "images/ancash1.png",
             museo: 'MUSEO ARQUELÓGICO DE ANCASH "AUGUSTO SORIANO INFANTE"',
@@ -153,7 +170,7 @@ ancash = [ancash1, ancash2];
 
 /* Arequipa */
 
-arequipa = {img_src: "images/arequipa.png",
+arequipa1 = {img_src: "images/arequipa1.png",
             museo: 'Museo del Monasterio de Santa Catalina',
             link: 'www.santacatalina.org.pe',
             contenido: "Este museo ubicado dentro del Monasterio de santa Catalina alberga bienes culturales que datan de la época colonial siglos XVII, XVIII y XIX, están constituidos por pinturas coloniales, ornamentos religiosos, mobiliario y bienes de uso cotidiano de la comunidad dominica que habitaron este monasterio de clausura.",
@@ -163,7 +180,7 @@ arequipa = {img_src: "images/arequipa.png",
             email: "informes@santacatalina.org.pe",
             fondo: "fondo_arequipa"};
 
-arequipa = [arequipa]
+arequipa = [arequipa1]
 
 ayacucho1 = {img_src: "images/ayacucho1.png",
 museo: "MUSEO DE LA MEMORIA  ",
