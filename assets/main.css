@@ -258,77 +258,77 @@ margin-right: auto;
     background-image: url(../fondos/cajamarca.png);
 }
 
-#amazonas { fill: url(#image);}
-#amazonas:hover { fill: red; }
+#mapa_amazonas { fill: #FFFFEE; transition: fill 0.4s;}
+#mapa_amazonas:hover { fill: #00BBAA; }
 
-#loreto { fill: #00FFFF; }
-#loreto:hover { fill: red; }
+#mapa_loreto { fill: #FFFFEE; transition: fill 0.4s; }
+#mapa_loreto:hover { fill: #00BBAA; }
 
-#san_martin { fill: #00FFFF; }
-#san_martin:hover { fill: red; }
+#mapa_san_martin { fill: #FFFFEE; transition: fill 0.4s; }
+#mapa_san_martin:hover { fill: #00BBAA; }
 
-#cajamarca { fill: #00FFFF; }
-#cajamarca:hover { fill: red; }
+#mapa_cajamarca { fill: #FFFFEE; transition: fill 0.4s; }
+#mapa_cajamarca:hover { fill: #00BBAA; }
 
-#lambayeque { fill: #00FFFF; }
-#lambayeque:hover { fill: red; }
+#mapa_lambayeque { fill: #FFFFEE; transition: fill 0.4s; }
+#mapa_lambayeque:hover { fill: #00BBAA; }
 
-#piura { fill: #00FFFF; }
-#piura:hover { fill: red; }
+#mapa_piura { fill: #FFFFEE; transition: fill 0.4s; }
+#mapa_piura:hover { fill: #00BBAA; }
 
-#tumbes { fill: #00FFFF; }
-#tumbes:hover { fill: red; }
+#mapa_tumbes { fill: #FFFFEE; transition: fill 0.4s; }
+#mapa_tumbes:hover { fill: #00BBAA; }
 
-#la_libertad { fill: #00FFFF; }
-#la_libertad:hover { fill: red; }
+#mapa_la_libertad { fill: #FFFFEE; transition: fill 0.4s; }
+#mapa_la_libertad:hover { fill: #00BBAA; }
 
-#ancash { fill: #00FFFF; }
-#ancash:hover { fill: red; }
+#mapa_ancash { fill: #FFFFEE; transition: fill 0.4s; }
+#mapa_ancash:hover { fill: #00BBAA; }
 
-#huanuco { fill: #00FFFF; }
-#huanuco:hover { fill: red; }
+#mapa_huanuco { fill: #FFFFEE; transition: fill 0.4s; }
+#mapa_huanuco:hover { fill: #00BBAA; }
 
-#ucayali { fill: #00FFFF; }
-#ucayali:hover { fill: red; }
+#mapa_ucayali { fill: #FFFFEE; transition: fill 0.4s; }
+#mapa_ucayali:hover { fill: #00BBAA; }
 
-#pasco { fill: #00FFFF; }
-#pasco:hover { fill: red; }
+#mapa_pasco { fill: #FFFFEE; transition: fill 0.4s; }
+#mapa_pasco:hover { fill: #00BBAA; }
 
-#lima { fill: #00FFFF; }
-#lima:hover { fill: red; }
+#mapa_lima { fill: #FFFFEE; transition: fill 0.4s; }
+#mapa_lima:hover { fill: #00BBAA; }
 
-#callao { fill: #00FFFF; }
-#callao:hover { fill: red; }
+#mapa_callao { fill: #FFFFEE; transition: fill 0.4s;}
+#mapa_callao:hover { fill: #00BBAA; }
 
-#junin { fill: #00FFFF; }
-#junin:hover { fill: red; }
+#mapa_junin { fill: #FFFFEE; transition: fill 0.4s;}
+#mapa_junin:hover { fill: #00BBAA; }
 
-#madre_de_dios { fill: #00FFFF; }
-#madre_de_dios:hover { fill: red; }
+#mapa_madre_de_dios { fill: #FFFFEE; transition: fill 0.4s;}
+#mapa_madre_de_dios:hover { fill: #00BBAA; }
 
-#ica { fill: #00FFFF; }
-#ica:hover { fill: red; }
+#mapa_ica { fill: #FFFFEE; transition: fill 0.4s;}
+#mapa_ica:hover { fill: #00BBAA; }
 
-#ayacucho { fill: #00FFFF; }
-#ayacucho:hover { fill: red; }
+#mapa_ayacucho { fill: #FFFFEE; transition: fill 0.4s;}
+#mapa_ayacucho:hover { fill: #00BBAA; }
 
-#cusco { fill: #00FFFF; }
-#cusco:hover { fill: red; }
+#mapa_cusco { fill: #FFFFEE; transition: fill 0.4s;}
+#mapa_cusco:hover { fill: #00BBAA; }
 
-#huancavelica { fill: #00FFFF; }
-#huancavelica:hover { fill: red; }
+#mapa_huancavelica { fill: #FFFFEE; transition: fill 0.4s;}
+#mapa_huancavelica:hover { fill: #00BBAA; }
 
-#apurimac { fill: #00FFFF; }
-#apurimac:hover { fill: red; }
+#mapa_apurimac { fill: #FFFFEE; transition: fill 0.4s;}
+#mapa_apurimac:hover { fill: #00BBAA; }
 
-#arequipa { fill: #00FFFF; }
-#arequipa:hover { fill: red; }
+#mapa_arequipa { fill: #FFFFEE; transition: fill 0.4s;}
+#mapa_arequipa:hover { fill: #00BBAA; }
 
-#puno { fill: #00FFFF; }
-#puno:hover { fill: red; }
+#mapa_puno { fill: #FFFFEE; transition: fill 0.4s;}
+#mapa_puno:hover { fill: #00BBAA; }
 
-#monquegua { fill: #00FFFF; }
-#monquegua:hover { fill: red; }
+#mapa_monquegua { fill: #FFFFEE; transition: fill 0.4s;}
+#mapa_monquegua:hover { fill: #00BBAA; }
 
-#tacna { fill: #00FFFF; }
-#tacna:hover { fill: red; }
+#mapa_tacna { fill: #FFFFEE; transition: fill 0.4s;}
+#mapa_tacna:hover { fill: #00BBAA; }
