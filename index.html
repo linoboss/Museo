@@ -10,16 +10,11 @@
   <!-- Google fonts 
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
   -->
-  <!-- font awesome -->
+  <!-- font awesome 
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
 
   <!--bootstrap -->
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-
-  <!-- favicon -->
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
 
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/main.css">
@@ -47,7 +42,8 @@
   <div class="no-margins container-fluid formato">    
     <div class="row">
       <div class="col-md-offset-1 col-md-5 col-xs-offset-1 col-xs-4 width-50" style="padding-bottom: 5%">
-        <figure class="mapa"><img src="images/mapa.png" class="img-responsive"></figure>
+        <figure class="mapa"><object type="image/svg+xml" data="mapaVectorizado.svg" 
+  width="100%" height="100%" id="svgMap"></object></figure>
       </div>
       <div class="col-md-6 col-xs-7 width-100">
         <div class="col-xs-offset-7 col-xs-5" style="padding-right: 0;">
@@ -211,6 +207,16 @@
   <!-- custom script--> 
   <script src="assets/parallax.js"></script>
   <script src="assets/script.js"></script>
+  <!--
   <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
+  -->
+  <svg id='pattern' xmlns="images/amazonas1.png" version="1.1">
+  <defs>
+    <pattern id='image' width="1" height="1" viewBox="0 0 100 100">
+      <image xlink:href='http://dummyimage.com/600x400/abc/333' width="100" height="100" preserveAspectRatio="none"></image>
+    </pattern>
+  </defs>
+</svg>
+
 </body>
 </html>
