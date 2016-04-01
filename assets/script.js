@@ -7,11 +7,6 @@ jQuery(document).ready(function($) {
     scrollClick.setAttribute('src', 'sounds/button_click_on.mp3');
     var scrollBack = document.createElement('audio');
     scrollBack.setAttribute('src', 'sounds/Sneeze-sound.mp3');
-    var object = document.getElementById("svgMap");
-    var svgDocument = object.contentDocument;
-    console.log(svg);
-    var svg = svgDocument.setAttribute("amazonas");
-    console.log(svg);
 
     //Effects
     $("#titulo-container").hide();
