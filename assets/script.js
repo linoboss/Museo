@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+    myParaxify = paraxify('.paraxify');
     //Audio element
     var tableHooverSound = document.createElement('audio');
     tableHooverSound.setAttribute('src', 'sounds/water_droplet.mp3');
@@ -27,7 +28,7 @@ jQuery(document).ready(function($) {
         var ciudad = $(this).attr('id');
         var Museos = window[ciudad];
         $('#cuerpo').empty();
-        $('.parallax-mirror').remove();
+        //$('.parallax-mirror').remove();
         $('#nav_ciudad h4 b').text(ciudad.replace('_',' ').toUpperCase());
 
         for (var i = 0; i < Museos.length; i++) {
@@ -83,13 +84,12 @@ jQuery(document).ready(function($) {
                   '</div>';
                 $('#cuerpo').append(html_cuerpo);
         };
-        var test = 'images/bg.png';
-        if (ciudad == 'ancash') { test = 'images/ancash1.png'}
-        $('.parallax-window').parallax({
-            imageSrc: test,
-            zIndex: 0,
-        });
-        jQuery(window).trigger('resize').trigger('scroll');
+        $('.paraxify').removeClass().addClass("paraxify "+Museos[0].fondo);
+        //$('.parallax-window').parallax({
+          //  imageSrc: 'images/ancash1.png',
+            //zIndex: 0,
+        //});
+        //jQuery(window).trigger('resize').trigger('scroll');
     }); 
     
     $('.scroll').click(function(){
@@ -127,7 +127,8 @@ amazonas = {img_src: "images/amazonas.png",
             contenido: "El Museo de Leymebamba, reúne piezas arqueológicas, momias, ofrendas funerarias y otros bienes culturales pertenecientes a la Cultura Chachapoyas.",
             direccion: "Av. Austria s/n, San Miguel",
             telefono: "(041) 816803 / (041) 816806",
-            horario: "martes a domingo<br>de 9:30 a.m. a 4:30 p.m. o previa cita"};
+            horario: "martes a domingo<br>de 9:30 a.m. a 4:30 p.m. o previa cita",
+            fondo: "fondo_amazonas"};
 
 amazonas = [amazonas]
 
@@ -137,7 +138,8 @@ ancash1 = {img_src: "images/ancash1.png",
             direccion: "Av. Luzuriaga 762",
             telefono: "(043) 421551",
             horario: "martes a domingo<br>de 9:00 a.m. a 5:00 p.m.",
-            email: "ancash@mcultura.gob.pe"};    
+            email: "ancash@mcultura.gob.pe",
+            fondo: "fondo_ancash"};    
 
 ancash2 = {img_src: "images/ancash2.png",
             museo: 'Museo Nacional Chavín',
@@ -158,7 +160,8 @@ arequipa = {img_src: "images/arequipa.png",
             direccion: "Calle Santa Catalina Nº 301",
             telefono: "(054) 608282",
             horario: "lunes a domingo<br>de 8:00 a.m. a 5:00 p.m.",
-            email: "informes@santacatalina.org.pe"};
+            email: "informes@santacatalina.org.pe",
+            fondo: "fondo_arequipa"};
 
 arequipa = [arequipa]
 
@@ -167,7 +170,8 @@ museo: "MUSEO DE LA MEMORIA  ",
 contenido: "Este museo cuenta con cuatro salas en las que se exponen fotografías, pinturas, restos de vestimentas y otros objetos relacionados a la guerra interna que vivió el Perú en la década de 1980 y cuyo máximo impacto social se produjo en Ayacucho.",
 direccion: "Urbanización Nery García Zárate, Jr. Libertad 1229",
 telefono: "(066) 317170",
-horario: "lunes a domingo de 9:00 a.m. a 1:00 p.m. y de 3:00 p.m. a 6:00 p.m."};     
+horario: "lunes a domingo de 9:00 a.m. a 1:00 p.m. y de 3:00 p.m. a 6:00 p.m.",
+fondo: "fondo_ayacucho"};     
 
 ayacucho2 = {img_src: "images/ayacucho2.png",
 museo: "MUSEO DEL SITIO DE QUINUA",
@@ -194,7 +198,8 @@ contenido: "Se encuentran en exhibición piezas de las diversas culturas de la r
 direccion: "Jr. Del Batán 289 .",
 telefono: "(076) 340440",
 horario: "lunes a viernes de 8:00 a.m. a 2:00 p.m.",
-email: "ayacucho@mcultura.gob.pe"};
+email: "ayacucho@mcultura.gob.pe",
+fondo: "fondo_cajamarca"};
 
 cajamarca2 = {img_src: "images/cajamarca2.png",
 museo: "MUSEO DE ARTE RELIGIOSO DEL CONVENTO DE SAN FRANCISCO",
@@ -221,7 +226,8 @@ contenido: "Cuenta con una sala de exhibición, donde se resume la evolución hi
 direccion: "Av. Jorge Chávez 120-A.",
 telefono: "(01) 7956900",
 horario: "martes a domingo de9:30 a.m. a 4:30 p.m.",
-email: "museo.abtao@hotmail.com / reservas.abtao@hotmail.com"};
+email: "museo.abtao@hotmail.com / reservas.abtao@hotmail.com",
+fondo: "fondo_callao"};
 
 callao2 = {img_src: "images/callao2.png",
 museo: "MUSEO DEL EJÉRCITO FORTALEZA REAL FELIPE",
@@ -248,7 +254,8 @@ contenido: "Posee dos salas en las que se aprecia la representación del proceso
 direccion: "Esquina Av. Amazonas y Av. Federico Zamalloa.",
 telefono: "(084) 974757466 / (084) 9051316",
 horario: "lunes a domingo de 8:00 Horario: lunes a domingo de 8:00 a.m. a 5:00 p.m.",
-email: "museopisac@gmail.com"};
+email: "museopisac@gmail.com",
+fondo: "fondo_cusco"};
 
 cusco2 = {img_src: "images/cusco2.png",
 museo: "MUSEO DE ARTE CONTEMPORÁNEO",
@@ -286,7 +293,8 @@ contenido: "El museo fue creado por iniciativa de los pobladores, gracias a la d
 direccion: "Jr. 24 de Junio s/n, Huaytará.",
 telefono: "(067) 453420",
 horario: "martes a domingo de 9:00 a.m. a 5:00 p.m.",
-email: " huancavelica@mcultura.gob.pe"};
+email: " huancavelica@mcultura.gob.pe",
+fondo: "fondo_huancavelica"};
 
 huancavelica2 = {img_src: "images/huancavelica2.png",
 museo: "MUSEO REGIONAL “DANIEL HERNÁNDEZ MORILLO” ",
@@ -304,7 +312,8 @@ huanuco1 = {img_src: "images/huanuco1.png",
 museo: "MUSEO DE CHURUBAMBA",
 contenido: "El museo contiene una sala de exposición en donde se presenta la colección de momias preincas del estilo Papahuasi, cerámica y piezas líticas; así como bienes culturales de la época colonial. Destaca un panel con dibujos de los recursos turísticos de Churubamba.",
 direccion: "Jr. Javier Lindo Zárate 110.",
-horario: "lunes a viernes 9:00 a.m. a 5:00 p.m."};
+horario: "lunes a viernes 9:00 a.m. a 5:00 p.m.",
+fondo: "fondo_huanuco"};
 
 huanuco2 = {img_src: "images/huanuco2.png",
 museo: "MUSEO DE ZOOLOGÍA DE LA UNIVERSIDAD AGRARIA DE LA SELVA",
@@ -331,7 +340,8 @@ museo: "CASA MUSEO MARÍA REICHE",
 contenido: "El museo está construido al lado del lugar donde vivió María Reiche Newman en sus primeros años de estudio de las Pampas de Nasca. En el lugar se ha reconstruido un recinto que reproduce la vivienda de la investigadora y forma parte de la exhibición la mesa de trabajo, vajilla, papeles de trabajo, y otros muebles. Asimismo, se aprecian mapas, planos, fotos, material  arqueológico y una maqueta didáctica de sus diseños.",
 direccion: "Km. 425 Carretera Panamericana Sur, San Miguel de La Pascana.",
 horario: "lunes a viernes de 9:00 a.m. a 5:00 p.m. Domingos y feriados de 8:00 a.m. a 6:00 p.m.",
-email: "areichelinasca@hotmail.com"};
+email: "areichelinasca@hotmail.com",
+fondo: "fondo_ica"};
 
 ica2 = {img_src: "images/ica2.png",
 museo: "MUSEO DE SITIO DE PARACAS “JULIO C. TELLO” ",
@@ -356,7 +366,8 @@ museo: "MUSEO DE ARQUEOLOGÍA CATALINA HUANCA",
 contenido: "El museo exhibe una colección de bienes culturales e instrumentos agrícolas de las culturas Wanka y Wari, en su mayoría líticos, además de piezas de material orgánico y cerámica.",
 direccion: "Av. Circunvalación 220 (Camino a Las Brisas).",
 telefono: "(064) 291916 / (064) 242030",
-horario: "lunes a viernes de 10:00 a.m. a 2:00 p.m."};
+horario: "lunes a viernes de 10:00 a.m. a 2:00 p.m.",
+fondo: "fondo_junin"};
 
 junin2 = {img_src: "images/junin2.png",
 museo: "MUSEO DE LA CULTURA DE TARMA",
@@ -392,7 +403,8 @@ contenido: "Casa de estilo neoclásico que fuera habitada en el siglo XIX por el
 direccion: "Jr. Dos de Mayo 432.",
 telefono: "(044) 528338 / (044) 528646",
 horario: "martes a sábado de 9:00 a.m. a 1:00 p.m. y de 3:00 p.m. a 8:00 p.m.",
-email: "casaraimondi_sanpedrodelloc@hotmail.com"};
+email: "casaraimondi_sanpedrodelloc@hotmail.com",
+fondo: "fondo_libertad"};
 
 libertad2 = {img_src: "images/libertad2.png",
 museo: "MUSEO CAO ",
@@ -421,7 +433,8 @@ contenido: "El Museo Afroperuano de Zaña se inauguró el año 2005 convirtiénd
 direccion: "Calle Independencia 645.",
 telefono: "(074) 431042",
 horario: "martes a domingo de 9:00 a.m. a 12:30 p.m. y de 3:00 p.m. a 5:00 p.m.",
-email: "museoafroperuano@yahoo.es"};
+email: "museoafroperuano@yahoo.es",
+fondo: "fondo_lambayeque"};
 
 lambayeque2 = {img_src: "images/lambayeque2.png",
 museo: "MUSEO ARQUEOLÓGICO NACIONAL BRÜNING ",
@@ -466,7 +479,8 @@ link: "http://vao.pe/315/museo-amano",
 contenido: "La colección que protege esta entidad, está compuesta principalmente por piezas de cerámica y ejemplares de textiles que pertenecieron a las culturas precolombinas que habitaron en Perú. Pero la muestra más importante, que el Museo Amano conserva bajo siete llaves, está compuesta por ejemplares de cerámica y piezas de textiles que en su momento la cultura Chancay desarrolló. Pues la mayoría de las piezas pertenecen a aquellas civilizaciones que florecieron en las costas de Perú.",
 direccion: "Calle Retiro 160, Miraflores, Lima. A la altura de la cuadra 11 de la avenida Angamos Oeste.",
 telefono: "(511) 441-2909",
-horario: "De lunes a viernes de 3:00 a 4:00 p.m."};
+horario: "De lunes a viernes de 3:00 a 4:00 p.m.",
+fondo: "fondo_lima"};
 
 lima2 = {img_src: "images/lima2.png",
 museo: "MUSEO NACIONAL DE ARQUEOLOGÍA ANTROPOLOGÍA E HISTORIA DEL PERÚ.",

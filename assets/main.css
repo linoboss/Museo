@@ -202,27 +202,59 @@ margin-right: auto;
 	cursor: pointer;
 }
 
-.parallax {
-  perspective: 1px;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-.parallax__layer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-.parallax__layer--base {
-  transform: translateZ(0);
-}
-.parallax__layer--back {
-  transform: translateZ(-1px);
-}
-
 .parallax-window {
+	max-height: 400px;
     background: transparent;
 }
 
+
+.paraxify {
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+.fondo_amazonas{
+    background-image: url(../fondos/amazonas.png);
+}
+.fondo_ancash{
+    background-image: url(../fondos/ancash.png);
+}
+.fondo_arequipa{
+    background-image: url(../fondos/arequipa.png);
+}
+.fondo_ayacucho{
+    background-image: url(../fondos/ayacucho.png);
+}
+.fondo_cajamarca{
+    background-image: url(../fondos/cajamarca.png);
+}
+.fondo_callao{
+    background-image: url(../fondos/callao.png);
+}
+.fondo_cusco{
+    background-image: url(../fondos/cusco.png);
+}
+.fondo_huancavelica{
+    background-image: url(../fondos/huancavelica.png);
+}
+.fondo_huanuco{
+    background-image: url(../fondos/huanuco.png);
+}
+.fondo_ica{
+    background-image: url(../fondos/ica.png);
+}
+.fondo_junin{
+    background-image: url(../fondos/junin.png);
+}
+.fondo_lambayeque{
+    background-image: url(../fondos/lambayeque.png);
+}
+.fondo_libertad{
+    background-image: url(../fondos/libertad.png);
+}
+.fondo_lima{
+    background-image: url(../fondos/lima.png);
+}
+.fondo_cajamarca{
+    background-image: url(../fondos/cajamarca.png);
+}
