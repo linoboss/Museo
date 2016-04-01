@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-    myParaxify = paraxify('.paraxify');
+    //myParaxify = paraxify('.paraxify');
     //Audio element
     var tableHooverSound = document.createElement('audio');
     tableHooverSound.setAttribute('src', 'sounds/water_droplet.mp3');
@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
         var ciudad = $(this).attr('id');
         var Museos = window[ciudad];
         $('#cuerpo').empty();
-        //$('.parallax-mirror').remove();
+        $('.parallax-mirror').remove();
         $('#nav_ciudad h4 b').text(ciudad.replace('_',' ').toUpperCase());
 
         for (var i = 0; i < Museos.length; i++) {
@@ -84,12 +84,13 @@ jQuery(document).ready(function($) {
                   '</div>';
                 $('#cuerpo').append(html_cuerpo);
         };
-        $('.paraxify').removeClass().addClass("paraxify "+Museos[0].fondo);
-        //$('.parallax-window').parallax({
-          //  imageSrc: 'images/ancash1.png',
-            //zIndex: 0,
-        //});
-        //jQuery(window).trigger('resize').trigger('scroll');
+        //$('.paraxify').removeClass().addClass("paraxify "+Museos[0].fondo);
+        $('.parallax-window').parallax({
+            imageSrc: 'fondos/'+ciudad+'.png',
+            zIndex: 0,
+            bleed: -5
+        });
+        jQuery(window).trigger('resize').trigger('scroll');
     }); 
     
     $('.scroll').click(function(){
