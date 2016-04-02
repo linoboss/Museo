@@ -48,6 +48,8 @@ jQuery(document).ready(function($) {
         $('#nav_ciudad h4 b').text(ciudad.replace('_',' ').toUpperCase());
 
         for (var i = 0; i < Museos.length; i++) {
+            var imagenes = Museos[i].imagenes;
+            var fotos = "";
             link = 'href= http://' + Museos[i].link;
             hidden = '';
             
@@ -55,6 +57,13 @@ jQuery(document).ready(function($) {
                 link = '';
                 hidden = 'hidden';
             }
+
+            for (var j = 0; j < imagenes.length; j++) {
+                clase = j == 0? "active" : "";
+                fotos +=  '<img src='+imagenes[j]+' alt="" class='+clase+' />';
+            };
+
+
             var email = Museos[i].email ? '<td class="text-right"><b>Email:</b></td> <td class="text-left"><a>'+Museos[i].email+'</a></td>' : '' 
             
             link_html = '<a ' + link + '><img class="pull-right link '+ hidden + '"src='+"images/link.png"+'></a>';
@@ -68,8 +77,8 @@ jQuery(document).ready(function($) {
                     ' </header>'+
                     '<div class="row">'+
                         '<div class="col-sm-4 col-sm-offset-1 wowload fadeInLeft">'+
-                            '<figure class="padding-top-6">'+
-                                '<img src='+Museos[i].img_src+' class="enmarcar img-responsive" alt="Responsive image">'+
+                            '<figure class="slideshow padding-top-6 img-height-transicion">'+
+                                fotos+
                             '</figure>'+
                         '</div>'+
                         '<div class="col-sm-7 wowload fadeInRight">'+
@@ -99,6 +108,7 @@ jQuery(document).ready(function($) {
                     '</div>'+
                   '</div>';
                 $('#cuerpo').append(html_cuerpo);
+                $('.slideshow img').addClass("enmarcar img-responsive");
         };
         //$('.paraxify').removeClass().addClass("paraxify "+Museos[0].fondo);
         $('.parallax-window').parallax({
@@ -114,7 +124,7 @@ jQuery(document).ready(function($) {
         id_part = '#nav_ciudad';
         $('html, body').animate({
             scrollTop: $(id_part).offset().top
-        },1500);
+        },900);
     });
 
     $('.back-to-top').click(function(){
@@ -137,7 +147,32 @@ jQuery(document).ready(function($) {
         tableHooverSound.currentTime = 0;
         tableHooverSound.play();        
     });*/
+
+    $(function() {
+        setInterval( "slideSwitch()", 5000 );
+    });
 });
+
+
+function slideSwitch() {
+    $('.slideshow').each(function(){
+        var $active = $(this).find('IMG.active');
+
+        if ( $active.length == 0 ) $active = $(this).find('IMG:last');
+
+        var $next =  $active.next().length ? $active.next() : $(this).find('IMG:first');
+
+        $active.addClass('last-active');
+            
+        $next.css({opacity: 0.0})
+            .addClass('active')
+            .animate({opacity: 1.0}, 1000, function() {
+                $active.removeClass('active last-active');
+            });
+            console.log('test');
+    })
+}
+
 amazonas1 = {img_src: "images/amazonas1.png",
             link:'www.museoleymebamba.org',
             museo: "MUSEO LEYMEBAMBA",
@@ -145,7 +180,8 @@ amazonas1 = {img_src: "images/amazonas1.png",
             direccion: "Av. Austria s/n, San Miguel",
             telefono: "(041) 816803 / (041) 816806",
             horario: "martes a domingo<br>de 9:30 a.m. a 4:30 p.m. o previa cita",
-            fondo: "fondo_amazonas"};
+            fondo: "fondo_amazonas",
+            imagenes: ["images/leymebamba1.png", "images/leymebamba2.png", "images/leymebamba3.png"]};
 
 amazonas = [amazonas1]
 
@@ -156,7 +192,8 @@ ancash1 = {img_src: "images/ancash1.png",
             telefono: "(043) 421551",
             horario: "martes a domingo<br>de 9:00 a.m. a 5:00 p.m.",
             email: "ancash@mcultura.gob.pe",
-            fondo: "fondo_ancash"};    
+            fondo: "fondo_ancash",
+            imagenes: ["images/arqueologico_ancash1.png", "images/arqueologico_ancash2.png", "images/arqueologico_ancash3.png"]};    
 
 ancash2 = {img_src: "images/ancash2.png",
             museo: 'Museo Nacional Chavín',
@@ -164,7 +201,8 @@ ancash2 = {img_src: "images/ancash2.png",
             direccion: "Prolongación Av. 17 de enero norte s/n",
             telefono: "(043) 454011",
             horario: "martes a domingo<br>de 9:00 a.m. a 5:00 p.m.",
-            email: "ancash@mcultura.gob.pe"};
+            email: "ancash@mcultura.gob.pe",
+            imagenes: ["images/chavin1.png", "images/chavin2.png", "images/chavin3.png"]};
 
 ancash = [ancash1, ancash2];
 
