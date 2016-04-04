@@ -185,23 +185,6 @@ margin-right: auto;
 		padding-top: 1.5em;
 	}
 }
-/*
-@media (max-width: 390px){
-	.img-height-transicion{
-		min-height: 240px;
-	}
-}
-@media (max-width: 340px){
-	.img-height-transicion{
-		min-height: 200px;
-	}
-}
-@media (max-width: 270px){
-	.img-height-transicion{
-		min-height: 160px;
-	}
-}*/
-
 
 
 .back {	background:url(../images/museos_0000_Vector-Smart-Object.png) right no-repeat fixed #fff; 
@@ -224,41 +207,25 @@ margin-right: auto;
 	cursor: pointer;
 }
 
-.parallax-window {
+/*.parallax-window {
     background: transparent;
-}
-
-/*
-.slideshow {
-    position:relative;
-}
-
-.slideshow IMG {
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:8;
-}
-
-.slideshow IMG.active {
-    z-index:10;
-}
-
-.slideshow IMG.last-active {
-    z-index:9;
 }*/
-
 
 .paraxify {
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
 }
+.paraxifyT {
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
 .fondo_amazonas{
-    background-image: url(../fondos/amazonas.png);
+    background-image: url(../fondos/amazonas.png)!important;
 }
 .fondo_ancash{
-    background-image: url(../fondos/ancash.png);
+    background-image: url(../fondos/ancash.resized.png);
 }
 .fondo_arequipa{
     background-image: url(../fondos/arequipa.png);
@@ -291,7 +258,7 @@ margin-right: auto;
     background-image: url(../fondos/lambayeque.png);
 }
 .fondo_libertad{
-    background-image: url(../fondos/libertad.png);
+    background-image: url(../fondos/la_libertad.png);
 }
 .fondo_lima{
     background-image: url(../fondos/lima.png);

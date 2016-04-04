@@ -1,4 +1,8 @@
 jQuery(document).ready(function($) {
+    /*$('.parallax-window').parallax({
+        imageSrc: 'fondos/huancavelica.png',
+        zIndex: 0,
+    });*/
     //myParaxify = paraxify('.paraxify');
     //Audio element
     var tableHooverSound = document.createElement('audio');
@@ -44,12 +48,10 @@ jQuery(document).ready(function($) {
         var ciudad = $(this).attr('id');
         var Museos = window[ciudad];
         $('#cuerpo').empty();
-        $('.parallax-mirror').remove();
+        //$('.parallax-mirror').remove();
         $('#nav_ciudad h4 b').text(ciudad.replace('_',' ').toUpperCase());
 
         for (var i = 0; i < Museos.length; i++) {
-            //var imagenes = Museos[i].imagenes;
-            //var fotos = "";
             link = 'href= http://' + Museos[i].link;
             hidden = '';
             
@@ -57,12 +59,6 @@ jQuery(document).ready(function($) {
                 link = '';
                 hidden = 'hidden';
             }
-
-            /*
-            for (var j = 0; j < imagenes.length; j++) {
-                clase = j == 0? "active" : "";
-                fotos +=  '<img src='+imagenes[j]+' alt="" class='+clase+' />';
-            };*/
 
 
             var email = Museos[i].email ? '<td class="text-right"><b>Email:</b></td> <td class="text-left"><a>'+Museos[i].email+'</a></td>' : '' 
@@ -121,18 +117,11 @@ jQuery(document).ready(function($) {
                     '</div>'+
                   '</div>';
                 $('#cuerpo').append(html_cuerpo);
-                //$('.slideshow img').addClass("enmarcar img-responsive");
         };
-        //$('.paraxify').removeClass().addClass("paraxify "+Museos[0].fondo);
+        $('.paraxifyT').removeClass().addClass("paraxifyT "+Museos[0].fondo);
         $('.flexslider').flexslider({
             animation: "fade"
-        });/*
-        $('.parallax-window').parallax({
-            imageSrc: 'fondos/'+ciudad+'.png',
-            zIndex: 0,
-            bleed: -5,
         });
-        jQuery(window).trigger('resize').trigger('scroll');*/
     }); 
     
     $('.scroll').click(function(){
