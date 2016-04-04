@@ -48,8 +48,8 @@ jQuery(document).ready(function($) {
         $('#nav_ciudad h4 b').text(ciudad.replace('_',' ').toUpperCase());
 
         for (var i = 0; i < Museos.length; i++) {
-            var imagenes = Museos[i].imagenes;
-            var fotos = "";
+            //var imagenes = Museos[i].imagenes;
+            //var fotos = "";
             link = 'href= http://' + Museos[i].link;
             hidden = '';
             
@@ -58,10 +58,11 @@ jQuery(document).ready(function($) {
                 hidden = 'hidden';
             }
 
+            /*
             for (var j = 0; j < imagenes.length; j++) {
                 clase = j == 0? "active" : "";
                 fotos +=  '<img src='+imagenes[j]+' alt="" class='+clase+' />';
-            };
+            };*/
 
 
             var email = Museos[i].email ? '<td class="text-right"><b>Email:</b></td> <td class="text-left"><a>'+Museos[i].email+'</a></td>' : '' 
@@ -77,8 +78,20 @@ jQuery(document).ready(function($) {
                     ' </header>'+
                     '<div class="row">'+
                         '<div class="col-sm-4 col-sm-offset-1 wowload fadeInLeft">'+
-                            '<figure class="slideshow padding-top-6 img-height-transicion">'+
-                                fotos+
+                            '<figure class="padding-top-6">'+
+                                '<div class="flexslider">'+
+                                    '<ul class="slides">'+
+                                      '<li>'+
+                                        '<img src='+Museos[i].imagenes[0]+' class="enmarcar"/>'+
+                                      '</li>'+
+                                      '<li>'+
+                                        '<img src='+Museos[i].imagenes[1]+' class="enmarcar"/>'+
+                                      '</li>'+
+                                      '<li>'+
+                                        '<img src='+Museos[i].imagenes[2]+' class="enmarcar"/>'+
+                                      '</li>'+
+                                    '</ul>'+
+                                  '</div>'+
                             '</figure>'+
                         '</div>'+
                         '<div class="col-sm-7 wowload fadeInRight">'+
@@ -108,15 +121,18 @@ jQuery(document).ready(function($) {
                     '</div>'+
                   '</div>';
                 $('#cuerpo').append(html_cuerpo);
-                $('.slideshow img').addClass("enmarcar img-responsive");
+                //$('.slideshow img').addClass("enmarcar img-responsive");
         };
         //$('.paraxify').removeClass().addClass("paraxify "+Museos[0].fondo);
+        $('.flexslider').flexslider({
+            animation: "fade"
+        });/*
         $('.parallax-window').parallax({
             imageSrc: 'fondos/'+ciudad+'.png',
             zIndex: 0,
             bleed: -5,
         });
-        jQuery(window).trigger('resize').trigger('scroll');
+        jQuery(window).trigger('resize').trigger('scroll');*/
     }); 
     
     $('.scroll').click(function(){
@@ -148,12 +164,13 @@ jQuery(document).ready(function($) {
         tableHooverSound.play();        
     });*/
 
-    $(function() {
-        setInterval( "slideSwitch()", 5000 );
-    });
+    //$(function() {
+      //setInterval( "slideSwitch()", 5000 );
+    //});
 });
 
 
+/*
 function slideSwitch() {
     $('.slideshow').each(function(){
         var $active = $(this).find('IMG.active');
@@ -172,6 +189,7 @@ function slideSwitch() {
             console.log('test');
     })
 }
+*/
 
 amazonas1 = {img_src: "images/amazonas1.png",
             link:'www.museoleymebamba.org',
