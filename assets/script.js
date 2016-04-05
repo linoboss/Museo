@@ -1,4 +1,13 @@
 jQuery(document).ready(function($) {
+    var wow = new WOW({
+        boxClass:     'wowload',      // animated element css class (default is wow)
+        animateClass: 'animated', // animation css class (default is animated)
+        offset:       0,          // distance to the element when triggering the animation (default is 0)
+        mobile:       true,       // trigger animations on mobile devices (default is true)
+        live:         true        // act on asynchronously loaded content (default is true)
+    });
+
+    $('[data-toggle="tooltip"]').tooltip()
    /* $('.parallax-window').parallax({
         imageSrc: 'fondos/huanuco.png',
         zIndex: 0,
@@ -23,6 +32,8 @@ jQuery(document).ready(function($) {
         for (var i = 0; i < Museos.length; i++) {
             link = 'href= http://' + Museos[i].link;
             hidden = '';
+            var animatedClass1 = ["fadeInLeft","bounceInDown","flipInX","rotateInDownLeft","swing","animated flip","slideInLeft"];
+            var animatedClass2 = ["fadeInRight", "bounceInUp","flipInY", "rotateInDownRight","rollIn","tada","slideInRight"];
             
             if(!Museos[i].link){
                 link = '';
@@ -34,18 +45,30 @@ jQuery(document).ready(function($) {
             html_cuerpo = 
                 '<div class="about container-fluid">'+
                     '<header class="row">' +
-                        '<h2 class="col-xs-8 col-xs-offset-1 wowload fadeInLeft width-60"><b>'+Museos[i].museo+'</b></h2>'+
-                        '<figure class="col-xs-3 wowload fadeInRight width-40" style="padding-top: 1%">'+
+                        '<h2 class="col-xs-8 col-xs-offset-1 wowload width-60 '+animatedClass1[i]+'"><b>'+Museos[i].museo+'</b></h2>'+
+                        '<figure class="col-xs-3 wowload width-40 '+animatedClass2[i]+'" style="padding-top: 1%">'+
                             link_html +
                         '</figure>'+
                     ' </header>'+
                     '<div class="row">'+
-                        '<div class="col-sm-4 col-sm-offset-1 wowload fadeInLeft">'+
-                            '<figure class="padding-top-6">'+
-                                '<img src='+Museos[i].img_src+' class="enmarcar img-responsive" alt="Responsive image">'+
+                        '<div class="col-sm-4 col-sm-offset-1 wowload '+animatedClass1[i]+'">'+
+                            '<figure>'+
+                                '<div class="flexslider">'+
+                                    '<ul class="slides">'+
+                                      '<li>'+
+                                        '<img src='+Museos[i].imagenes[0]+' class="enmarcar"/>'+
+                                      '</li>'+
+                                      '<li>'+
+                                        '<img src='+Museos[i].imagenes[1]+' class="enmarcar"/>'+
+                                      '</li>'+
+                                      '<li>'+
+                                        '<img src='+Museos[i].imagenes[2]+' class="enmarcar"/>'+
+                                      '</li>'+
+                                    '</ul>'+
+                                  '</div>'+
                             '</figure>'+
                         '</div>'+
-                        '<div class="col-sm-7 wowload fadeInRight">'+
+                        '<div class="col-sm-7 wowload '+animatedClass2[i]+'">'+
                             '<article class="padding-top-6 col-sm-10">'+       
                                 '<p class="text-justify">'+Museos[i].contenido+'</p>'+ 
                             '</article>'+
@@ -83,6 +106,7 @@ jQuery(document).ready(function($) {
         $('html, body').animate({
             scrollTop: $(id_part).offset().top
         },1500);
+        wow.init();
     };
     //CARGAR EL SVG/*
     var a = document.getElementById("svgMapa");
@@ -143,17 +167,23 @@ jQuery(document).ready(function($) {
     $('.back-to-top').click(function(){
         scrollBack.play();
         $('html, body').animate({
-            scrollTop: $('.formato').offset().top
+            scrollTop: $('.formato').offset().top + 10
         },1000);
     });
 
     jQuery(window).scroll(function() {
         var offset = $('#nav_ciudad').offset();
+        var offsetTip = $('.formato').offset().top;
         if (!($('#nav_ciudad').hasClass('hidden')) && (jQuery(this).scrollTop() > (offset.top - 20))) {
            jQuery('.back-to-top').fadeIn(300);     
         } else {
             jQuery('.back-to-top').fadeOut(300);
         } 
+        if(jQuery(this).scrollTop()){
+            jQuery('.tip').fadeIn(2000)
+        }else{
+            jQuery('.tip').fadeOut();
+        }  //jQuery('.Tip').fadeIn(300) :  jQuery('.Tip').fadeOut(300);
     });
 /*
     $('table tr, .back-to-top').mouseenter(function() {
@@ -178,7 +208,8 @@ amazonas1 = {img_src: "images/amazonas1.png",
             direccion: "Av. Austria s/n, San Miguel",
             telefono: "(041) 816803 / (041) 816806",
             horario: "martes a domingo<br>de 9:30 a.m. a 4:30 p.m. o previa cita",
-            fondo: "fondo_amazonas"};
+            fondo: "fondo_amazonas",
+            imagenes: ["images/leymebamba1.png", "images/leymebamba2.png", "images/leymebamba3.png"]};
 
 amazonas = [amazonas1]
 
@@ -189,7 +220,8 @@ ancash1 = {img_src: "images/ancash1.png",
             telefono: "(043) 421551",
             horario: "martes a domingo<br>de 9:00 a.m. a 5:00 p.m.",
             email: "ancash@mcultura.gob.pe",
-            fondo: "fondo_ancash"};    
+            fondo: "fondo_ancash",
+            imagenes: ["images/arqueologico_ancash1.png", "images/arqueologico_ancash2.png", "images/arqueologico_ancash3.png"]};    
 
 ancash2 = {img_src: "images/ancash2.png",
             museo: 'Museo Nacional Chavín',
@@ -197,7 +229,8 @@ ancash2 = {img_src: "images/ancash2.png",
             direccion: "Prolongación Av. 17 de enero norte s/n",
             telefono: "(043) 454011",
             horario: "martes a domingo<br>de 9:00 a.m. a 5:00 p.m.",
-            email: "ancash@mcultura.gob.pe"};
+            email: "ancash@mcultura.gob.pe",
+            imagenes: ["images/chavin1.png", "images/chavin2.png", "images/chavin3.png"]};
 
 ancash = [ancash1, ancash2];
 
@@ -211,7 +244,8 @@ arequipa1 = {img_src: "images/arequipa1.png",
             telefono: "(054) 608282",
             horario: "lunes a domingo<br>de 8:00 a.m. a 5:00 p.m.",
             email: "informes@santacatalina.org.pe",
-            fondo: "fondo_arequipa"};
+            fondo: "fondo_arequipa",
+            imagenes: ["images/santa_catalina1.png", "images/santa_catalina2.png", "images/santa_catalina3.png"]};
 
 arequipa = [arequipa1]
 
@@ -221,7 +255,8 @@ contenido: "Este museo cuenta con cuatro salas en las que se exponen fotografía
 direccion: "Urbanización Nery García Zárate, Jr. Libertad 1229",
 telefono: "(066) 317170",
 horario: "lunes a domingo de 9:00 a.m. a 1:00 p.m. y de 3:00 p.m. a 6:00 p.m.",
-fondo: "fondo_ayacucho"};     
+fondo: "fondo_ayacucho",
+imagenes: ["images/memoria1.png","images/memoria2.png","images/memoria3.png"]};     
 
 ayacucho2 = {img_src: "images/ayacucho2.png",
 museo: "MUSEO DEL SITIO DE QUINUA",
@@ -229,7 +264,8 @@ contenido: "Ubicado a 35 Km. Al noreste de Ayacucho. En la sala de exposición p
 direccion: "Plaza Principal de Quinua",
 telefono: "(066) 312056 ",
 horario: "martes a domingo<br>de 9:30 a.m. a 4:30 p.m. o previa cita",
-email: "ayacucho@mcultura.gob.pe"};
+email: "ayacucho@mcultura.gob.pe",
+imagenes: ["images/quinua1.png","images/quinua2.png","images/quinua3.png"]};
 
 ayacucho3 = {img_src: "images/ayacucho3.png",
 museo: "MUSEO DE SITIO WARI",
@@ -237,7 +273,8 @@ contenido: "En este museo de exhibe los bienes culturales encontrados en la zona
 direccion: "Complejo Arqueológico de Wari. Km. 23 Carretera Ayacucho - Quinua.",
 telefono: "(066) 312056",
 horario: "martes a domingo de 9.00 a.m. a 5.00 p.m.",
-email: "ayacucho@mcultura.gob.pe"};
+email: "ayacucho@mcultura.gob.pe",
+imagenes: ["images/wari1.png", "images/wari2.png", "images/wari3.png"]};
 
 ayacucho = [ayacucho1, ayacucho2, ayacucho3];
 /*Estado CAJAMARCA*/
@@ -249,21 +286,24 @@ direccion: "Jr. Del Batán 289 .",
 telefono: "(076) 340440",
 horario: "lunes a viernes de 8:00 a.m. a 2:00 p.m.",
 email: "ayacucho@mcultura.gob.pe",
-fondo: "fondo_cajamarca"};
+fondo: "fondo_cajamarca",
+imagenes: ["images/urteaga1.png","images/urteaga2.png","images/urteaga3.png"]};
 
 cajamarca2 = {img_src: "images/cajamarca2.png",
 museo: "MUSEO DE ARTE RELIGIOSO DEL CONVENTO DE SAN FRANCISCO",
 contenido: "Está ubicado en el Convento de San Francisco y  reúne  una serie de pinturas de la Orden franciscana, esculturas y muebles del Período virreinal.",
 direccion: "Jr. Dos de Mayo 435 .",
 telefono: "(076) 362994",
-horario: "lunes a sábado de 9:00 a.m. a 5:00 p.m."};
+horario: "lunes a sábado de 9:00 a.m. a 5:00 p.m.",
+imagenes: ["images/san_fransisco1.png","images/san_fransisco2.png","images/san_fransisco3.png"]};
 
 
 cajamarca3 = {img_src: "images/cajamarca3.png",
 museo: "MUSEO KUNTUR WASI",
 contenido: "En este museo se exhiben piezas que corresponden a la Zona Arqueológica del Sitio de Kuntur Wasi, cerámica, orfebrería, líticas y óseas.  También exhibe  documentos y fotografías de los trabajos realizados por la Universidad de Tokio en el sitio arqueológico.",
 direccion: "Avenida del Museo s/n. Centro Poblado Kuntur Wasi",
-horario: "martes a domingo de 9:00 a.m. a 5:00 p.m."};
+horario: "martes a domingo de 9:00 a.m. a 5:00 p.m.",
+imagenes: ["images/wasi1.png","images/wasi2.png","images/wasi3.png"]};
 
 cajamarca = [cajamarca1, cajamarca2, cajamarca3];
 
@@ -277,7 +317,8 @@ direccion: "Av. Jorge Chávez 120-A.",
 telefono: "(01) 7956900",
 horario: "martes a domingo de9:30 a.m. a 4:30 p.m.",
 email: "museo.abtao@hotmail.com / reservas.abtao@hotmail.com",
-fondo: "fondo_callao"};
+fondo: "fondo_callao",
+imagenes: ["images/abtao1.png","images/abtao2.png","images/abtao3.png"]};
 
 callao2 = {img_src: "images/callao2.png",
 museo: "MUSEO DEL EJÉRCITO FORTALEZA REAL FELIPE",
@@ -285,14 +326,16 @@ link: "www.museodelejercito.com.pe",
 contenido: "La fortaleza del Real Felipe, edificada en el siglo XVIII, es una de las pocas obras de arquitectura militar en el país y la más grande que construyeron los españoles en América del Sur. Convertida hoy en museo, la construcción con forma pentagonal abre sus puertas y permite al visitante sumergirse en la época colonial. Ofrece un recorrido por la historia del Ejército del Perú y sus héroes. En su colección se aprecian armas de guerra, uniformes, medallas, la bandera nacional, entre otros bienes culturales.",
 direccion: "Fortaleza del Real Felipe s/n. Plaza Independencia",
 telefono: "(01) 4290532",
-horario: "lunes a domingo de 9:00 a.m. a 4:00 p.m. Incluidos feriados."};
+horario: "lunes a domingo de 9:00 a.m. a 4:00 p.m. Incluidos feriados.",
+imagenes: ["images/felipe_real1.png","images/felipe_real2.png","images/felipe_real3.png"]};
 
 callao3 = {img_src: "images/callao3.png",
 museo: "MUSEO DE LA FUERZA DE AVIACIÓN NAVAL",
 contenido: "Presenta modelos a escala de la evolución de aeronaves con las que ha contado la Fuerza Aérea del Perú.",
 direccion: "Av. Faucett s/n – Callao (antes del Aeropuerto).",
 telefono: "(01) 6137100",
-horario: "Lunes a viernes de 8:00 a.m. a 5:00 p.m. (previa cita)"};
+horario: "Lunes a viernes de 8:00 a.m. a 5:00 p.m. (previa cita)",
+imagenes: ["images/aviacion_naval1.png","images/aviacion_naval2.png","images/aviacion_naval3.png"]};
 
 callao = [callao1, callao2, callao3];
 
@@ -305,7 +348,8 @@ direccion: "Esquina Av. Amazonas y Av. Federico Zamalloa.",
 telefono: "(084) 974757466 / (084) 9051316",
 horario: "lunes a domingo de 8:00 Horario: lunes a domingo de 8:00 a.m. a 5:00 p.m.",
 email: "museopisac@gmail.com",
-fondo: "fondo_cusco"};
+fondo: "fondo_cusco",
+imagenes: ["images/pisac1.png","images/pisac2.png","images/pisac3.png"]};
 
 cusco2 = {img_src: "images/cusco2.png",
 museo: "MUSEO DE ARTE CONTEMPORÁNEO",
@@ -314,7 +358,8 @@ contenido: "El museo se encuentra ubicado en el inmueble de la Municipalidad Pro
 direccion: "Plaza Regocijo s/n.",
 telefono: "(084) 240006; (084) 231591",
 horario: "lunes a viernes: 9:00 a.m. a 6:00 p.m. y sábados de 8:00 a.m. a 5:00 p.m.",
-email: " museomunicusco@hotmail.com"};
+email: " museomunicusco@hotmail.com",
+imagenes: ["images/arte_contemporaneo1.png","images/arte_contemporaneo2.png","images/arte_contemporaneo3.png"]};
 
 cusco3 = {img_src: "images/cusco3.png",
 museo: "MUSEO DE ARTE PRECOLOMBINO",
@@ -323,7 +368,8 @@ contenido: "El museo está ubicado en la Casa Cabrera, reconocida como Patrimoni
 direccion: "Plaza de las Nazarenas 231.",
 telefono: "(084) 233210",
 horario: "lunes a domingo de 8:00 a.m. a 10:00 p.m.",
-email: "amap@infonegocio.net.pe"};
+email: "amap@infonegocio.net.pe",
+imagenes: ["images/precolombino1.png","images/precolombino2.png","images/precolombino3.png"]};
 
 cusco4 = {img_src: "images/cusco4.png",
 museo: "MUSEO MACHUPICCHU",
@@ -331,7 +377,8 @@ contenido: "Está situado en la Casa Concha, inmueble declarado Patrimonio Cultu
 direccion: "Calle Santa Catalina Ancha S/N.",
 telefono: "(084) 255535",
 horario: "lunes a domingo de 9:00 a.m. a 5:00 p.m.",
-email: "museocasaconcha@unsaac.edu.pe"};
+email: "museocasaconcha@unsaac.edu.pe",
+imagenes: ["images/machupicchu1.png","images/machupicchu2.png","images/machupicchu3.png"]};
 
 cusco = [cusco1, cusco2, cusco3, cusco4];
 
@@ -344,7 +391,8 @@ direccion: "Jr. 24 de Junio s/n, Huaytará.",
 telefono: "(067) 453420",
 horario: "martes a domingo de 9:00 a.m. a 5:00 p.m.",
 email: " huancavelica@mcultura.gob.pe",
-fondo: "fondo_huancavelica"};
+fondo: "fondo_huancavelica",
+imagenes: ["images/lozano1.png","images/lozano1.png","images/lozano1.png"]};
 
 huancavelica2 = {img_src: "images/huancavelica2.png",
 museo: "MUSEO REGIONAL “DANIEL HERNÁNDEZ MORILLO” ",
@@ -352,7 +400,8 @@ contenido: " El museo comprende dos salas de exposición que exhiben bienes cult
 direccion: "Plazoleta de San Juan de Dios s/n.",
 telefono: "(067) 453420",
 horario: "martes a domingo de 9:00 a.m. a 5:00 p.m.",
-email: " huancavelica@mcultura.gob.pe"};
+email: " huancavelica@mcultura.gob.pe",
+imagenes: ["images/morillo1.png","images/morillo1.png","images/morillo1.png"]};
 
 huancavelica = [huancavelica1, huancavelica2];
 
@@ -363,7 +412,8 @@ museo: "MUSEO DE CHURUBAMBA",
 contenido: "El museo contiene una sala de exposición en donde se presenta la colección de momias preincas del estilo Papahuasi, cerámica y piezas líticas; así como bienes culturales de la época colonial. Destaca un panel con dibujos de los recursos turísticos de Churubamba.",
 direccion: "Jr. Javier Lindo Zárate 110.",
 horario: "lunes a viernes 9:00 a.m. a 5:00 p.m.",
-fondo: "fondo_huanuco"};
+fondo: "fondo_huanuco",
+imagenes: ["images/churubamba1.png","images/churubamba2.png","images/churubamba3.png"]};
 
 huanuco2 = {img_src: "images/huanuco2.png",
 museo: "MUSEO DE ZOOLOGÍA DE LA UNIVERSIDAD AGRARIA DE LA SELVA",
@@ -371,7 +421,8 @@ contenido: " El museo exhibe una colección de especies disecadas de la fauna am
 direccion: "Av. Universitaria km. 1.5.",
 telefono: "(064) 562341",
 horario: "lunes a viernes de 10:00 a.m. a 1:00 p.m. y de 2:00 p.m. a 5:00 p.m.",
-Administración: "Universidad Agraria de la Selva"};
+Administración: "Universidad Agraria de la Selva",
+imagenes: ["images/unas1.png","images/unas1.png","images/unas1.png"]};
 
 huanuco3 = {img_src: "images/huanuco3.png",
 museo: "SALA DE EXHIBICIÓN DEL COMPLEJO ARQUEOLÓGICO DE KOTOSH",
@@ -379,7 +430,8 @@ contenido: "La sala se encuentra en las inmediaciones la zona arqueológica monu
 direccion: "Carretera Huánuco - La Unión.",
 telefono: "(062) 512507",
 horario: "martes a domingo de 9:00 a.m. a 5:00 p.m.",
-email: "huanuco@mcultura.gob.pe"};
+email: "huanuco@mcultura.gob.pe",
+imagenes: ["images/kotosh1.png","images/kotosh2.png","images/kotosh3.png"]};
 
 huanuco = [huanuco1, huanuco2, huanuco3];
 
@@ -391,13 +443,15 @@ contenido: "El museo está construido al lado del lugar donde vivió María Reic
 direccion: "Km. 425 Carretera Panamericana Sur, San Miguel de La Pascana.",
 horario: "lunes a viernes de 9:00 a.m. a 5:00 p.m. Domingos y feriados de 8:00 a.m. a 6:00 p.m.",
 email: "areichelinasca@hotmail.com",
-fondo: "fondo_ica"};
+fondo: "fondo_ica",
+imagenes: ["images/reiche1.png","images/reiche2.png","images/reiche3.png"]};
 
 ica2 = {img_src: "images/ica2.png",
 museo: "MUSEO DE SITIO DE PARACAS “JULIO C. TELLO” ",
 contenido: "El museo de sitio Julio C. Tello de Paracas se encuentra ubicado dentro de la Reserva  Nacional de Paracas. Fue construido en 1965 y sufrió daños por el sismo de Pisco del 15 de agosto de 2007.   Cuenta con un área de 1,020 metros cuadrados.  Este museo alberga variadas piezas cerámicas, tejidos, momias de las culturas que se desarrollaron en la zona.<br>La cultura Paracas se caracteriza por las trepanaciones craneanas, las cuales se pueden observar en momias que se exhiben en el lugar.<br>El museo presenta una explicativa evolución de la cultura Paracas, los cuales también desarrollaron actividades como la pesca, elaboración de textiles y momificación de los muertos.",
 direccion: "Km. 27 Carretera Pisco - Puerto San Martín (Reserva Natural de Paracas).",
-telefono: "(056) 234383"};
+telefono: "(056) 234383",
+imagenes: ["images/tello1.png","images/tello2.png","images/tello3.png"]};
 
 ica3 = {img_src: "images/ica3.png",
 museo: "MUSEO REGIONAL DE ICA “ ADOLFO BERMÚDEZ JENKINS”",
@@ -405,7 +459,8 @@ contenido: "El museo presenta dos salas de exposición. La sala de Arqueología,
 direccion: "Jr. Ayabaca cuadra 8 s/n. Urb. San Isidro",
 telefono: "(056) 234383",
 horario: "lunes a viernes de 8:00 a.m. a 7:00 p.m. sábados y domingos de 8:30 a.m. a 6:30 p.m.",
-email: "ica@mcultura.gob.pe"};
+email: "ica@mcultura.gob.pe",
+imagenes: ["images/jenkins1.png","images/jenkins2.png","images/jenkins3.png"]};
 
 ica= [ica1, ica2, ica3];
 
@@ -417,7 +472,8 @@ contenido: "El museo exhibe una colección de bienes culturales e instrumentos a
 direccion: "Av. Circunvalación 220 (Camino a Las Brisas).",
 telefono: "(064) 291916 / (064) 242030",
 horario: "lunes a viernes de 10:00 a.m. a 2:00 p.m.",
-fondo: "fondo_junin"};
+fondo: "fondo_junin",
+imagenes: ["images/junin1.png","images/junin1.png","images/junin1.png"]};
 
 junin2 = {img_src: "images/junin2.png",
 museo: "MUSEO DE LA CULTURA DE TARMA",
@@ -425,7 +481,8 @@ contenido: "En el primer nivel se aprecian fotografías del patrimonio virreinal
 direccion: "Jr. Arequipa 190N°",
 telefono: "(064) 321021 Anexo 114",
 horario: "lunes a viernes 8:00 a.m. a 1:00 p.m. y de 3:00 p.m. a 6:00 p.m.",
-email: " museo.tarma@hotmail.com"};
+email: " museo.tarma@hotmail.com",
+imagenes: ["images/junin2.png","images/junin2.png","images/junin2.png"]};
 
 junin3 = {img_src: "images/junin3.png",
 museo: "MUSEO DE SITIO DE CHACAMARCA",
@@ -433,7 +490,8 @@ contenido: "El museo se encuentra en el interior del Monumento Vencedores de Jun
 direccion: "Pampas de Chacamarca (Carretera Central km. 222 – Oroya – Cerro de Pasco).",
 telefono: "(064) 344146",
 horario: "lunes a domingo de 9:00 a.m. a 3:00 p.m.",
-email: " rmedrano@sernanp.gob.pe"};
+email: " rmedrano@sernanp.gob.pe",
+imagenes: ["images/chacamarca1.png","images/chacamarca2.png","images/chacamarca3.png"]};
 
 junin4 = {img_src: "images/junin4.png",
 museo: "MUSEO ETNOGRÁFICO SANTA ROSA DE OCOPA",
@@ -441,7 +499,8 @@ contenido: "El museo se encuentra dentro del Convento de Ocopa, alberga una cole
 direccion: "Convento de Ocopa s/n.",
 telefono: "(064) 581490",
 horario: "miércoles a lunes de 9:00 a.m. a 12:00 p.m. y de 3:00 p.m. a 6:00 p.m.",
-email: "conventosantarosa@hotmail.com"};
+email: "conventosantarosa@hotmail.com",
+imagenes: ["images/ocopa1.png","images/ocopa2.png","images/ocopa3.png"]};
 
 junin = [junin1, junin2, junin3, junin4]
 
@@ -454,7 +513,8 @@ direccion: "Jr. Dos de Mayo 432.",
 telefono: "(044) 528338 / (044) 528646",
 horario: "martes a sábado de 9:00 a.m. a 1:00 p.m. y de 3:00 p.m. a 8:00 p.m.",
 email: "casaraimondi_sanpedrodelloc@hotmail.com",
-fondo: "fondo_libertad"};
+fondo: "fondo_libertad",
+imagenes: ["images/libertad1.png","images/libertad2.png","images/libertad3.png"]};
 
 libertad2 = {img_src: "images/libertad2.png",
 museo: "MUSEO CAO ",
@@ -462,7 +522,8 @@ link: "www.fundacionwiese.com/arqueologia/museodesitiocao",
 contenido: "El museo exhibe los bienes culturales recuperados a partir del Proyecto Arqueológico del Complejo El Brujo. Se presenta a la Señora de Cao, su ajuar funerario, joyas, símbolos de poder y ofrendas.",
 direccion: "Complejo El Brujo, Localidad Magdalena de Cao.",
 telefono: "(01) 6114343 anexo 127",
-horario: "lunes a domingo de 9:00 a.m. a 5:00 p.m."};
+horario: "lunes a domingo de 9:00 a.m. a 5:00 p.m.",
+imagenes: ["images/cao1.png","images/cao2.png","images/cao3.png"]};
 
 libertad3 = {img_src: "images/libertad3.png",
 museo: "MUSEO DE SITIO DE CHAN CHAN",
@@ -470,7 +531,8 @@ contenido: "El museo de sitio se ubica en la sección este de la Zona Arqueológ
 direccion: "Av. Chan Chan s/n<br>(Carretera a Huanchaco) Centro Poblado menor de Villa del Mar.",
 telefono: "(044) 234862",
 horario: "martes a domingo de 9:00 a.m. a 5:00 p.m.",
-email: "lalibertad@mcultura.gob.pe"};
+email: "lalibertad@mcultura.gob.pe",
+imagenes: ["images/chan1.png","images/chan2.png","images/chan3.png"]};
 
 la_libertad = [libertad1, libertad2, libertad3];
 
@@ -484,7 +546,8 @@ direccion: "Calle Independencia 645.",
 telefono: "(074) 431042",
 horario: "martes a domingo de 9:00 a.m. a 12:30 p.m. y de 3:00 p.m. a 5:00 p.m.",
 email: "museoafroperuano@yahoo.es",
-fondo: "fondo_lambayeque"};
+fondo: "fondo_lambayeque",
+imagenes: ["images/afroperuano1.png","images/afroperuano2.png","images/afroperuano3.png"]};
 
 lambayeque2 = {img_src: "images/lambayeque2.png",
 museo: "MUSEO ARQUEOLÓGICO NACIONAL BRÜNING ",
@@ -492,7 +555,8 @@ contenido: "Inaugurado en 1966 y está ubicado a dos cuadras del parque principa
 direccion: "Av. Huamachuco S/N.",
 telefono: "(074) 282110",
 horario: "Lunes a Domingo de 9:00 am a 5:30 Pm",
-email: "museonacionalbruning@yahoo.es"};
+email: "museonacionalbruning@yahoo.es",
+imagenes: ["images/brunning1.png","images/brunning2.png","images/brunning3.png"]};
 
 lambayeque3 = {img_src: "images/lambayeque3.png",
 museo: "MUSEO DE SITIO HUACA RAJADA – SIPÁN ",
@@ -500,7 +564,8 @@ contenido: "El Museo de Sitio de Huaca Rajada-Sipán exhibe las piezas encontrad
 direccion: "Campiña Huaca Rajada S/N.",
 telefono: "(074) 800048",
 horario: "Lunes a Domingo de 9:00am a 5:00pm.  ",
-email: "museohrsipan@gmail.com"};
+email: "museohrsipan@gmail.com",
+imagenes: ["images/sipan1.png","images/sipan2.png","images/sipan3.png"]};
 
 lambayeque4 = {img_src: "images/lambayeque4.png",
 museo: "MUSEO NACIONAL SICÁN ",
@@ -508,7 +573,8 @@ contenido: "Aquí se exhiben los objetos hallados en Huaca Loro, sitio donde el 
 direccion: "Av. Batán Grande Cdra 9 Carretera Pítipo.",
 telefono: "(074) 500843",
 horario: "Martes a domingo de 9:00 a.m. a 5:00 p.m.",
-email: "museosican@hotmail.com"};
+email: "museosican@hotmail.com",
+imagenes: ["images/sican1.png","images/sican2.png","images/sican3.png"]};
 
 lambayeque5 = {img_src: "images/lambayeque5.png",
 museo: "MUSEO TUMBAS REALES DE SIPÁN ",
@@ -517,7 +583,8 @@ contenido: "El Museo Tumbas Reales de Sipán, exhibe ornamentos, emblemas y atue
 direccion: "Av. Juan Pablo Vizcardo y Guzmán Nº 895.",
 telefono: "(074) 283977 / (074) 283978",
 horario: "lunes a domingo de 9:00 a.m. a 5:00 p.m.",
-email: "tumbasdesipan@hotmail.com / tumbasdesipan@gmail.com"};
+email: "tumbasdesipan@hotmail.com / tumbasdesipan@gmail.com",
+imagenes: ["images/Rsipan1.png","images/Rsipan2.png","images/Rsipan3.png"]};
 
 lambayeque = [lambayeque1, lambayeque2, lambayeque3, lambayeque4, lambayeque5];
 
@@ -530,7 +597,8 @@ contenido: "La colección que protege esta entidad, está compuesta principalmen
 direccion: "Calle Retiro 160, Miraflores, Lima. A la altura de la cuadra 11 de la avenida Angamos Oeste.",
 telefono: "(511) 441-2909",
 horario: "De lunes a viernes de 3:00 a 4:00 p.m.",
-fondo: "fondo_lima"};
+fondo: "fondo_lima",
+imagenes: ["images/amano1.png","images/amano2.png","images/amano3.png"]};
 
 lima2 = {img_src: "images/lima2.png",
 museo: "MUSEO NACIONAL DE ARQUEOLOGÍA ANTROPOLOGÍA E HISTORIA DEL PERÚ.",
@@ -538,7 +606,8 @@ contenido: "El Museo Nacional de Arqueología, Antropología e Historia del Per�
 direccion: "Plaza Bolívar s/n, Pueblo Libre (frente a la Municipalidad del distrito).",
 telefono: "  (511) 463-5070 /(511) 463 7231",
 horario: "Martes a sábado de 9:00 am. a 4:00 pm.",
-email: "comunicaciones-mnaahp@mcultura.gob.pe"};
+email: "comunicaciones-mnaahp@mcultura.gob.pe",
+imagenes: ["images/historia_del_peru1.png","images/historia_del_peru2.png","images/historia_del_peru3.png"]};
 
 lima3 = {img_src: "images/lima3.png",
 museo: "MUSEO DE ARTE ITALIANO DE LIMA",
@@ -547,7 +616,8 @@ contenido: "Es el único museo de arte europeo que se encuentra en nuestro país
 direccion: "Av. Paseo de la República 250, Lima..",
 telefono: "(01) 423-9932",
 horario: "Martes a sábado de 9:00 am. a 4:00 pm.",
-email: "museodearteitaliano@ mcultura.gob.pe"};
+email: "museodearteitaliano@ mcultura.gob.pe",
+imagenes: ["images/italiano1.png","images/italiano2.png","images/italiano3.png"]};
 
 lima4 = {img_src: "images/lima4.png",
 museo: "Museo Nacional de la Cultura Peruana",
@@ -555,7 +625,8 @@ contenido: "El Museo expone muestras arqueológicas, etnográficas e histórico-
 direccion: "Av. Alfonso Ugarte 650, Cercado de Lima.",
 telefono: " (511) 423-5892",
 horario: "Martes a sábado de 10:00 am. a 5:00 pm.",
-email: "mncp@mcultura.gob.pe"};
+email: "mncp@mcultura.gob.pe",
+imagenes: ["images/cultura_peruana1.png","images/cultura_peruana2.png", "images/cultura_peruana3.png"]};
 
 lima5 = {img_src: "images/lima5.png",
 museo: "Museo de Sitio de Pachacamac",
@@ -563,7 +634,8 @@ contenido: "El museo expone diversos objetos cerámicos y textiles encontrados d
 direccion: "Antigua Panamericana Sur Km. 31.5,  distrito de Lurín.",
 telefono: "(511) 430-0168 /(511) 430-2115",
 horario: "lunes a domingo de 9:00 a.m. a 5:00 p.m.",
-email: "museopachacamac@mcultura.gob.pe"};
+email: "museopachacamac@mcultura.gob.pe",
+imagenes: ["images/pachacamac1.png","images/pachacamac2.png","images/pachacamac3.png"]};
 
 lima6 = {img_src: "images/lima6.png",
 museo: "Museo de la Nación",
@@ -571,6 +643,7 @@ contenido: "El museo expone en sus salas variadas colecciones arqueológicas, hi
 direccion: "Av. Javier Prado Este 2465.",
 telefono: "(01) 476-9878",
 horario: "Martes a domingos 9:00am a 5:00pm",
-email: "museodelanacion@mcultura.gob.pe"};
+email: "museodelanacion@mcultura.gob.pe",
+imagenes: ["images/nacion1.png","images/nacion2.png","images/nacion3.png"]};
 
 lima = [lima1, lima2, lima3, lima4, lima5, lima6];

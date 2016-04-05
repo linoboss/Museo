@@ -111,7 +111,7 @@ margin-right: auto;
 }
 .about header{
 	padding-top: 1em;
-	padding-bottom: 2em;
+	padding-bottom: 1em;
 	font-family: 'Nothing You Could Do', cursive;
 }
 
@@ -135,8 +135,7 @@ margin-right: auto;
 }
 
 .enmarcar{        
-	padding:5px;       
-	border:5px solid #000000;
+ 	padding:3px;  
 }
 .transparent{
 	opacity: 0;
