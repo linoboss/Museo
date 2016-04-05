@@ -104,6 +104,7 @@ jQuery(document).ready(function($) {
         $('html, body').animate({
             scrollTop: $(id_part).offset().top
         },1500);
+        wow.init();
     };
     //CARGAR EL SVG/*
     var a = document.getElementById("svgMapa");
