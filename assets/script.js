@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
-    /*$('.parallax-window').parallax({
-        imageSrc: 'fondos/huancavelica.png',
+   /* $('.parallax-window').parallax({
+        imageSrc: 'fondos/huanuco.png',
         zIndex: 0,
     });*/
     //myParaxify = paraxify('.paraxify');
@@ -156,6 +156,12 @@ jQuery(document).ready(function($) {
     //$(function() {
       //setInterval( "slideSwitch()", 5000 );
     //});
+    setInterval(function(){ 
+        var museoActual = $('.museo-activo');
+        var museoSiguiente = museoActual.hasClass('pos12') ? $('.pos1') : museoActual.next();
+        museoActual.fadeOut(1000).removeClass('museo-activo');
+        museoSiguiente.fadeIn(1000).addClass('museo-activo');
+    }, 5000);
 });
 
 
