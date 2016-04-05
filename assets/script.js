@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
     //myParaxify = paraxify('.paraxify');
-    //Audio element
+    //Audio elements
     var tableHooverSound = document.createElement('audio');
     tableHooverSound.setAttribute('src', 'sounds/water_droplet.mp3');
     var scrollClick = document.createElement('audio');
@@ -8,40 +8,9 @@ jQuery(document).ready(function($) {
     var scrollBack = document.createElement('audio');
     scrollBack.setAttribute('src', 'sounds/Sneeze-sound.mp3');
 
-    //CARGAR EL SVG
-    var a = document.getElementById("svgMapa");
-    a.addEventListener("load",function() {
-        var svgDoc = a.getSVGDocument();
-        alert("SVG contentDocument Loaded!");
-        console.log(svgDoc);
-        //var svgItem = svgDoc.getElementById("mapa_amazonas");
-        //Set the colour to something else
-        //svgItem.setAttribute("fill", "lime");
-    }, false);
-    
-
-
-    //var svgItem = svgDoc.getElementById("mapa_amazonas");
-    // Set the colour to something else
-    //svgItem.setAttribute("fill", "lime");
-    //Effects
-    $("#titulo-container").hide();
-    $("#edificio").hide();
-    $("#barra-inferior").hide();
-    $("#barra-superior").hide();
-    $('.carousel').fadeIn(500, function() {
-        $("#edificio").slideDown(1000, function() {
-            $("#barra-inferior").fadeIn(500);
-            $("#barra-superior").fadeIn(500, function(){
-                $("#titulo-container").fadeIn(0);
-            });
-        });
-    });   
-
-    $('.scroll').click(function(){
+    var displayRegion = function(ciudad){
         $('#nav_ciudad').removeClass('hidden');
-
-        var ciudad = $(this).attr('id');
+        
         var Museos = window[ciudad];
         $('#cuerpo').empty();
         $('.parallax-mirror').remove();
@@ -83,7 +52,7 @@ jQuery(document).ready(function($) {
                                     '<td class="text-left">'+Museos[i].direccion+'</td>'+
                                 '</tr>'+
                                 '<tr>'+
-                                    '<td class="text-right"><b>Teféfono:</b></td>'+
+                                    '<td class="text-right"><b>Teléfono:</b></td>'+
                                     '<td class="text-left">'+Museos[i].telefono+'</td>'+
                                 '</tr>'+
                                 '<tr>'+
@@ -107,8 +76,59 @@ jQuery(document).ready(function($) {
             bleed: -5,
         });
         jQuery(window).trigger('resize').trigger('scroll');
-    }); 
+        scrollClick.play(); 
+        id_part = '#nav_ciudad';
+        $('html, body').animate({
+            scrollTop: $(id_part).offset().top
+        },1500);
+    };
+    //CARGAR EL SVG/*
+    var a = document.getElementById("svgMapa");
+    a.addEventListener("load",function() {
+        var svgDoc = a.getSVGDocument();
+        console.log('svg loaded');
+        //Set the colour to something else
+        svgDoc.addEventListener("click", function(event){
+            var ciudad = event.target.id.slice(5);
+            console.log(ciudad);
+            displayRegion(ciudad);
+        });
+        svgDoc.addEventListener("mouseover", function(event){
+            var element = event.target;
+            tooltip = svgDoc.getElementById("tooltip");
+            console.log(tooltip);
+            tooltip.setAttribute()
+            
+            
+        });
+    }, false);
     
+
+
+    //var svgItem = svgDoc.getElementById("mapa_amazonas");
+    // Set the colour to something else
+    //svgItem.setAttribute("fill", "lime");
+    //Effects
+    $("#titulo-container").hide();
+    $("#edificio").hide();
+    $("#barra-inferior").hide();
+    $("#barra-superior").hide();
+    $('.carousel').fadeIn(500, function() {
+        $("#edificio").slideDown(1000, function() {
+            $("#barra-inferior").fadeIn(500);
+            $("#barra-superior").fadeIn(500, function(){
+                $("#titulo-container").fadeIn(0);
+            });
+        });
+    });   
+
+    $('.scroll').click(function(){
+        var ciudad = $(this).attr('id');
+
+        displayRegion(ciudad)
+        
+    }); 
+    /*
     $('.scroll').click(function(){
         scrollClick.play(); 
         id_part = '#nav_ciudad';
@@ -116,6 +136,7 @@ jQuery(document).ready(function($) {
             scrollTop: $(id_part).offset().top
         },1500);
     });
+    */
 
     $('.back-to-top').click(function(){
         scrollBack.play();
