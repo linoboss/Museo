@@ -6,11 +6,11 @@ margin-left: auto;
 margin-right: auto;
 }
 
-.myCarousel{
+.miCarousel{
 	/*background-image: url('../images/carousel/papel.png');*/
 	margin: 5em 0 10em 0;
 }
-#myCarousel-inner{
+#miCarousel-inner{
 	position: relative;
 }
 
@@ -18,6 +18,7 @@ margin-right: auto;
 	padding-top: 12em;
 	padding-bottom: 6em;
 }
+
 
 #titulo-container{
 	position: absolute;
@@ -45,6 +46,12 @@ margin-right: auto;
 
 .tablas{
 	margin-right: 2em;
+	color: #7a7c7f; 
+	font-size: 110%; 
+	font-family: "Libre Baskerville", serif; 
+	line-height: 45px; 
+	text-align: center; 
+	text-shadow: 0 1px 1px #fff;
 }
 
 .table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th {
@@ -55,7 +62,9 @@ margin-right: auto;
 }
 .small-table{}
 
-.table-config{
+.table-config tbody tr td{
+	padding-top: 0;
+	padding-bottom: 0;
 
 }
 #tablaizq{
@@ -67,14 +76,24 @@ margin-right: auto;
 }
 
 .info{
+	font-family: 'Courgette', cursive;
+	font-size: 150%; 
+	line-height: 150%; 
+	font-weight: normal; 
+	text-align: center; 
 	padding-top: 1em;
 	padding-bottom: 1em;
 	margin: 1em;
 	font-size:1.5em; 
 	line-height:1.1;
 }
+
+.tip{
+	font-family: 'Courgette', cursive;
+}
  
 .nav-texto{
+	font-family: 'Courgette', cursive;
 	font-size: 3em;
     color: white;
     margin: 0;
@@ -92,19 +111,32 @@ margin-right: auto;
 }
 .about header{
 	padding-top: 1em;
+	padding-bottom: 2em;
+	font-family: 'Nothing You Could Do', cursive;
 }
 
 .about article{
-	font-family: Arial;
+	font-family: 'Sorts Mill Goudy', serif;
     font-size: 120%;
+}
+
+.about table{
+	font-family: 'Sorts Mill Goudy', serif;
 }
 
 .navbar-wrapper{
 	height:100px;
 }
 
+#nav_ciudad{
+
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
 .enmarcar{        
-	padding:3px;       
+	padding:5px;       
+	border:5px solid #000000;
 }
 .transparent{
 	opacity: 0;
@@ -128,10 +160,23 @@ margin-right: auto;
 	padding-bottom: 3em;
 }
 
-/*
-.img-height-transicion{
-	min-height: 280px;
-}*/
+footer{
+
+	margin-top: 6em;
+	padding-bottom: 2em;
+}
+
+#footerimg1{
+	height: 20%;
+	width:20%;
+}
+
+#footerimg2{
+}
+
+#footerimg3{
+	background-color: black;
+}
 
 @media (max-width: 480px) {
 	.width-60{
@@ -185,24 +230,6 @@ margin-right: auto;
 		padding-top: 1.5em;
 	}
 }
-/*
-@media (max-width: 390px){
-	.img-height-transicion{
-		min-height: 240px;
-	}
-}
-@media (max-width: 340px){
-	.img-height-transicion{
-		min-height: 200px;
-	}
-}
-@media (max-width: 270px){
-	.img-height-transicion{
-		min-height: 160px;
-	}
-}*/
-
-
 
 .back {	background:url(../images/museos_0000_Vector-Smart-Object.png) right no-repeat fixed #fff; 
 	}
@@ -227,26 +254,6 @@ margin-right: auto;
 .parallax-window {
     background: transparent;
 }
-
-/*
-.slideshow {
-    position:relative;
-}
-
-.slideshow IMG {
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:8;
-}
-
-.slideshow IMG.active {
-    z-index:10;
-}
-
-.slideshow IMG.last-active {
-    z-index:9;
-}*/
 
 
 .paraxify {
