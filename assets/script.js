@@ -1,4 +1,10 @@
 jQuery(document).ready(function($) {
+   /* $('.parallax-window').parallax({
+        imageSrc: 'fondos/huanuco.png',
+        zIndex: 0,
+    });*/
+    //myParaxify = paraxify('.paraxify');
+    //Audio elements
     var wow = new WOW({
         boxClass:     'wowload',      // animated element css class (default is wow)
         animateClass: 'animated', // animation css class (default is animated)
@@ -6,14 +12,6 @@ jQuery(document).ready(function($) {
         mobile:       true,       // trigger animations on mobile devices (default is true)
         live:         true        // act on asynchronously loaded content (default is true)
     });
-
-    $('[data-toggle="tooltip"]').tooltip()
-   /* $('.parallax-window').parallax({
-        imageSrc: 'fondos/huanuco.png',
-        zIndex: 0,
-    });*/
-    //myParaxify = paraxify('.paraxify');
-    //Audio elements
     var tableHooverSound = document.createElement('audio');
     tableHooverSound.setAttribute('src', 'sounds/water_droplet.mp3');
     var scrollClick = document.createElement('audio');
@@ -106,7 +104,6 @@ jQuery(document).ready(function($) {
         $('html, body').animate({
             scrollTop: $(id_part).offset().top
         },1500);
-        wow.init();
     };
     //CARGAR EL SVG/*
     var a = document.getElementById("svgMapa");
@@ -167,23 +164,17 @@ jQuery(document).ready(function($) {
     $('.back-to-top').click(function(){
         scrollBack.play();
         $('html, body').animate({
-            scrollTop: $('.formato').offset().top + 10
+            scrollTop: $('.formato').offset().top
         },1000);
     });
 
     jQuery(window).scroll(function() {
         var offset = $('#nav_ciudad').offset();
-        var offsetTip = $('.formato').offset().top;
         if (!($('#nav_ciudad').hasClass('hidden')) && (jQuery(this).scrollTop() > (offset.top - 20))) {
            jQuery('.back-to-top').fadeIn(300);     
         } else {
             jQuery('.back-to-top').fadeOut(300);
         } 
-        if(jQuery(this).scrollTop()){
-            jQuery('.tip').fadeIn(2000)
-        }else{
-            jQuery('.tip').fadeOut();
-        }  //jQuery('.Tip').fadeIn(300) :  jQuery('.Tip').fadeOut(300);
     });
 /*
     $('table tr, .back-to-top').mouseenter(function() {
