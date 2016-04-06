@@ -27,77 +27,79 @@ jQuery(document).ready(function($) {
         //$('.parallax-mirror').remove();
         $('#nav_ciudad h4 b').text(ciudad.replace('_',' ').toUpperCase());
 
-        for (var i = 0; i < Museos.length; i++) {
-            link = 'href= http://' + Museos[i].link;
-            hidden = '';
-            var animatedClass1 = ["fadeInLeft","bounceInDown","flipInX","rotateInDownLeft","swing","animated flip","slideInLeft"];
-            var animatedClass2 = ["fadeInRight", "bounceInUp","flipInY", "rotateInDownRight","rollIn","tada","slideInRight"];
-            
-            if(!Museos[i].link){
-                link = '';
-                hidden = 'hidden';
-            }
-            var email = Museos[i].email ? '<td class="text-right"><b>Email:</b></td> <td class="text-left"><a>'+Museos[i].email+'</a></td>' : '' 
-            
-            link_html = '<a ' + link + '><img class="pull-right link '+ hidden + '"src='+"images/link.png"+'></a>';
-            html_cuerpo = 
-                '<div class="about container-fluid">'+
-                    '<header class="row">' +
-                        '<h2 class="col-xs-8 col-xs-offset-1 wowload width-60 '+animatedClass1[i]+'"><b>'+Museos[i].museo+'</b></h2>'+
-                        '<figure class="col-xs-3 wowload width-40 '+animatedClass2[i]+'" style="padding-top: 1%">'+
-                            link_html +
-                        '</figure>'+
-                    ' </header>'+
-                    '<div class="row">'+
-                        '<div class="col-sm-4 col-sm-offset-1 wowload '+animatedClass1[i]+'">'+
-                            '<figure>'+
-                                '<div class="flexslider">'+
-                                    '<ul class="slides">'+
-                                      '<li>'+
-                                        '<img src='+Museos[i].imagenes[0]+' class="enmarcar"/>'+
-                                      '</li>'+
-                                      '<li>'+
-                                        '<img src='+Museos[i].imagenes[1]+' class="enmarcar"/>'+
-                                      '</li>'+
-                                      '<li>'+
-                                        '<img src='+Museos[i].imagenes[2]+' class="enmarcar"/>'+
-                                      '</li>'+
-                                    '</ul>'+
-                                  '</div>'+
+        if(Museos.length > 0){
+            for (var i = 0; i < Museos.length; i++) {
+                link = 'href= http://' + Museos[i].link;
+                hidden = '';
+                var animatedClass1 = ""; // ["fadeInLeft","bounceInDown","flipInX","rotateInDownLeft","swing","animated flip","slideInLeft"];
+                var animatedClass2 = ""; //["fadeInRight", "bounceInUp","flipInY", "rotateInDownRight","rollIn","tada","slideInRight"];
+                
+                if(!Museos[i].link){
+                    link = '';
+                    hidden = 'hidden';
+                }
+                var email = Museos[i].email ? '<td class="text-right"><b>Email:</b></td> <td class="text-left"><a>'+Museos[i].email+'</a></td>' : '' 
+                
+                link_html = '<a ' + link + '><img class="pull-right link '+ hidden + '"src='+"images/link.png"+'></a>';
+                html_cuerpo = 
+                    '<div class="about container-fluid">'+
+                        '<header class="row">' +
+                            '<h2 class="col-xs-8 col-xs-offset-1 wowload width-60 fadeInLeft '+animatedClass1[i]+'"><b>'+Museos[i].museo+'</b></h2>'+
+                            '<figure class="col-xs-3 wowload width-40 fadeInRight '+animatedClass2[i]+'" style="padding-top: 1%">'+
+                                link_html +
                             '</figure>'+
+                        ' </header>'+
+                        '<div class="row">'+
+                            '<div class="col-sm-4 col-sm-offset-1 wowload fadeInLeft '+animatedClass1[i]+'">'+
+                                '<figure>'+
+                                    '<div class="flexslider">'+
+                                        '<ul class="slides">'+
+                                          '<li>'+
+                                            '<img src='+Museos[i].imagenes[0]+' class="enmarcar"/>'+
+                                          '</li>'+
+                                          '<li>'+
+                                            '<img src='+Museos[i].imagenes[1]+' class="enmarcar"/>'+
+                                          '</li>'+
+                                          '<li>'+
+                                            '<img src='+Museos[i].imagenes[2]+' class="enmarcar"/>'+
+                                          '</li>'+
+                                        '</ul>'+
+                                      '</div>'+
+                                '</figure>'+
+                            '</div>'+
+                            '<div class="col-sm-7 wowload fadeInRight '+animatedClass2[i]+'">'+
+                                '<article class="padding-top-6 col-sm-10">'+       
+                                    '<p class="text-justify">'+Museos[i].contenido+'</p>'+ 
+                                '</article>'+
+                                '<table class="table table-borderless table-config -center">'+
+                                '<tbody>'+
+                                    '<tr>'+
+                                        '<td class="text-right"><b>Dirección:</b></td>'+
+                                        '<td class="text-left">'+Museos[i].direccion+'</td>'+
+                                    '</tr>'+
+                                    '<tr>'+
+                                        '<td class="text-right"><b>Teléfono:</b></td>'+
+                                        '<td class="text-left">'+Museos[i].telefono+'</td>'+
+                                    '</tr>'+
+                                    '<tr>'+
+                                        '<td class="text-right"><b>Horario:</b></td>'+
+                                        '<td class="text-left">martes a domingo<br>'+Museos[i].horario+'</td>'+
+                                    '</tr>'+
+                                    '<tr>'+ email +
+                                    '</tr>'+
+                                '</tbody>'+
+                              '</table>'+                      
+                            '</div>'+
+                          '</div>'+     
                         '</div>'+
-                        '<div class="col-sm-7 wowload '+animatedClass2[i]+'">'+
-                            '<article class="padding-top-6 col-sm-10">'+       
-                                '<p class="text-justify">'+Museos[i].contenido+'</p>'+ 
-                            '</article>'+
-                            '<table class="table table-borderless table-config -center">'+
-                            '<tbody>'+
-                                '<tr>'+
-                                    '<td class="text-right"><b>Dirección:</b></td>'+
-                                    '<td class="text-left">'+Museos[i].direccion+'</td>'+
-                                '</tr>'+
-                                '<tr>'+
-                                    '<td class="text-right"><b>Teléfono:</b></td>'+
-                                    '<td class="text-left">'+Museos[i].telefono+'</td>'+
-                                '</tr>'+
-                                '<tr>'+
-                                    '<td class="text-right"><b>Horario:</b></td>'+
-                                    '<td class="text-left">martes a domingo<br>'+Museos[i].horario+'</td>'+
-                                '</tr>'+
-                                '<tr>'+ email +
-                                '</tr>'+
-                            '</tbody>'+
-                          '</table>'+                      
-                        '</div>'+
-                      '</div>'+     
-                    '</div>'+
-                  '</div>';
-                $('#cuerpo').append(html_cuerpo);
-        };
-        $('.paraxifyT').removeClass().addClass("paraxifyT "+Museos[0].fondo);
-        $('.flexslider').flexslider({
-            animation: "fade"
-        });
+                      '</div>';
+                    $('#cuerpo').append(html_cuerpo);
+            };
+            $('.paraxifyT').removeClass().addClass("paraxifyT "+Museos[0].fondo);
+            $('.flexslider').flexslider({
+                animation: "fade"
+            });
+        }
 
         scrollClick.play(); 
         id_part = '#nav_ciudad';
@@ -149,7 +151,7 @@ jQuery(document).ready(function($) {
         });
     });   
 
-    $('.scroll, .carousel').click(function(){
+    $('.scroll').click(function(){
         var ciudad = $(this).attr('id');
 
         displayRegion(ciudad)
@@ -165,10 +167,9 @@ jQuery(document).ready(function($) {
     });
     */
 
-    $('.back-to-top').click(function(){
-        scrollBack.play();
+    $('.back-to-top, .carousel, .move-to-map').click(function(){
         $('html, body').animate({
-            scrollTop: $('.formato').offset().top
+            scrollTop: $('.formato').offset().top + 2
         },1000);
     });
 
