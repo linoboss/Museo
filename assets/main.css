@@ -89,7 +89,7 @@ margin-right: auto;
 }
 
 .tip{
-	font-family: 'Courgette', cursive;
+	/*font-family: 'Courgette', cursive;*/
 }
  
 .nav-texto{
@@ -129,8 +129,6 @@ margin-right: auto;
 }
 
 #nav_ciudad{
-
-	margin-top: 1em;
 	margin-bottom: 1em;
 }
 
@@ -337,6 +335,10 @@ footer{
 	
 }
 
+.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th{
+	background-color: black;
+}
+
 .fondo_amazonas{
     background-image: url(../fondos/amazonas.png)!important;
 }
@@ -381,6 +383,9 @@ footer{
 }
 .fondo_cajamarca{
     background-image: url(../fondos/cajamarca.png);
+}
+.fondo_mapa{
+    background-image: url(../fondos/fondo_mapa.jpg);
 }
 
 #mapa_amazonas { fill: #FFFFEE; transition: fill 0.4s;}

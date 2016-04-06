@@ -146,7 +146,7 @@ jQuery(document).ready(function($) {
         });
     });   
 
-    $('.scroll').click(function(){
+    $('.scroll, .carousel').click(function(){
         var ciudad = $(this).attr('id');
 
         displayRegion(ciudad)
@@ -171,11 +171,17 @@ jQuery(document).ready(function($) {
 
     jQuery(window).scroll(function() {
         var offset = $('#nav_ciudad').offset();
+        var offsetMapa = $('.formato').offset().top;
         if (!($('#nav_ciudad').hasClass('hidden')) && (jQuery(this).scrollTop() > (offset.top - 20))) {
            jQuery('.back-to-top').fadeIn(300);     
         } else {
             jQuery('.back-to-top').fadeOut(300);
         } 
+        if(jQuery(this).scrollTop() > offsetMapa){
+           jQuery('.tip').fadeIn(3000)
+        }else{
+            jQuery('.tip').fadeOut();
+        }
     });
 /*
     $('table tr, .back-to-top').mouseenter(function() {
