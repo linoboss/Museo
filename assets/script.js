@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+    lista_estados = ["amazonas", "arequipa", "ancash", "apurimac", "ayacucho", "arequipa", "cajamarca", "callao", "cusco", "huancavelica", "huanuco", "ica", "junin", "la_libertad", "lambayeque", "lima", "loreto", "moquegua", "madre_de_dios", "pasco", "piura", "puno", "san_martin", "tacna", "tumbes", "ucayali"];
    /* $('.parallax-window').parallax({
         imageSrc: 'fondos/huanuco.png',
         zIndex: 0,
@@ -116,20 +117,35 @@ jQuery(document).ready(function($) {
         //Set the colour to something else
         svgDoc.addEventListener("click", function(event){
             var ciudad = event.target.id.slice(5);
-            console.log(ciudad);
             displayRegion(ciudad);
         });
         svgDoc.addEventListener("mouseover", function(event){
             var ciudad = event.target.id.slice(5);
-            $('.scroll').removeClass('active');
-            $('#' + ciudad).addClass('active');            
+            $('.scroll').removeClass('activo');
+            $('#' + ciudad).addClass('activo');            
         });
         $(".scroll").mouseenter(function(event){
+            for (var i = lista_estados.length - 1; i >= 0; i--) {                
+                mapa_ciudad = "mapa_" + lista_estados[i];
+                svgItem = svgDoc.getElementById(mapa_ciudad);
+                svgItem.style.fill = "";
+            }
             ciudad = $(this).attr('id');
             mapa_ciudad = "mapa_" + ciudad;
-            element = 
-            console.log(element);
+            console.log(mapa_ciudad);
+            svgItem = svgDoc.getElementById(mapa_ciudad);
+            
+
+            svgItem.style.fill = "#00BBAA";
         });
+        $(".scroll").mouseleave(function(event){
+            for (var i = lista_estados.length - 1; i >= 0; i--) {                
+                mapa_ciudad = "mapa_" + lista_estados[i];
+                svgItem = svgDoc.getElementById(mapa_ciudad);
+                svgItem.style.fill = "";
+            }
+        });
+
     }, false);
     
 
@@ -203,6 +219,9 @@ jQuery(document).ready(function($) {
         museoSiguiente.fadeIn(1000).addClass('museo-activo');
     }, 5000);
 });
+
+
+
 amazonas1 = {img_src: "images/amazonas1.png",
             link:'www.museoleymebamba.org',
             museo: "MUSEO LEYMEBAMBA",
@@ -649,3 +668,4 @@ email: "museodelanacion@mcultura.gob.pe",
 imagenes: ["images/nacion1.png","images/nacion2.png","images/nacion3.png"]};
 
 lima = [lima1, lima2, lima3, lima4, lima5, lima6];
+
