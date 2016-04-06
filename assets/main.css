@@ -176,7 +176,6 @@ footer{
 
 #footerimg3{
 	background-color: black;
-}background-color: black;
 }
 
 @media (max-width: 480px) {
@@ -272,7 +271,8 @@ footer{
 	font-size: 3.5vw;
 	font-weight: bolder;
 	font-family: 'Nothing You Could Do', cursive;
-	color:#888;	
+	color:#F8A808;	
+	text-shadow: 2px 2px #ccc;	
 }
 
 .pos1{

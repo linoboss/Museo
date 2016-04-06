@@ -118,12 +118,15 @@ jQuery(document).ready(function($) {
             displayRegion(ciudad);
         });
         svgDoc.addEventListener("mouseover", function(event){
-            var element = event.target;
-            tooltip = svgDoc.getElementById("tooltip");
-            console.log(tooltip);
-            tooltip.setAttribute()
-            
-            
+            var ciudad = event.target.id.slice(5);
+            $('.scroll').removeClass('active');
+            $('#' + ciudad).addClass('active');            
+        });
+        $(".scroll").mouseenter(function(event){
+            ciudad = $(this).attr('id');
+            mapa_ciudad = "mapa_" + ciudad;
+            element = 
+            console.log(element);
         });
     }, false);
     
