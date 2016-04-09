@@ -24,6 +24,7 @@ jQuery(document).ready(function($) {
         $('#nav_ciudad').removeClass('hidden');
         
         var Museos = window[ciudad];
+        console.log(ciudad);
         $('#cuerpo').empty();
         //$('.parallax-mirror').remove();
         $('#nav_ciudad h4 b').text(ciudad.replace('_',' ').toUpperCase());
@@ -132,7 +133,6 @@ jQuery(document).ready(function($) {
             }
             ciudad = $(this).attr('id');
             mapa_ciudad = "mapa_" + ciudad;
-            console.log(mapa_ciudad);
             svgItem = svgDoc.getElementById(mapa_ciudad);
             
 
@@ -413,7 +413,7 @@ telefono: "(067) 453420",
 horario: "martes a domingo de 9:00 a.m. a 5:00 p.m.",
 email: " huancavelica@mcultura.gob.pe",
 fondo: "fondo_huancavelica",
-imagenes: ["images/lozano1.png","images/lozano1.png","images/lozano1.png"]};
+imagenes: ["images/lozano1.png","asd.png","asd.png"]};
 
 huancavelica2 = {img_src: "images/huancavelica2.png",
 museo: "MUSEO REGIONAL “DANIEL HERNÁNDEZ MORILLO” ",
@@ -422,7 +422,7 @@ direccion: "Plazoleta de San Juan de Dios s/n.",
 telefono: "(067) 453420",
 horario: "martes a domingo de 9:00 a.m. a 5:00 p.m.",
 email: " huancavelica@mcultura.gob.pe",
-imagenes: ["images/morillo1.png","images/morillo1.png","images/morillo1.png"]};
+imagenes: ["images/morillo1.png","images/asd.png","images/asd.png"]};
 
 huancavelica = [huancavelica1, huancavelica2];
 
@@ -443,7 +443,7 @@ direccion: "Av. Universitaria km. 1.5.",
 telefono: "(064) 562341",
 horario: "lunes a viernes de 10:00 a.m. a 1:00 p.m. y de 2:00 p.m. a 5:00 p.m.",
 Administración: "Universidad Agraria de la Selva",
-imagenes: ["images/unas1.png","images/unas1.png","images/unas1.png"]};
+imagenes: ["images/unas1.png","asd.png","asd.png"]};
 
 huanuco3 = {img_src: "images/huanuco3.png",
 museo: "SALA DE EXHIBICIÓN DEL COMPLEJO ARQUEOLÓGICO DE KOTOSH",
@@ -494,7 +494,7 @@ direccion: "Av. Circunvalación 220 (Camino a Las Brisas).",
 telefono: "(064) 291916 / (064) 242030",
 horario: "lunes a viernes de 10:00 a.m. a 2:00 p.m.",
 fondo: "fondo_junin",
-imagenes: ["images/junin1.png","images/junin1.png","images/junin1.png"]};
+imagenes: ["images/junin1.png","asd.png","iasd.png"]};
 
 junin2 = {img_src: "images/junin2.png",
 museo: "MUSEO DE LA CULTURA DE TARMA",
@@ -503,7 +503,7 @@ direccion: "Jr. Arequipa 190N°",
 telefono: "(064) 321021 Anexo 114",
 horario: "lunes a viernes 8:00 a.m. a 1:00 p.m. y de 3:00 p.m. a 6:00 p.m.",
 email: " museo.tarma@hotmail.com",
-imagenes: ["images/junin2.png","images/junin2.png","images/junin2.png"]};
+imagenes: ["images/junin2.png","asd.png","asd.png"]};
 
 junin3 = {img_src: "images/junin3.png",
 museo: "MUSEO DE SITIO DE CHACAMARCA",
@@ -669,3 +669,175 @@ imagenes: ["images/nacion1.png","images/nacion2.png","images/nacion3.png"]};
 
 lima = [lima1, lima2, lima3, lima4, lima5, lima6];
 
+
+/*NUEVOS DESDE AQUI*/
+
+
+/*Estado Loreto*/
+
+loreto1 = {img_src: "images/amazonico.jpg",
+museo: "Museo Amazónico",
+link: "http://www.deperu.com/cultural/museos/museo-amazonico-1285",
+contenido: "El Museo Amazónico exhibe esculturas de fibra de vidrio en tamaño natural que representan a los principales grupos étnicos de la Amazonía, así como una colección de fotografías del desarrollo urbano.",
+direccion: "Malecón Tarapacá 382, Iquitos Loreto - Perú.",
+telefono: " (065) 23-4031",
+horario: "Lunes a sábado: 9:00 am. a 12:30 pm. y 2:30 pm. a 5:.00 pm.",
+email: "loreto@mcultura.gob.pe",
+fondo: "fondo_lima",
+imagenes: ["images2/amazonico.jpg","images2/amazonico2.jpg","asd.jpg"]}
+
+loreto = [loreto1];
+/*EStado Moquegua*/
+
+moquegua1 = {img_src: "images/moquegua1.png",
+museo: "Museo Contisuyo",
+link: "http://www.museocontisuyo.com/default_on.asp",
+contenido: "El museo exhibe piezas de la pre-historia de la zona, así como cerámicas y tejidos de los habitantes pre-incas.",
+direccion: "Calle Tacna 294, distrito de Moquegua, Prov. Mariscal Nieto Moquegua - Perú",
+telefono: "(053) 463521(053) 461844",
+horario: "Miércoles a lunes:  08:00 am. a 01:00 pm. 02:30 pm. a 05:30 pm.",
+email: "contisuyo@museocontisuyo.com",
+fondo: "fondo_lima",
+imagenes: ["images2/moquegua1.jpg","images2/moquegua2.jpg","asd.jpg"]}
+
+moquegua = [moquegua1];
+/*Estado Pasco*/
+
+pasco1 = {img_src: "images/pasco1.png",
+museo: "Museo Schafferer",
+link: "http://www.deperu.com/cultural/museos/museo-schafferer-1292",
+contenido: "En este museo se exhiben, conservan y valoran los antiguos objetos, pertenencias, mobiliario de la historia europea en nuestro país.",
+direccion: "Avenida Los Colonos s/n Pozuzo, prov. Oxapampa Pasco - Perú",
+telefono: "(063) 287546",
+horario: "Lunes a domingo: 8:30 am. a 12:00 pm. y 2:30 pm. a 5:30 pm.",
+email: "wlaura@viabcp.com",
+fondo: "fondo_lima",
+imagenes: ["images2/pasco1.jpg","images2/pasco2.jpg","asd.jpg"]}
+
+pasco2 = {img_src: "images/pasco3-4.png",
+museo: "Museo Municipal Simón Bolívar",
+link: "http://www.deperu.com/cultural/museos/museo-municipal-simon-bolivar-4337",
+contenido: "El museo expone una colección fotográfica de la historia del distrito de Simón Bolívar.",
+direccion: "Plaza Principal, San Antonio de Rancas Distrito de Simón Bolívar, prov. de Pasco Pasco - Perú",
+telefono: "(063) 792597",
+horario: "Lunes a viernes: 09:00 am. a 5:00 pm.",
+email: "simonbolivar@mcultura.gob.pe",
+imagenes: ["images2/pasco3.jpg","images2/pasco4.jpg","asd.jpg"]}
+
+pasco = [pasco1, pasco2];
+/*Estado Piura*/
+
+piura1 = {img_src: "images/piura1-2.png",
+museo: "Museo de Sitio de Narihualá",
+link: "http://www.deperu.com/cultural/museos/museo-de-sitio-de-narihuala-1766",
+contenido: "El Museo de Sitio de Narihualá exhibe piezas arqueológicas encontradas en las excavaciones realizadas en el templo de Narihualá.",
+direccion: "Caserío de Narihualá, Catacaos Piura - Perú",
+telefono: "(073) 305178 (073) 322307",
+horario: "Martes a domingo: 08:30 am. a  04:30 pm.",
+email: "piura@ mcultura.gob.pe",
+fondo: "fondo_lima",
+imagenes: ["images2/piura1.jpg","images2/piura2.jpg","asd.png"]}
+
+piura2 = {img_src: "images/pasco3-4.png",
+museo: "Museo Municipal Simón Bolívar",
+link: "http://www.deperu.com/cultural/museos/museo-municipal-simon-bolivar-4337",
+contenido: "El museo expone una colección fotográfica de la historia del distrito de Simón Bolívar.",
+direccion: "Plaza Principal, San Antonio de Rancas Distrito de Simón Bolívar, prov. de Pasco Pasco - Perú",
+telefono: "(063) 792597",
+horario: "Lunes a viernes: 09:00 am. a 5:00 pm.",
+email: "simonbolivar@mcultura.gob.pe",
+imagenes: ["image2s/piura3.jpg","images2/piura4.jpg","asd.jpg"]}
+
+piura = [piura1, piura2];
+
+/*Estado Puno*/
+
+puno1 = {img_src: "images/puno1-2.png",
+museo: "Museo Lítico de Pukara",
+link: "http://www.deperu.com/cultural/museos/museo-litico-de-pukara-1756",
+contenido: "En el museo se exhibe un conjunto de monolitos y esculturas líticas de la cultura Pukará que han sido recuperados en el complejo arqueológico durante los trabajos de restauración y puesta en valor.",
+direccion: "Plaza de Armas de Pukará, provincia de Lampa Puno - Perú",
+telefono: "(051) 32-8278 (051) 36-3662 ",
+horario: "Martes a domingo: 9:00 am. a 5:00 pm.",
+email: "puno@mcultura.gob.pe",
+fondo: "fondo_lima",
+imagenes: ["images2/puno1.jpg","images2/puno2.jpg","asd.jpg"]}
+
+
+puno2 = {img_src: "images/puno3-4.png",
+museo: "Templo Museo San Juan de Letrán",
+link: "http://www.deperu.com/cultural/museos/templo-museo-san-juan-de-letran-4347",
+contenido: "El templo museo muestra la arquitectura de la iglesia con piedras y madera tallada que fue construida en el siglo XVII, así como lienzos y pinturas de artistas locales.",
+direccion: "Jr. Juli 325 Juli, provincia de Chucuito Puno - Perú",
+telefono: " (051) 368278 ",
+horario: "Martes a Domingo: 9:00 am. a 5:00 pm.",
+email: "puno@mcultura.gob.pe",
+imagenes: ["images2/puno3.jpg","images2/puno4.jpg","asd.jpg"]}
+
+puno = [puno1, puno2];
+
+/*Estado San Martin*/
+
+san_martin1 = {img_src: "images/sanmartin1-2.png",
+museo: "Museo Departamental de San Martín",
+link: "http://www.deperu.com/cultural/museos/museo-departamental-de-san-martin-3882",
+contenido: "El museo expone urnas funerarias y momias de la cultura Chachapoyas, así como variadas piezas de la época colonial y republicana.",
+direccion: "Jr. Benavides Nº 380, Moyobamba San Martín - Perú",
+telefono: "(042) 562281",
+horario: "Martes a domingo: 8:30 am. a 1:00 pm. 3:00 pm. a 5:00 pm.",
+email: "sanmartin@mcultura.gob.pe",
+fondo: "fondo_lima",
+imagenes: ["images2/san_martin1.jpg","images2/san_martin2.jpg","asd.jpg"]}
+
+san_martin = [san_martin1]
+/*Estado San Tacna*/
+
+tacna1 = {img_src: "images/tacna1-2.png",
+museo: "Museo de Sitio Las Peañas",
+link: "http://www.deperu.com/cultural/museos/museo-departamental-de-san-martin-3882",
+contenido: "El Museo de Sitio las Peañas exhibe momias y restos arqueológicos encontrados durante las excavaciones del complejo arqueológico del mismo nombre.",
+direccion: "Campiña de Pocollay Tacna - Perú",
+telefono: "(052) 428505",
+horario: "Martes a domingo: 9:00 a 17:00 horas",
+email: "E-mail: tacna@mcultura.gob.pe",
+fondo: "fondo_lima",
+imagenes: ["images2/tacna1.jpg","images2/tacna2.jpg","asd.jpg"]}
+
+tacna2 = {img_src: "images/tacna3-4.png",
+museo: "Museo Histórico Regional de Tacna",
+link: "http://www.deperu.com/cultural/museos/museo-historico-regional-de-tacna-1750",
+contenido: "El Museo Histórico Regional de Tacna expone documentación de la Guerra con Chile y algunos lienzos alusivos a la Batalla de Arica.",
+direccion: "Calle Apurímac 202 Tacna - Perú",
+telefono: "(052) 428505",
+horario: "Martes a domingo: 9:00 am. a 5:00 pm.",
+email: "E-mail: tacna@mcultura.gob.pe",
+imagenes: ["images2/tacna3.jpg","images2/tacna4.jpg","asd.jpg"]}
+
+tacna = [tacna1, tacna2];
+/*Estado San tumbes*/
+
+tumbes1 = {img_src: "images/tumbes1-2.png",
+museo: "Museo de sitio Cabeza de Vaca - Gran Chilimasa",
+link: "http://www.deperu.com/cultural/museos/museo-de-sitio-cabeza-de-vaca-gran-chilimasa-1297",
+contenido: "En el Museo de Sitio se exhiben las piezas arqueológicas obtenidas de las excavaciones de investigación en el lugar llamado Cabeza de Vaca.",
+direccion: " Pasaje El Museo 117 Cabeza de Vaca - Norte - distrito de Corrales Tumbes - Perú",
+telefono: "(072) 521936",
+horario: "Lunes a viernes: 08:30 am. a 03:00 pm.",
+email: "E-mail: tumbes@ mcultura.gob.pe",
+fondo: "fondo_lima",
+imagenes: ["asd.jpg","asd.jpg","asd.jpg"]}
+
+tumbes = [tumbes1];
+/*Estado San Ucayali*/
+
+ucayali1 = {img_src: "images/ucayali1-2.png",
+museo: "Museo Regional de Ucayali",
+link: "http://www.deperu.com/cultural/museos/museo-regional-de-ucayali-1298",
+contenido: "El museo regional de Pucallpa exhibe especies de la flora y fauna, así como muestras de grupos étnicos de la región.",
+direccion: " Jr. Inmaculada 154, 1er Piso Pucallpa, provincia de Coronel Portillo Ucayali - Perú",
+telefono: "(061) 572344",
+horario: "Lunes a domingo: 8:00 a 17:00 horas",
+email: "E-mail:  ucayali@ inc.gob.pe",
+fondo: "fondo_lima",
+imagenes: ["images2/ucayali1.jpg","images2/ucayali2.jpg","asd.jpg"]}
+ ucayali = [ucayali1];
