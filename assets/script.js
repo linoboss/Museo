@@ -46,9 +46,10 @@ jQuery(document).ready(function($) {
                     link = '';
                     hidden = 'hidden';
                 }
+                var telefono = Museos[i].telefono ? Museos[i].telefono : "<span style='font-family:arial'>-</span>"
                 var email = Museos[i].email ? '<td class="text-right"><b>Email:</b></td> <td class="text-left"><a>'+Museos[i].email+'</a></td>' : '' 
                 
-                link_html = '<a ' + link + '><img class="pull-right link '+ hidden + '"src='+"images/link.png"+'></a>';
+                link_html = '<a ' + link + ' target="_blank"><img class="pull-right link '+ hidden + '"src='+"images/link.png"+'></a>';
                 html_cuerpo = 
                     '<div class="about container-fluid">'+
                         '<header class="row">' +
@@ -88,7 +89,7 @@ jQuery(document).ready(function($) {
                                     '</tr>'+
                                     '<tr>'+
                                         '<td class="text-right"><b>Teléfono:</b></td>'+
-                                        '<td class="text-left">'+Museos[i].telefono+'</td>'+
+                                        '<td class="text-left">'+telefono+'</td>'+
                                     '</tr>'+
                                     '<tr>'+
                                         '<td class="text-right"><b>Horario:</b></td>'+
@@ -294,7 +295,7 @@ ancash = [ancash1, ancash2];
 
 apurimac1 = {img_scr: "images/apurimac1-2-3.png",
 museo: "Museo Arqueológico y Antropológico del Ministerio de Cultura",
-link: "http://www.deperu.com/cultural/museos/museo-litico-de-pukara-1756",
+link: "www.deperu.com/cultural/museos/museo-litico-de-pukara-1756",
 contenido: "El museo administrado por la Dirección Regional de Cultura Apurimac, exhibe una colección de piezas de cerámica, líticas y restos óseos encontrados en la región.",
 direccion: "Casa Hacienda Illanya s/n Anexo Illanya,  Abancay Apurimac - Perú",
 telefono: "(083) 783178",
@@ -662,7 +663,7 @@ lambayeque = [lambayeque1, lambayeque2, lambayeque3, lambayeque4, lambayeque5];
 
 lima1 = {img_src: "images/lima1.png",
 museo: "MUSEO AMANO ",
-link: "http://vao.pe/315/museo-amano",
+link: "vao.pe/315/museo-amano",
 contenido: "La colección que protege esta entidad, está compuesta principalmente por piezas de cerámica y ejemplares de textiles que pertenecieron a las culturas precolombinas que habitaron en Perú. Pero la muestra más importante, que el Museo Amano conserva bajo siete llaves, está compuesta por ejemplares de cerámica y piezas de textiles que en su momento la cultura Chancay desarrolló. Pues la mayoría de las piezas pertenecen a aquellas civilizaciones que florecieron en las costas de Perú.",
 direccion: "Calle Retiro 160, Miraflores, Lima. A la altura de la cuadra 11 de la avenida Angamos Oeste.",
 telefono: "(511) 441-2909",
@@ -681,7 +682,7 @@ imagenes: ["images/historia_del_peru1.png","images/historia_del_peru2.png","imag
 
 lima3 = {img_src: "images/lima3.png",
 museo: "MUSEO DE ARTE ITALIANO DE LIMA",
-link: "http://www.museos.cultura.pe/museos/museo-de-arte-italiano-de-lima",
+link: "www.museos.cultura.pe/museos/museo-de-arte-italiano-de-lima",
 contenido: "Es el único museo de arte europeo que se encuentra en nuestro país. Expone desde 1923 todas las expresiones artísticas realizadas por artistas italianos, desde principios del siglo XX.",
 direccion: "Av. Paseo de la República 250, Lima..",
 telefono: "(01) 423-9932",
@@ -726,7 +727,7 @@ lima = [lima1, lima2, lima3, lima4, lima5, lima6];
 
 loreto1 = {img_src: "images/amazonico.jpg",
 museo: "Museo Amazónico",
-link: "http://www.deperu.com/cultural/museos/museo-amazonico-1285",
+link: "www.deperu.com/cultural/museos/museo-amazonico-1285",
 contenido: "El Museo Amazónico exhibe esculturas de fibra de vidrio en tamaño natural que representan a los principales grupos étnicos de la Amazonía, así como una colección de fotografías del desarrollo urbano.",
 direccion: "Malecón Tarapacá 382, Iquitos Loreto - Perú.",
 telefono: " (065) 23-4031",
@@ -740,7 +741,7 @@ loreto = [loreto1];
 
 moquegua1 = {img_src: "images/moquegua1.png",
 museo: "Museo Contisuyo",
-link: "http://www.museocontisuyo.com/default_on.asp",
+link: "www.museocontisuyo.com/default_on.asp",
 contenido: "El museo exhibe piezas de la pre-historia de la zona, así como cerámicas y tejidos de los habitantes pre-incas.",
 direccion: "Calle Tacna 294, distrito de Moquegua, Prov. Mariscal Nieto Moquegua - Perú",
 telefono: "(053) 463521(053) 461844",
@@ -754,7 +755,7 @@ moquegua = [moquegua1];
 
 pasco1 = {img_src: "images/pasco1.png",
 museo: "Museo Schafferer",
-link: "http://www.deperu.com/cultural/museos/museo-schafferer-1292",
+link: "www.deperu.com/cultural/museos/museo-schafferer-1292",
 contenido: "En este museo se exhiben, conservan y valoran los antiguos objetos, pertenencias, mobiliario de la historia europea en nuestro país.",
 direccion: "Avenida Los Colonos s/n Pozuzo, prov. Oxapampa Pasco - Perú",
 telefono: "(063) 287546",
@@ -765,7 +766,7 @@ imagenes: ["images2/pasco1.jpg","images2/pasco2.jpg","images2/schafferer.jpg"]}
 
 pasco2 = {img_src: "images/pasco3-4.png",
 museo: "Museo Municipal Simón Bolívar",
-link: "http://www.deperu.com/cultural/museos/museo-municipal-simon-bolivar-4337",
+link: "www.deperu.com/cultural/museos/museo-municipal-simon-bolivar-4337",
 contenido: "El museo expone una colección fotográfica de la historia del distrito de Simón Bolívar.",
 direccion: "Plaza Principal, San Antonio de Rancas Distrito de Simón Bolívar, prov. de Pasco Pasco - Perú",
 telefono: "(063) 792597",
@@ -778,7 +779,7 @@ pasco = [pasco1, pasco2];
 
 piura1 = {img_src: "images/piura1-2.png",
 museo: "Museo de Sitio de Narihualá",
-link: "http://www.deperu.com/cultural/museos/museo-de-sitio-de-narihuala-1766",
+link: "www.deperu.com/cultural/museos/museo-de-sitio-de-narihuala-1766",
 contenido: "El Museo de Sitio de Narihualá exhibe piezas arqueológicas encontradas en las excavaciones realizadas en el templo de Narihualá.",
 direccion: "Caserío de Narihualá, Catacaos Piura - Perú",
 telefono: "(073) 305178 (073) 322307",
@@ -789,7 +790,7 @@ imagenes: ["images2/piura1.jpg","images2/piura2.jpg","images2/narihuala.jpg"]}
 
 piura2 = {img_src: "images/pasco3-4.png",
 museo: "Museo Municipal Simón Bolívar",
-link: "http://www.deperu.com/cultural/museos/museo-municipal-simon-bolivar-4337",
+link: "www.deperu.com/cultural/museos/museo-municipal-simon-bolivar-4337",
 contenido: "El museo expone una colección fotográfica de la historia del distrito de Simón Bolívar.",
 direccion: "Plaza Principal, San Antonio de Rancas Distrito de Simón Bolívar, prov. de Pasco Pasco - Perú",
 telefono: "(063) 792597",
@@ -803,7 +804,7 @@ piura = [piura1, piura2];
 
 puno1 = {img_src: "images/puno1-2.png",
 museo: "Museo Lítico de Pukara",
-link: "http://www.deperu.com/cultural/museos/museo-litico-de-pukara-1756",
+link: "www.deperu.com/cultural/museos/museo-litico-de-pukara-1756",
 contenido: "En el museo se exhibe un conjunto de monolitos y esculturas líticas de la cultura Pukará que han sido recuperados en el complejo arqueológico durante los trabajos de restauración y puesta en valor.",
 direccion: "Plaza de Armas de Pukará, provincia de Lampa Puno - Perú",
 telefono: "(051) 32-8278 (051) 36-3662 ",
@@ -815,7 +816,7 @@ imagenes: ["images2/puno1.jpg","images2/puno2.jpg","images2/pukara.jpg"]}
 
 puno2 = {img_src: "images/puno3-4.png",
 museo: "Templo Museo San Juan de Letrán",
-link: "http://www.deperu.com/cultural/museos/templo-museo-san-juan-de-letran-4347",
+link: "www.deperu.com/cultural/museos/templo-museo-san-juan-de-letran-4347",
 contenido: "El templo museo muestra la arquitectura de la iglesia con piedras y madera tallada que fue construida en el siglo XVII, así como lienzos y pinturas de artistas locales.",
 direccion: "Jr. Juli 325 Juli, provincia de Chucuito Puno - Perú",
 telefono: " (051) 368278 ",
@@ -829,7 +830,7 @@ puno = [puno1, puno2];
 
 san_martin1 = {img_src: "images/sanmartin1-2.png",
 museo: "Museo Departamental de San Martín",
-link: "http://www.deperu.com/cultural/museos/museo-departamental-de-san-martin-3882",
+link: "www.deperu.com/cultural/museos/museo-departamental-de-san-martin-3882",
 contenido: "El museo expone urnas funerarias y momias de la cultura Chachapoyas, así como variadas piezas de la época colonial y republicana.",
 direccion: "Jr. Benavides Nº 380, Moyobamba San Martín - Perú",
 telefono: "(042) 562281",
@@ -843,7 +844,7 @@ san_martin = [san_martin1]
 
 tacna1 = {img_src: "images/tacna1-2.png",
 museo: "Museo de Sitio Las Peañas",
-link: "http://www.deperu.com/cultural/museos/museo-departamental-de-san-martin-3882",
+link: "www.deperu.com/cultural/museos/museo-departamental-de-san-martin-3882",
 contenido: "El Museo de Sitio las Peañas exhibe momias y restos arqueológicos encontrados durante las excavaciones del complejo arqueológico del mismo nombre.",
 direccion: "Campiña de Pocollay Tacna - Perú",
 telefono: "(052) 428505",
@@ -854,7 +855,7 @@ imagenes: ["images2/tacna1.jpg","images2/tacna2.jpg","images2/peañas.jpg"]}
 
 tacna2 = {img_src: "images/tacna3-4.png",
 museo: "Museo Histórico Regional de Tacna",
-link: "http://www.deperu.com/cultural/museos/museo-historico-regional-de-tacna-1750",
+link: "www.deperu.com/cultural/museos/museo-historico-regional-de-tacna-1750",
 contenido: "El Museo Histórico Regional de Tacna expone documentación de la Guerra con Chile y algunos lienzos alusivos a la Batalla de Arica.",
 direccion: "Calle Apurímac 202 Tacna - Perú",
 telefono: "(052) 428505",
@@ -867,7 +868,7 @@ tacna = [tacna1, tacna2];
 
 tumbes1 = {img_src: "images/tumbes1-2.png",
 museo: "Museo de sitio Cabeza de Vaca - Gran Chilimasa",
-link: "http://www.deperu.com/cultural/museos/museo-de-sitio-cabeza-de-vaca-gran-chilimasa-1297",
+link: "www.deperu.com/cultural/museos/museo-de-sitio-cabeza-de-vaca-gran-chilimasa-1297",
 contenido: "En el Museo de Sitio se exhiben las piezas arqueológicas obtenidas de las excavaciones de investigación en el lugar llamado Cabeza de Vaca.",
 direccion: " Pasaje El Museo 117 Cabeza de Vaca - Norte - distrito de Corrales Tumbes - Perú",
 telefono: "(072) 521936",
@@ -881,7 +882,7 @@ tumbes = [tumbes1];
 
 ucayali1 = {img_src: "images/ucayali1-2.png",
 museo: "Museo Regional de Ucayali",
-link: "http://www.deperu.com/cultural/museos/museo-regional-de-ucayali-1298",
+link: "www.deperu.com/cultural/museos/museo-regional-de-ucayali-1298",
 contenido: "El museo regional de Pucallpa exhibe especies de la flora y fauna, así como muestras de grupos étnicos de la región.",
 direccion: " Jr. Inmaculada 154, 1er Piso Pucallpa, provincia de Coronel Portillo Ucayali - Perú",
 telefono: "(061) 572344",
