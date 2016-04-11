@@ -129,7 +129,7 @@ jQuery(document).ready(function($) {
             var ciudad = event.target.id.slice(5);
             displayRegion(ciudad);
         });
-        svgDoc.addEventListener("mouseover", function(event){
+        svgDoc.addEventListener("mousemove", function(event){
             var ciudad = event.target.id.slice(5);
             $('.scroll').removeClass('activo');
             $('#' + ciudad).addClass('activo');
@@ -143,8 +143,8 @@ jQuery(document).ready(function($) {
             }                   
             svg = $("#svgMapa");
             pos = svg.position();
-            var x = event.clientX + pos.left+ 100;
-            var y = event.clientY + pos.top + svgPosTop;
+            var x = event.clientX + pos.left;
+            var y = event.clientY + pos.top + svgPosTop + 45;
             var tt = $('#tooltip').css({top:y, left:x});     
         });
 
