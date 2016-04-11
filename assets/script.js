@@ -145,11 +145,27 @@ jQuery(document).ready(function($) {
             var ciudad = event.target.id.slice(5);
             displayRegion(ciudad);
         });
-        svgDoc.addEventListener("mouseover", function(event){
+        svgDoc.addEventListener("mousemove", function(event){
             var ciudad = event.target.id.slice(5);
             $('.scroll').removeClass('activo');
             $('#' + ciudad).addClass('activo');
+<<<<<<< HEAD
             tooltipControl(event);
+=======
+            tt = $('#tooltip');
+            if(ciudad == "35"){
+                tt.addClass('hidden');
+            }
+            else{
+                tt.removeClass('hidden');
+                tt.text(ciudad.replace('_',' ').replace('_',' ').toUpperCase());
+            }                   
+            svg = $("#svgMapa");
+            pos = svg.position();
+            var x = event.clientX + pos.left;
+            var y = event.clientY + pos.top + svgPosTop + 45;
+            var tt = $('#tooltip').css({top:y, left:x});     
+>>>>>>> origin/master
         });
 
         $(".scroll").mouseenter(function(event){
