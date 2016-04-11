@@ -21,13 +21,19 @@ jQuery(document).ready(function($) {
     scrollBack.setAttribute('src', 'sounds/Sneeze-sound.mp3');
 
     var displayRegion = function(ciudad){
+        if(ciudad=="35") return 0;
         $('#nav_ciudad').removeClass('hidden');
         
         var Museos = window[ciudad];
         console.log(ciudad);
         $('#cuerpo').empty();
         //$('.parallax-mirror').remove();
-        $('#nav_ciudad h4 b').text(ciudad.replace('_',' ').toUpperCase());
+        nav_text = ciudad;
+        if(nav_text == "cusco"){
+            nav_text = "cuzco";
+        }
+
+        $('#nav_ciudad h4 b').text(nav_text.replace('_',' ').toUpperCase());
 
         if(Museos.length > 0){
             for (var i = 0; i < Museos.length; i++) {
@@ -55,15 +61,15 @@ jQuery(document).ready(function($) {
                             '<div class="col-sm-4 col-sm-offset-1 wowload fadeInLeft '+animatedClass1[i]+'">'+
                                 '<figure>'+
                                     '<div class="flexslider">'+
-                                        '<ul class="slides">'+
-                                          '<li>'+
-                                            '<img src='+Museos[i].imagenes[0]+' class="enmarcar"/>'+
+                                        '<ul class="slides slides_config" >'+
+                                          '<li class="crop">'+
+                                            '<img src='+Museos[i].imagenes[0]+' class="enmarcar img-responsive"/>'+
                                           '</li>'+
-                                          '<li>'+
-                                            '<img src='+Museos[i].imagenes[1]+' class="enmarcar"/>'+
+                                          '<li class="crop">'+
+                                            '<img src='+Museos[i].imagenes[1]+' class="enmarcar img-responsive"/>'+
                                           '</li>'+
-                                          '<li>'+
-                                            '<img src='+Museos[i].imagenes[2]+' class="enmarcar"/>'+
+                                          '<li class="crop">'+
+                                            '<img src='+Museos[i].imagenes[2]+' class="enmarcar img-responsive"/>'+
                                           '</li>'+
                                         '</ul>'+
                                       '</div>'+
@@ -73,6 +79,7 @@ jQuery(document).ready(function($) {
                                 '<article class="padding-top-6 col-sm-10">'+       
                                     '<p class="text-justify">'+Museos[i].contenido+'</p>'+ 
                                 '</article>'+
+
                                 '<table class="table table-borderless table-config -center">'+
                                 '<tbody>'+
                                     '<tr>'+
@@ -112,6 +119,7 @@ jQuery(document).ready(function($) {
     };
     //CARGAR EL SVG/*
     var a = document.getElementById("svgMapa");
+    var svgPosTop = $('#svgMapa').offset().top;
     a.addEventListener("load",function() {
         var svgDoc = a.getSVGDocument();
         console.log('svg loaded');
@@ -123,8 +131,22 @@ jQuery(document).ready(function($) {
         svgDoc.addEventListener("mouseover", function(event){
             var ciudad = event.target.id.slice(5);
             $('.scroll').removeClass('activo');
-            $('#' + ciudad).addClass('activo');            
+            $('#' + ciudad).addClass('activo');
+            tt = $('#tooltip');
+            if(ciudad == "35"){
+                tt.addClass('hidden');
+            }
+            else{
+                tt.removeClass('hidden');
+                tt.text(ciudad.replace('_',' ').replace('_',' ').toUpperCase());
+            }                   
+            svg = $("#svgMapa");
+            pos = svg.position();
+            var x = event.clientX + pos.left+ 100;
+            var y = event.clientY + pos.top + svgPosTop;
+            var tt = $('#tooltip').css({top:y, left:x});     
         });
+
         $(".scroll").mouseenter(function(event){
             for (var i = lista_estados.length - 1; i >= 0; i--) {                
                 mapa_ciudad = "mapa_" + lista_estados[i];
@@ -134,10 +156,11 @@ jQuery(document).ready(function($) {
             ciudad = $(this).attr('id');
             mapa_ciudad = "mapa_" + ciudad;
             svgItem = svgDoc.getElementById(mapa_ciudad);
-            
+                       
 
             svgItem.style.fill = "#00BBAA";
         });
+
         $(".scroll").mouseleave(function(event){
             for (var i = lista_estados.length - 1; i >= 0; i--) {                
                 mapa_ciudad = "mapa_" + lista_estados[i];
@@ -145,7 +168,10 @@ jQuery(document).ready(function($) {
                 svgItem.style.fill = "";
             }
         });
-
+        svgDoc.addEventListener('mousemove',function(evt){
+                      
+            // Use loc.x and loc.y here
+        });
     }, false);
     
 
@@ -212,12 +238,21 @@ jQuery(document).ready(function($) {
     //$(function() {
       //setInterval( "slideSwitch()", 5000 );
     //});
-    setInterval(function(){ 
+    //i = 0;
+    
+    setInterval(function(){
+        /*
+        estado = lista_estados[i];
+        museo = window[estado];
+        console.log(museo[0]);
+        displayMuseos = $("<div class='museos-dinamicos pos1'>"+ amazonas1.museo + "</div>");
+        */
         var museoActual = $('.museo-activo');
         var museoSiguiente = museoActual.hasClass('pos12') ? $('.pos1') : museoActual.next();
-        museoActual.fadeOut(1000).removeClass('museo-activo');
-        museoSiguiente.fadeIn(1000).addClass('museo-activo');
-    }, 5000);
+        museoActual.fadeOut(500).removeClass('museo-activo');
+        museoSiguiente.fadeIn(500).addClass('museo-activo');
+        //i = i + 1;
+    }, 7000);
 });
 
 
@@ -229,7 +264,7 @@ amazonas1 = {img_src: "images/amazonas1.png",
             direccion: "Av. Austria s/n, San Miguel",
             telefono: "(041) 816803 / (041) 816806",
             horario: "martes a domingo<br>de 9:30 a.m. a 4:30 p.m. o previa cita",
-            fondo: "fondo_amazonas",
+            fondo: "fondo_callao",
             imagenes: ["images/leymebamba1.png", "images/leymebamba2.png", "images/leymebamba3.png"]};
 
 amazonas = [amazonas1]
@@ -255,6 +290,20 @@ ancash2 = {img_src: "images/ancash2.png",
 
 ancash = [ancash1, ancash2];
 
+/* Apurimac */
+
+apurimac1 = {img_scr: "images/apurimac1-2-3.png",
+museo: "Museo Arqueológico y Antropológico del Ministerio de Cultura",
+link: "http://www.deperu.com/cultural/museos/museo-litico-de-pukara-1756",
+contenido: "El museo administrado por la Dirección Regional de Cultura Apurimac, exhibe una colección de piezas de cerámica, líticas y restos óseos encontrados en la región.",
+direccion: "Casa Hacienda Illanya s/n Anexo Illanya,  Abancay Apurimac - Perú",
+telefono: "(083) 783178",
+horario: "Martes a domingo:   8:30 am. a 5:00 pm.",
+email: "apurimac@mcultura.gob.pe",
+fondo: "fondo_ica",
+imagenes: ["images2/apurimac1.png", "images2/apurimac2.jpg", "images2/apurimac3.jpg"]}
+
+apurimac = [apurimac1];
 /* Arequipa */
 
 arequipa1 = {img_src: "images/arequipa1.png",
@@ -276,7 +325,7 @@ contenido: "Este museo cuenta con cuatro salas en las que se exponen fotografía
 direccion: "Urbanización Nery García Zárate, Jr. Libertad 1229",
 telefono: "(066) 317170",
 horario: "lunes a domingo de 9:00 a.m. a 1:00 p.m. y de 3:00 p.m. a 6:00 p.m.",
-fondo: "fondo_ayacucho",
+fondo: "fondo_junin",
 imagenes: ["images/memoria1.png","images/memoria2.png","images/memoria3.png"]};     
 
 ayacucho2 = {img_src: "images/ayacucho2.png",
@@ -339,7 +388,7 @@ telefono: "(01) 7956900",
 horario: "martes a domingo de9:30 a.m. a 4:30 p.m.",
 email: "museo.abtao@hotmail.com / reservas.abtao@hotmail.com",
 fondo: "fondo_callao",
-imagenes: ["images/abtao1.png","images/abtao2.png","images/abtao3.png"]};
+imagenes: ["images2/abtao1.jpg","images/abtao2.png","images/abtao3.png"]};
 
 callao2 = {img_src: "images/callao2.png",
 museo: "MUSEO DEL EJÉRCITO FORTALEZA REAL FELIPE",
@@ -413,7 +462,7 @@ telefono: "(067) 453420",
 horario: "martes a domingo de 9:00 a.m. a 5:00 p.m.",
 email: " huancavelica@mcultura.gob.pe",
 fondo: "fondo_huancavelica",
-imagenes: ["images/lozano1.png","asd.png","asd.png"]};
+imagenes: ["images/lozano1.png","images2/lozano2.jpg","images2/lozano3.jpg"]};
 
 huancavelica2 = {img_src: "images/huancavelica2.png",
 museo: "MUSEO REGIONAL “DANIEL HERNÁNDEZ MORILLO” ",
@@ -422,7 +471,7 @@ direccion: "Plazoleta de San Juan de Dios s/n.",
 telefono: "(067) 453420",
 horario: "martes a domingo de 9:00 a.m. a 5:00 p.m.",
 email: " huancavelica@mcultura.gob.pe",
-imagenes: ["images/morillo1.png","images/asd.png","images/asd.png"]};
+imagenes: ["images/morillo1.png","images2/morillo2.jpg","images2/morillo3.jpg"]};
 
 huancavelica = [huancavelica1, huancavelica2];
 
@@ -443,7 +492,7 @@ direccion: "Av. Universitaria km. 1.5.",
 telefono: "(064) 562341",
 horario: "lunes a viernes de 10:00 a.m. a 1:00 p.m. y de 2:00 p.m. a 5:00 p.m.",
 Administración: "Universidad Agraria de la Selva",
-imagenes: ["images/unas1.png","asd.png","asd.png"]};
+imagenes: ["images/unas1.png","images2/unas2.jpeg","images2/unas3.jpg"]};
 
 huanuco3 = {img_src: "images/huanuco3.png",
 museo: "SALA DE EXHIBICIÓN DEL COMPLEJO ARQUEOLÓGICO DE KOTOSH",
@@ -494,7 +543,7 @@ direccion: "Av. Circunvalación 220 (Camino a Las Brisas).",
 telefono: "(064) 291916 / (064) 242030",
 horario: "lunes a viernes de 10:00 a.m. a 2:00 p.m.",
 fondo: "fondo_junin",
-imagenes: ["images/junin1.png","asd.png","iasd.png"]};
+imagenes: ["images/junin1.png","images2/huanca1.jpg","images2/huanca2.jpg"]};
 
 junin2 = {img_src: "images/junin2.png",
 museo: "MUSEO DE LA CULTURA DE TARMA",
@@ -503,7 +552,7 @@ direccion: "Jr. Arequipa 190N°",
 telefono: "(064) 321021 Anexo 114",
 horario: "lunes a viernes 8:00 a.m. a 1:00 p.m. y de 3:00 p.m. a 6:00 p.m.",
 email: " museo.tarma@hotmail.com",
-imagenes: ["images/junin2.png","asd.png","asd.png"]};
+imagenes: ["images/junin2.png","images2/tarma.jpg","images2/tarma2.jpg"]};
 
 junin3 = {img_src: "images/junin3.png",
 museo: "MUSEO DE SITIO DE CHACAMARCA",
@@ -528,14 +577,14 @@ junin = [junin1, junin2, junin3, junin4]
 /*Estado La Libertad*/
 
 libertad1 = {img_src: "images/libertad1.png",
-museo: "LA LIBERTAD",
+museo: "MUSEO ANTONIO RAIMONDI",
 contenido: "Casa de estilo neoclásico que fuera habitada en el siglo XIX por el naturalista italiano Antonio Raimondi. Cuenta con una sala permanente en la que se expone sobre la vida y obra del científico a través de recursos lúdicos e interactivos.",
 direccion: "Jr. Dos de Mayo 432.",
 telefono: "(044) 528338 / (044) 528646",
 horario: "martes a sábado de 9:00 a.m. a 1:00 p.m. y de 3:00 p.m. a 8:00 p.m.",
 email: "casaraimondi_sanpedrodelloc@hotmail.com",
 fondo: "fondo_libertad",
-imagenes: ["images/libertad1.png","images/libertad2.png","images/libertad3.png"]};
+imagenes: ["images/libertad1.png","images2/raimondi2.jpg","images2/raimondi3.jpg"]};
 
 libertad2 = {img_src: "images/libertad2.png",
 museo: "MUSEO CAO ",
@@ -618,7 +667,7 @@ contenido: "La colección que protege esta entidad, está compuesta principalmen
 direccion: "Calle Retiro 160, Miraflores, Lima. A la altura de la cuadra 11 de la avenida Angamos Oeste.",
 telefono: "(511) 441-2909",
 horario: "De lunes a viernes de 3:00 a 4:00 p.m.",
-fondo: "fondo_lima",
+fondo: "fondo_callao",
 imagenes: ["images/amano1.png","images/amano2.png","images/amano3.png"]};
 
 lima2 = {img_src: "images/lima2.png",
@@ -683,8 +732,8 @@ direccion: "Malecón Tarapacá 382, Iquitos Loreto - Perú.",
 telefono: " (065) 23-4031",
 horario: "Lunes a sábado: 9:00 am. a 12:30 pm. y 2:30 pm. a 5:.00 pm.",
 email: "loreto@mcultura.gob.pe",
-fondo: "fondo_lima",
-imagenes: ["images2/amazonico.jpg","images2/amazonico2.jpg","asd.jpg"]}
+fondo: "fondo_ancash",
+imagenes: ["images2/amazonico.jpg","images2/amazonico2.jpg","images2/amazonico3.jpg"]}
 
 loreto = [loreto1];
 /*EStado Moquegua*/
@@ -697,8 +746,8 @@ direccion: "Calle Tacna 294, distrito de Moquegua, Prov. Mariscal Nieto Moquegua
 telefono: "(053) 463521(053) 461844",
 horario: "Miércoles a lunes:  08:00 am. a 01:00 pm. 02:30 pm. a 05:30 pm.",
 email: "contisuyo@museocontisuyo.com",
-fondo: "fondo_lima",
-imagenes: ["images2/moquegua1.jpg","images2/moquegua2.jpg","asd.jpg"]}
+fondo: "fondo_ayacucho",
+imagenes: ["images2/contisuyo1.jpg","images2/moquegua2.jpg","images2/moquegua3.jpg"]}
 
 moquegua = [moquegua1];
 /*Estado Pasco*/
@@ -711,8 +760,8 @@ direccion: "Avenida Los Colonos s/n Pozuzo, prov. Oxapampa Pasco - Perú",
 telefono: "(063) 287546",
 horario: "Lunes a domingo: 8:30 am. a 12:00 pm. y 2:30 pm. a 5:30 pm.",
 email: "wlaura@viabcp.com",
-fondo: "fondo_lima",
-imagenes: ["images2/pasco1.jpg","images2/pasco2.jpg","asd.jpg"]}
+fondo: "fondo_arequipa",
+imagenes: ["images2/pasco1.jpg","images2/pasco2.jpg","images2/schafferer.jpg"]}
 
 pasco2 = {img_src: "images/pasco3-4.png",
 museo: "Museo Municipal Simón Bolívar",
@@ -722,7 +771,7 @@ direccion: "Plaza Principal, San Antonio de Rancas Distrito de Simón Bolívar, 
 telefono: "(063) 792597",
 horario: "Lunes a viernes: 09:00 am. a 5:00 pm.",
 email: "simonbolivar@mcultura.gob.pe",
-imagenes: ["images2/pasco3.jpg","images2/pasco4.jpg","asd.jpg"]}
+imagenes: ["images2/pasco3.jpg","images2/pasco4.jpg","images2/simon_bolivar.jpg"]}
 
 pasco = [pasco1, pasco2];
 /*Estado Piura*/
@@ -735,8 +784,8 @@ direccion: "Caserío de Narihualá, Catacaos Piura - Perú",
 telefono: "(073) 305178 (073) 322307",
 horario: "Martes a domingo: 08:30 am. a  04:30 pm.",
 email: "piura@ mcultura.gob.pe",
-fondo: "fondo_lima",
-imagenes: ["images2/piura1.jpg","images2/piura2.jpg","asd.png"]}
+fondo: "fondo_cajamarca",
+imagenes: ["images2/piura1.jpg","images2/piura2.jpg","images2/narihuala.jpg"]}
 
 piura2 = {img_src: "images/pasco3-4.png",
 museo: "Museo Municipal Simón Bolívar",
@@ -746,7 +795,7 @@ direccion: "Plaza Principal, San Antonio de Rancas Distrito de Simón Bolívar, 
 telefono: "(063) 792597",
 horario: "Lunes a viernes: 09:00 am. a 5:00 pm.",
 email: "simonbolivar@mcultura.gob.pe",
-imagenes: ["image2s/piura3.jpg","images2/piura4.jpg","asd.jpg"]}
+imagenes: ["images2/simon_bolivar3.jpg","images2/piura4.jpg","images2/simon_bolivar2.jpg"]}
 
 piura = [piura1, piura2];
 
@@ -760,8 +809,8 @@ direccion: "Plaza de Armas de Pukará, provincia de Lampa Puno - Perú",
 telefono: "(051) 32-8278 (051) 36-3662 ",
 horario: "Martes a domingo: 9:00 am. a 5:00 pm.",
 email: "puno@mcultura.gob.pe",
-fondo: "fondo_lima",
-imagenes: ["images2/puno1.jpg","images2/puno2.jpg","asd.jpg"]}
+fondo: "fondo_callao",
+imagenes: ["images2/puno1.jpg","images2/puno2.jpg","images2/pukara.jpg"]}
 
 
 puno2 = {img_src: "images/puno3-4.png",
@@ -772,7 +821,7 @@ direccion: "Jr. Juli 325 Juli, provincia de Chucuito Puno - Perú",
 telefono: " (051) 368278 ",
 horario: "Martes a Domingo: 9:00 am. a 5:00 pm.",
 email: "puno@mcultura.gob.pe",
-imagenes: ["images2/puno3.jpg","images2/puno4.jpg","asd.jpg"]}
+imagenes: ["images2/puno3.jpg","images2/puno4.jpg","images2/letran.jpg"]}
 
 puno = [puno1, puno2];
 
@@ -786,8 +835,8 @@ direccion: "Jr. Benavides Nº 380, Moyobamba San Martín - Perú",
 telefono: "(042) 562281",
 horario: "Martes a domingo: 8:30 am. a 1:00 pm. 3:00 pm. a 5:00 pm.",
 email: "sanmartin@mcultura.gob.pe",
-fondo: "fondo_lima",
-imagenes: ["images2/san_martin1.jpg","images2/san_martin2.jpg","asd.jpg"]}
+fondo: "fondo_cusco",
+imagenes: ["images2/san_martin1.jpg","images2/san_martin2.jpg","images2/san_martin3.jpg"]}
 
 san_martin = [san_martin1]
 /*Estado San Tacna*/
@@ -800,8 +849,8 @@ direccion: "Campiña de Pocollay Tacna - Perú",
 telefono: "(052) 428505",
 horario: "Martes a domingo: 9:00 a 17:00 horas",
 email: "E-mail: tacna@mcultura.gob.pe",
-fondo: "fondo_lima",
-imagenes: ["images2/tacna1.jpg","images2/tacna2.jpg","asd.jpg"]}
+fondo: "fondo_huancavelica",
+imagenes: ["images2/tacna1.jpg","images2/tacna2.jpg","images2/peañas.jpg"]}
 
 tacna2 = {img_src: "images/tacna3-4.png",
 museo: "Museo Histórico Regional de Tacna",
@@ -811,7 +860,7 @@ direccion: "Calle Apurímac 202 Tacna - Perú",
 telefono: "(052) 428505",
 horario: "Martes a domingo: 9:00 am. a 5:00 pm.",
 email: "E-mail: tacna@mcultura.gob.pe",
-imagenes: ["images2/tacna3.jpg","images2/tacna4.jpg","asd.jpg"]}
+imagenes: ["images2/tacna3.jpg","images2/tacna4.jpg","images2/tacna.jpg"]}
 
 tacna = [tacna1, tacna2];
 /*Estado San tumbes*/
@@ -824,8 +873,8 @@ direccion: " Pasaje El Museo 117 Cabeza de Vaca - Norte - distrito de Corrales T
 telefono: "(072) 521936",
 horario: "Lunes a viernes: 08:30 am. a 03:00 pm.",
 email: "E-mail: tumbes@ mcultura.gob.pe",
-fondo: "fondo_lima",
-imagenes: ["asd.jpg","asd.jpg","asd.jpg"]}
+fondo: "fondo_huanuco",
+imagenes: ["images2/tumbes1.jpg","images2/tumbes2.jpg","images2/tumbes3.jpg"]}
 
 tumbes = [tumbes1];
 /*Estado San Ucayali*/
@@ -838,6 +887,6 @@ direccion: " Jr. Inmaculada 154, 1er Piso Pucallpa, provincia de Coronel Portill
 telefono: "(061) 572344",
 horario: "Lunes a domingo: 8:00 a 17:00 horas",
 email: "E-mail:  ucayali@ inc.gob.pe",
-fondo: "fondo_lima",
-imagenes: ["images2/ucayali1.jpg","images2/ucayali2.jpg","asd.jpg"]}
+fondo: "fondo_ica",
+imagenes: ["images2/ucayali1.jpg","images2/ucayali2.jpg","images2/ucayali.jpg"]}
  ucayali = [ucayali1];

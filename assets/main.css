@@ -7,7 +7,8 @@ margin-right: auto;
 }
 
 .activo{
-	background-color:#000;
+	background-color: rgba(0,0,0, 0.5);
+	border-radius: 10px;
 }
 .miCarousel{
 	/*background-image: url('../images/carousel/papel.png');*/
@@ -43,6 +44,36 @@ margin-right: auto;
 	margin-left: 50em;
 }
 
+.fondo_mapa{
+    background-image: url(../fondos/fondo_mapa.jpg);
+    border-bottom-left-radius: 2em;
+	border-bottom-right-radius: 2em;
+}
+
+.hidden {
+	display: none;
+}
+
+div.tooltip {
+    background-color: rgba(0,0,0,0);
+    padding: .5em;
+    border-radius: 2px;
+    opacity: 0.9;
+    position: absolute;
+    font-family: 'Nothing You Could Do', cursive;
+    text-shadow: 0 2px 2px #fff;
+    font-weight: bold;
+	font-size: 3em;
+    color: black;
+}
+
+.formato{
+	padding-top: 2em;
+	padding-bottom: 3em;
+	border-bottom-left-radius: 2em;
+	border-bottom-right-radius: 2em;
+}
+
 .transparent{
 	opacity: 0;
 }
@@ -54,6 +85,11 @@ margin-right: auto;
 	font-family: "Libre Baskerville", serif; 
 	line-height: 45px; 
 	text-shadow: 0 1px 1px #fff;
+
+}
+
+.tablas_config{
+	margin-bottom: 4em;
 }
 
 .table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th {
@@ -96,12 +132,22 @@ margin-right: auto;
  
 .nav-texto{
 	font-family: 'Nothing You Could Do', cursive;
-	text-shadow: 2px 2px #ccc;
-	font-size: 3em;
-    color: white;
+	text-shadow: 6px 6px #ccc;
+	font-size: 5em;
+    color: black;
     margin: 0;
 	border: 0;
 	padding: 0.3em;
+}
+
+.navbar-wrapper{
+	height:100px;
+}
+
+#nav_ciudad{
+	margin-top: 5em;
+	margin-bottom: 1em;
+	background-color: white;
 }
 
 .link{    
@@ -110,8 +156,10 @@ margin-right: auto;
 
 .about{	
 	padding-top: 2em;
-	padding-bottom: 2em;
+	padding-bottom: 2em;	
 }
+
+#cuerpo{border-radius: 2em;}
 .about header{
 	padding-top: 1em;
 	padding-bottom: 2em;
@@ -120,7 +168,8 @@ margin-right: auto;
 
 .about article{
 	font-family: 'Sorts Mill Goudy', serif;
-    font-size: 120%;
+	 font-weight: bold;
+    font-size: 130%;
 }
 
 .about table{
@@ -130,17 +179,30 @@ margin-right: auto;
 	margin-bottom: 0;
 }
 
-.navbar-wrapper{
-	height:100px;
-}
 
-#nav_ciudad{
-	margin-bottom: 1em;
+
+.flexslider{
+	border-radius: 10px;
 }
 
 .enmarcar{        
-	padding:3px;       
+	border-radius:10px;
+  	overflow: hidden;  
 }
+
+.crop {
+ height: 260px;
+ width: 400px;
+ overflow: hidden;
+}
+.crop img {
+ height: auto;
+ width: 400px;
+}
+
+.slides_config{
+}
+
 .transparent{
 	opacity: 0;
 }
@@ -155,13 +217,8 @@ margin-right: auto;
 .no-margins{
 	margin: 0;
 	border: 0;
-	border-radius:0; 
 }
 
-.formato{
-	padding-top: 2em;
-	padding-bottom: 3em;
-}
 
 footer{
 
@@ -280,15 +337,24 @@ footer{
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
+  border-bottom-left-radius: 2em;
+border-bottom-right-radius: 2em;
 }
 
 .museos-dinamicos{
 	position: absolute;
-	font-size: 3.5vw;
+	font-size: 1.5vw;
 	font-weight: bolder;
 	font-family: 'Nothing You Could Do', cursive;
 	color:#F8A808;	
 	text-shadow: 2px 2px #ccc;	
+}
+.museos-dinamicos>img{
+	width: 150px;
+	height: 150px;
+	border-radius: 75px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
 }
 
 .pos1{
@@ -298,11 +364,11 @@ footer{
 }
 .pos2{
 	padding-top: 30%;
-	padding-left: 60%;
+	padding-left: 40%;
+	}
 	
-}
 .pos3{
-	padding-top: 5%;
+	padding-top: 20%;
 	padding-left: 2%;
 	
 }
@@ -312,7 +378,7 @@ footer{
 	
 }
 .pos5{
-	padding-top: 45%;
+	padding-top: 30%;
 	padding-left: 40%;
 	
 }
@@ -323,11 +389,11 @@ footer{
 }
 .pos7{
 	padding-top: 15%;
-	padding-left: 50%;
+	padding-left: 30%;
 	
 }
 .pos8{
-	padding-top: 48%;
+	padding-top: 35%;
 	padding-left: 70%;
 	
 }
@@ -347,12 +413,16 @@ footer{
 }
 .pos12{
 	padding-top: 30%;
-	padding-left: 35%;
+	padding-left: 15%;
 	
 }
 
+.table{
+	transition: background-color 0.4s;
+}
 .table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th{
-	background-color: black;
+	background-color: rgba(0,0,0, 0.5);
+	border-radius: 10px;
 }
 
 .fondo_amazonas{
@@ -400,9 +470,7 @@ footer{
 .fondo_cajamarca{
     background-image: url(../fondos/cajamarca.png);
 }
-.fondo_mapa{
-    background-image: url(../fondos/fondo_mapa.jpg);
-}
+
 
 #mapa_amazonas { transition: fill 0.4s;}
 #mapa_amazonas:hover { fill: #00BBAA; }
