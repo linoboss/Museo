@@ -35,8 +35,11 @@
 
 </head>
 
-<body id='1'>
-
+<body>
+  <figure id="head">
+      <a><img id="headimg2" class="img-responsive col-sm-offset-10 col-sm-1" src="images/peru_educa.png"></a>
+      <a><img id="headimg1" class=" img-responsive col-sm-1 no-margin no-padding" src="images/peru_ministerio.jpg"> </a>
+  </figure>
    <!-- IMAGEN SUPERIOR !-->
    <div class="carousel" data-ride="carousel">   
      <div class="carousel-inner">    
@@ -100,6 +103,7 @@
     <div class="no-margins container-fluid formato" style="opacity: 0.93;background-color: rgba(0, 0, 0, 0.5);;color: white;">    
       <div class="row">
         <div class="col-md-offset-1 col-md-5 col-xs-offset-1 col-xs-4 width-50">
+          <div id="tooltip" class="hidden tooltip">tooltip</div>
           <figure class="mapa">
             <object type="image/svg+xml" data="mapaVectorizado.svg" width="100%" height="100%" id="svgMapa" class="svgLoaded"></object>
           </figure>
@@ -247,7 +251,7 @@
     </figure>
   </footer>
    
-  <div id="tooltip" class="hidden tooltip">tooltip</div>
+  
 
 </body>
 </html>

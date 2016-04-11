@@ -120,7 +120,23 @@ jQuery(document).ready(function($) {
     };
     //CARGAR EL SVG/*
     var a = document.getElementById("svgMapa");
-    var svgPosTop = $('#svgMapa').offset().top;
+
+    var tooltipControl = function(event){
+        var ciudad = event.target.id.slice(5);
+        tt = $('#tooltip');
+        if(ciudad == "35"){
+            tt.addClass('hidden');
+        }
+        else{
+            tt.removeClass('hidden');
+            tt.text(ciudad.replace('_',' ').replace('_',' ').toUpperCase());
+        }                   
+       
+        var x = event.clientX + 32;
+        var y = event.clientY + 16;
+        var tt = $('#tooltip').css({top:y, left:x});  
+
+    }
     a.addEventListener("load",function() {
         var svgDoc = a.getSVGDocument();
         console.log('svg loaded');
@@ -133,19 +149,7 @@ jQuery(document).ready(function($) {
             var ciudad = event.target.id.slice(5);
             $('.scroll').removeClass('activo');
             $('#' + ciudad).addClass('activo');
-            tt = $('#tooltip');
-            if(ciudad == "35"){
-                tt.addClass('hidden');
-            }
-            else{
-                tt.removeClass('hidden');
-                tt.text(ciudad.replace('_',' ').replace('_',' ').toUpperCase());
-            }                   
-            svg = $("#svgMapa");
-            pos = svg.position();
-            var x = event.clientX + pos.left+ 100;
-            var y = event.clientY + pos.top + svgPosTop;
-            var tt = $('#tooltip').css({top:y, left:x});     
+            tooltipControl(event);
         });
 
         $(".scroll").mouseenter(function(event){
@@ -156,8 +160,7 @@ jQuery(document).ready(function($) {
             }
             ciudad = $(this).attr('id');
             mapa_ciudad = "mapa_" + ciudad;
-            svgItem = svgDoc.getElementById(mapa_ciudad);
-                       
+            svgItem = svgDoc.getElementById(mapa_ciudad);                      
 
             svgItem.style.fill = "#00BBAA";
         });
@@ -169,9 +172,13 @@ jQuery(document).ready(function($) {
                 svgItem.style.fill = "";
             }
         });
-        svgDoc.addEventListener('mousemove',function(evt){
-                      
-            // Use loc.x and loc.y here
+        
+        svgDoc.addEventListener('mousemove',function(event){
+            tooltipControl(event);
+        });
+
+        svgDoc.addEventListener('mouseleave',function(event){
+            $('#tooltip').addClass('hidden');
         });
     }, false);
     
