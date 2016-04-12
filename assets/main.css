@@ -24,8 +24,8 @@ margin-right: auto;
 }
 
 #head{
-	margin-top: 1em;
-	margin-bottom: 2em;
+	margin-top: 0.5%;
+	margin-bottom: 0.5%;
 }
 #headimg1{
 }
@@ -278,6 +278,12 @@ footer{
 		width: 90%;
 		margin-left: 10%; 
 	}
+	.museos-dinamicos{
+		display: none !important;
+	}
+	.move-to-map{
+		display: none !important;
+	}
 }
 @media (min-width: 615px) and (max-width: 767px){
 	.info{
@@ -327,6 +333,7 @@ footer{
 	text-decoration: none;
 	position: absolute;
 	padding-top: 49%;
+	display: block;
 }
 
 .scroll, .back-to-top, .move-to-map{
@@ -357,6 +364,7 @@ border-bottom-right-radius: 2em;
 	font-family: 'Nothing You Could Do', cursive;
 	color:#F8A808;	
 	text-shadow: 2px 2px #ccc;	
+	display: block;
 }
 .museos-dinamicos>img{
 	width: 150px;
