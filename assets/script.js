@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-    lista_estados = ["amazonas", "arequipa", "ancash", "apurimac", "ayacucho", "arequipa", "cajamarca", "callao", "cusco", "huancavelica", "huanuco", "ica", "junin", "la_libertad", "lambayeque", "lima", "loreto", "moquegua", "madre_de_dios", "pasco", "piura", "puno", "san_martin", "tacna", "tumbes", "ucayali"];
+    lista_estados = ["amazonas", "arequipa", "ancash", "apurimac", "ayacucho", "arequipa", "cajamarca", "callao", "cuzco", "huancavelica", "huanuco", "ica", "junin", "la_libertad", "lambayeque", "lima", "loreto", "moquegua", "madre_de_dios", "pasco", "piura", "puno", "san_martin", "tacna", "tumbes", "ucayali"];
    /* $('.parallax-window').parallax({
         imageSrc: 'fondos/huanuco.png',
         zIndex: 0,
@@ -22,25 +22,22 @@ jQuery(document).ready(function($) {
 
     var displayRegion = function(ciudad){
         if(ciudad=="35") return 0;
-        $('#nav_ciudad').removeClass('hidden');
+
+        
         
         var Museos = window[ciudad];
-        console.log(ciudad);
-        $('#cuerpo').empty();
-        //$('.parallax-mirror').remove();
-        nav_text = ciudad;
-        if(nav_text == "cusco"){
-            nav_text = "cuzco";
-        }
-
-        $('#nav_ciudad h4 b').text(nav_text.replace('_',' ').toUpperCase());
-
         if(Museos.length > 0){
+            $('#cuerpo').empty();
+            //$('.parallax-mirror').remove();
+            nav_text = ciudad;
+            
+            $('#nav_ciudad h4 b').text(nav_text.replace('_',' ').toUpperCase());
+            $('#nav_ciudad').removeClass('hidden');
             for (var i = 0; i < Museos.length; i++) {
                 link = 'href= http://' + Museos[i].link;
                 hidden = '';
-                var animatedClass1 = ""; // ["fadeInLeft","bounceInDown","flipInX","rotateInDownLeft","swing","animated flip","slideInLeft"];
-                var animatedClass2 = ""; //["fadeInRight", "bounceInUp","flipInY", "rotateInDownRight","rollIn","tada","slideInRight"];
+                var animatedClass1 = ""; 
+                var animatedClass2 = ""; 
                 
                 if(!Museos[i].link){
                     link = '';
@@ -110,6 +107,7 @@ jQuery(document).ready(function($) {
                 animation: "fade"
             });
         }
+        else return 0;
 
         scrollClick.play(); 
         id_part = '#nav_ciudad';
@@ -118,6 +116,7 @@ jQuery(document).ready(function($) {
         },1500);
         wow.init();
     };
+
     //CARGAR EL SVG/*
     var a = document.getElementById("svgMapa");
 
@@ -195,12 +194,6 @@ jQuery(document).ready(function($) {
         });
     }, false);
     
-
-
-    //var svgItem = svgDoc.getElementById("mapa_amazonas");
-    // Set the colour to something else
-    //svgItem.setAttribute("fill", "lime");
-    //Effects
     $("#titulo-container").hide();
     $("#edificio").hide();
     $("#barra-inferior").hide();
@@ -220,16 +213,6 @@ jQuery(document).ready(function($) {
         displayRegion(ciudad)
         
     }); 
-    /*
-    $('.scroll').click(function(){
-        scrollClick.play(); 
-        id_part = '#nav_ciudad';
-        $('html, body').animate({
-            scrollTop: $(id_part).offset().top
-        },1500);
-    });
-    */
-
     $('.back-to-top, .carousel, .move-to-map').click(function(){
         $('html, body').animate({
             scrollTop: $('.formato').offset().top + 2
@@ -250,29 +233,12 @@ jQuery(document).ready(function($) {
             jQuery('.tip').fadeOut();
         }
     });
-/*
-    $('table tr, .back-to-top').mouseenter(function() {
-        tableHooverSound.currentTime = 0;
-        tableHooverSound.play();        
-    });*/
-
-    //$(function() {
-      //setInterval( "slideSwitch()", 5000 );
-    //});
-    //i = 0;
     
     setInterval(function(){
-        /*
-        estado = lista_estados[i];
-        museo = window[estado];
-        console.log(museo[0]);
-        displayMuseos = $("<div class='museos-dinamicos pos1'>"+ amazonas1.museo + "</div>");
-        */
         var museoActual = $('.museo-activo');
         var museoSiguiente = museoActual.hasClass('pos12') ? $('.pos1') : museoActual.next();
         museoActual.fadeOut(500).removeClass('museo-activo');
         museoSiguiente.fadeIn(500).addClass('museo-activo');
-        //i = i + 1;
     }, 7000);
 });
 
@@ -291,6 +257,7 @@ amazonas1 = {img_src: "images/amazonas1.png",
 amazonas = [amazonas1]
 
 ancash1 = {img_src: "images/ancash1.png",
+            link: "http://museos.cultura.pe/museos/museo-arqueol%C3%B3gico-de-%C3%A1ncash-augusto-soriano-infante",
             museo: 'MUSEO ARQUELÓGICO DE ANCASH "AUGUSTO SORIANO INFANTE"',
             contenido: "La colección de este museo está dividido en 4 salas divididas en tres niveles, donde se exponen secuencialmente bienes culturales cerámica, textiles, líticos, metales, materiales orgánicos de los años 10500 a.C.  a 700 a. C. Junto a él se encuentra el parque Lítico, el más grande de América, donde se presentan 120 monolitos, dinteles, cabezas clavas y otras piezas lítica representativas de la Cultura Recuay.",
             direccion: "Av. Luzuriaga 762",
@@ -301,6 +268,7 @@ ancash1 = {img_src: "images/ancash1.png",
             imagenes: ["images/arqueologico_ancash1.png", "images/arqueologico_ancash2.png", "images/arqueologico_ancash3.png"]};    
 
 ancash2 = {img_src: "images/ancash2.png",
+            link: "http://www.peruserviciosturisticos.com/museo-nacional-chavin.php",
             museo: 'Museo Nacional Chavín',
             contenido: "Posee una colección diversa de bienes culturales que datan desde las primeras investigaciones realizadas por el reconocido arqueólogo peruano Julio C. Tello en esta zona.<br>En las salas se exhiben 19 conchas de caracol usadas como pututos o trompetas, cabezas clavas y lápidas, así como una maqueta de la zona monumental. En una sala se encuentra el Obelisco Tello, escultura emblemática de 2.52 metros de alto, que sintetiza la concepción religiosa del mundo Chavín.",
             direccion: "Prolongación Av. 17 de enero norte s/n",
@@ -341,7 +309,8 @@ arequipa1 = {img_src: "images/arequipa1.png",
 arequipa = [arequipa1]
 
 ayacucho1 = {img_src: "images/ayacucho1.png",
-museo: "MUSEO DE LA MEMORIA  ",
+link: "http://www.deperu.com/cultural/museos/museo-de-la-memoria-4205",
+museo: "MUSEO DE LA MEMORIA ",
 contenido: "Este museo cuenta con cuatro salas en las que se exponen fotografías, pinturas, restos de vestimentas y otros objetos relacionados a la guerra interna que vivió el Perú en la década de 1980 y cuyo máximo impacto social se produjo en Ayacucho.",
 direccion: "Urbanización Nery García Zárate, Jr. Libertad 1229",
 telefono: "(066) 317170",
@@ -350,6 +319,7 @@ fondo: "fondo_junin",
 imagenes: ["images/memoria1.png","images/memoria2.png","images/memoria3.png"]};     
 
 ayacucho2 = {img_src: "images/ayacucho2.png",
+link: "http://www.deperu.com/cultural/museos/museo-de-sitio-de-quinua-casa-de-la-capitulacion-de-ayacucho-1270",
 museo: "MUSEO DEL SITIO DE QUINUA",
 contenido: "Ubicado a 35 Km. Al noreste de Ayacucho. En la sala de exposición permanente podemos encontrar armas, uniformes, maquetas y otros objetos relacionados a la Batalla de Ayacucho. Destaca el ambiente donde se firmó la Capitulación de Ayacucho el 9 de diciembre 1824.",
 direccion: "Plaza Principal de Quinua",
@@ -359,6 +329,7 @@ email: "ayacucho@mcultura.gob.pe",
 imagenes: ["images/quinua1.png","images/quinua2.png","images/quinua3.png"]};
 
 ayacucho3 = {img_src: "images/ayacucho3.png",
+link: "http://www.arqueotur.org/yacimientos/complejo-arqueologico-wari-y-museo-de-sitio.html",
 museo: "MUSEO DE SITIO WARI",
 contenido: "En este museo de exhibe los bienes culturales encontrados en la zona Arqueológica Monumental Wari: cerámicas, textiles, líticos entre otros e información documentada con fotografías   de la zona arqueológica.",
 direccion: "Complejo Arqueológico de Wari. Km. 23 Carretera Ayacucho - Quinua.",
@@ -371,7 +342,8 @@ ayacucho = [ayacucho1, ayacucho2, ayacucho3];
 /*Estado CAJAMARCA*/
 
 cajamarca1 = {img_src: "images/cajamarca1.png",
-museo: "MUSEO ARQUEOLÓGICO HORACIO URTEAGA.  UNIVERSIDAD NACIONAL DE CAJAMARCA",
+link: "http://www.mincetur.gob.pe/TURISMO/OTROS/inventario%20turistico/Ficha.asp?cod_Ficha=2444",
+museo: "MUSEO ARQUEOLÓGICO HORACIO URTEAGA. UNIVERSIDAD NACIONAL DE CAJAMARCA",
 contenido: "Se encuentran en exhibición piezas de las diversas culturas de la región.",
 direccion: "Jr. Del Batán 289 .",
 telefono: "(076) 340440",
@@ -381,6 +353,7 @@ fondo: "fondo_cajamarca",
 imagenes: ["images/urteaga1.png","images/urteaga2.png","images/urteaga3.png"]};
 
 cajamarca2 = {img_src: "images/cajamarca2.png",
+link: "http://www.deperu.com/cultural/museos/museo-de-arte-religioso-convento-de-san-francisco-2967",
 museo: "MUSEO DE ARTE RELIGIOSO DEL CONVENTO DE SAN FRANCISCO",
 contenido: "Está ubicado en el Convento de San Francisco y  reúne  una serie de pinturas de la Orden franciscana, esculturas y muebles del Período virreinal.",
 direccion: "Jr. Dos de Mayo 435 .",
@@ -390,6 +363,7 @@ imagenes: ["images/san_fransisco1.png","images/san_fransisco2.png","images/san_f
 
 
 cajamarca3 = {img_src: "images/cajamarca3.png",
+link: "http://www.arqueotur.org/yacimientos/complejo-ceremonial-kuntur-wasi-y-museo-de-sitio.html",
 museo: "MUSEO KUNTUR WASI",
 contenido: "En este museo se exhiben piezas que corresponden a la Zona Arqueológica del Sitio de Kuntur Wasi, cerámica, orfebrería, líticas y óseas.  También exhibe  documentos y fotografías de los trabajos realizados por la Universidad de Tokio en el sitio arqueológico.",
 direccion: "Avenida del Museo s/n. Centro Poblado Kuntur Wasi",
@@ -421,6 +395,7 @@ horario: "lunes a domingo de 9:00 a.m. a 4:00 p.m. Incluidos feriados.",
 imagenes: ["images/felipe_real1.png","images/felipe_real2.png","images/felipe_real3.png"]};
 
 callao3 = {img_src: "images/callao3.png",
+link: "http://www.deperu.com/cultural/museos/museo-de-la-fuerza-de-aviacion-naval-4367",
 museo: "MUSEO DE LA FUERZA DE AVIACIÓN NAVAL",
 contenido: "Presenta modelos a escala de la evolución de aeronaves con las que ha contado la Fuerza Aérea del Perú.",
 direccion: "Av. Faucett s/n – Callao (antes del Aeropuerto).",
@@ -432,27 +407,28 @@ callao = [callao1, callao2, callao3];
 
 /*Estado CALLAO */
 
-cusco1 = {img_src: "images/cusco1.png",
+cuzco1 = {img_src: "images/cuzco1.png",
+link: "http://www.mincetur.gob.pe/TURISMO/OTROS/inventario%20turistico/Ficha.asp?cod_Ficha=2570",
 museo: "MUSEO COMUNITARIO DE PISAC",
 contenido: "Posee dos salas en las que se aprecia la representación del proceso de producción de los textiles y la elaboración de cerámica. Asimismo, el museo exhibe una colección de bienes culturales arqueológicos de cerámica, líticos, textiles y restos humanos; complementa la exposición una recreación de la estructura de un entierro Inca.",
 direccion: "Esquina Av. Amazonas y Av. Federico Zamalloa.",
 telefono: "(084) 974757466 / (084) 9051316",
 horario: "lunes a domingo de 8:00 Horario: lunes a domingo de 8:00 a.m. a 5:00 p.m.",
 email: "museopisac@gmail.com",
-fondo: "fondo_cusco",
+fondo: "fondo_cuzco",
 imagenes: ["images/pisac1.png","images/pisac2.png","images/pisac3.png"]};
 
-cusco2 = {img_src: "images/cusco2.png",
+cuzco2 = {img_src: "images/cuzco2.png",
 museo: "MUSEO DE ARTE CONTEMPORÁNEO",
-link: "www.municusco.gob.pe",
-contenido: "El museo se encuentra ubicado en el inmueble de la Municipalidad Provincial de Cusco y tiene tres salas de exposición temporal en las que se exhiben pinturas, imaginería, esculturas y piezas textiles de artistas locales contemporáneos.",
+link: "www.municuzco.gob.pe",
+contenido: "El museo se encuentra ubicado en el inmueble de la Municipalidad Provincial de cuzco y tiene tres salas de exposición temporal en las que se exhiben pinturas, imaginería, esculturas y piezas textiles de artistas locales contemporáneos.",
 direccion: "Plaza Regocijo s/n.",
 telefono: "(084) 240006; (084) 231591",
 horario: "lunes a viernes: 9:00 a.m. a 6:00 p.m. y sábados de 8:00 a.m. a 5:00 p.m.",
-email: " museomunicusco@hotmail.com",
+email: " museomunicuzco@hotmail.com",
 imagenes: ["images/arte_contemporaneo1.png","images/arte_contemporaneo2.png","images/arte_contemporaneo3.png"]};
 
-cusco3 = {img_src: "images/cusco3.png",
+cuzco3 = {img_src: "images/cuzco3.png",
 museo: "MUSEO DE ARTE PRECOLOMBINO",
 link: "www.map.museolarco.org",
 contenido: "El museo está ubicado en la Casa Cabrera, reconocida como Patrimonio Cultural de la Nación. Posee una colección de bienes culturales arqueológicos distribuidos en once salas referidas al periodo formativo, culturas Nasca, Moche, Wari, Chimú, Chancay e Inca. También cuenta con salas de joyería en concha y hueso, salas de madera, oro y plata.",
@@ -462,8 +438,9 @@ horario: "lunes a domingo de 8:00 a.m. a 10:00 p.m.",
 email: "amap@infonegocio.net.pe",
 imagenes: ["images/precolombino1.png","images/precolombino2.png","images/precolombino3.png"]};
 
-cusco4 = {img_src: "images/cusco4.png",
+cuzco4 = {img_src: "images/cuzco4.png",
 museo: "MUSEO MACHUPICCHU",
+link: "http://www.drc-cuzco.gob.pe/index.php/arte-cultura/museos/museo-sitio-machupicchu",
 contenido: "Está situado en la Casa Concha, inmueble declarado Patrimonio Cultural de la Nación. Cuenta con once salas de exposición permanente y una sala de exposición temporal. Presenta la colección de bienes culturales provenientes del Santuario Histórico de Machu Picchu devueltos por la Universidad de Yale, tales como cerámica, líticos, metal y restos óseos humanos. Del mismo modo, exhibe fotografías y una maqueta interactiva del Santuario Histórico de Machupicchu.",
 direccion: "Calle Santa Catalina Ancha S/N.",
 telefono: "(084) 255535",
@@ -471,12 +448,13 @@ horario: "lunes a domingo de 9:00 a.m. a 5:00 p.m.",
 email: "museocasaconcha@unsaac.edu.pe",
 imagenes: ["images/machupicchu1.png","images/machupicchu2.png","images/machupicchu3.png"]};
 
-cusco = [cusco1, cusco2, cusco3, cusco4];
+cuzco = [cuzco1, cuzco2, cuzco3, cuzco4];
 
 /*Estado Huancavelica */
 
 huancavelica1 = {img_src: "images/huancavelica1.png",
-museo: "MUSEO ARQUEOLÓGICO  “SAMUEL HUMBERTO ESPINOZA LOZANO”",
+link: "http://museos.cultura.pe/museos/museo-arqueol%C3%B3gico-samuel-humberto-espinoza-lozano",
+museo: "MUSEO ARQUEOLÓGICO “SAMUEL HUMBERTO ESPINOZA LOZANO”",
 contenido: "El museo fue creado por iniciativa de los pobladores, gracias a la donación de la colección privada del investigador Samuel Humberto Espinoza Lozano, discípulo de Julio C. Tello. La colección está compuesta por restos humanos, artefactos líticos, monolitos, cerámicas, textiles y metales. Tiene dos salas de exhibición permanente con fotografías de sitios arqueológicosy dioramas que representan la geografía de la región..",
 direccion: "Jr. 24 de Junio s/n, Huaytará.",
 telefono: "(067) 453420",
@@ -486,7 +464,8 @@ fondo: "fondo_huancavelica",
 imagenes: ["images/lozano1.png","images2/lozano2.jpg","images2/lozano3.jpg"]};
 
 huancavelica2 = {img_src: "images/huancavelica2.png",
-museo: "MUSEO REGIONAL “DANIEL HERNÁNDEZ MORILLO” ",
+link: "http://wikimapia.org/16213675/es/Museo-Regional-Daniel-Hern%C3%A1ndez-Morillo-Instituto-Nacional-de-Cultura",
+museo: "MUSEO REGIONAL “DANIEL HERNÁNDEZ MORILLO”",
 contenido: " El museo comprende dos salas de exposición que exhiben bienes culturales de la región. Muestra una gigantografía que detalla la zona arqueológico Inca Huasi - Huaytará y la recreación de un entierro prehispánico.",
 direccion: "Plazoleta de San Juan de Dios s/n.",
 telefono: "(067) 453420",
@@ -499,6 +478,7 @@ huancavelica = [huancavelica1, huancavelica2];
 /*Estado Huánuco  */
 
 huanuco1 = {img_src: "images/huanuco1.png",
+link: "http://www.deperu.com/cultural/museos/museo-de-churubamba-4413",
 museo: "MUSEO DE CHURUBAMBA",
 contenido: "El museo contiene una sala de exposición en donde se presenta la colección de momias preincas del estilo Papahuasi, cerámica y piezas líticas; así como bienes culturales de la época colonial. Destaca un panel con dibujos de los recursos turísticos de Churubamba.",
 direccion: "Jr. Javier Lindo Zárate 110.",
@@ -507,6 +487,7 @@ fondo: "fondo_huanuco",
 imagenes: ["images/churubamba1.png","images/churubamba2.png","images/churubamba3.png"]};
 
 huanuco2 = {img_src: "images/huanuco2.png",
+link: "http://www.ilam.org/index.php/es/museo?id=220",
 museo: "MUSEO DE ZOOLOGÍA DE LA UNIVERSIDAD AGRARIA DE LA SELVA",
 contenido: " El museo exhibe una colección de especies disecadas de la fauna amazónica. Cuenta además con un jardín botánico que alberga especies de la flora tropical, forestal, ornamental y silvestre. Destaca su colección de animales vertebrados e invertebrados.",
 direccion: "Av. Universitaria km. 1.5.",
@@ -516,6 +497,7 @@ Administración: "Universidad Agraria de la Selva",
 imagenes: ["images/unas1.png","images2/unas2.jpeg","images2/unas3.jpg"]};
 
 huanuco3 = {img_src: "images/huanuco3.png",
+link: "http://www.iperu.org/sala-de-exhibicion-del-complejo-arqueologico-de-kotosh",
 museo: "SALA DE EXHIBICIÓN DEL COMPLEJO ARQUEOLÓGICO DE KOTOSH",
 contenido: "La sala se encuentra en las inmediaciones la zona arqueológica monumental de Kotosh. La exposición se centra en los estudios realizados por los investigadores japoneses en la zona. Se exhiben bienes culturales de cerámica, una maqueta de la arquitectura de Kotosh y una recreación del Templo de las Manos Cruzadas.",
 direccion: "Carretera Huánuco - La Unión.",
@@ -529,6 +511,7 @@ huanuco = [huanuco1, huanuco2, huanuco3];
 /*Estado ICA  */
 
 ica1 = {img_src: "images/ica1.png",
+link: "http://www.deperu.com/cultural/museos/casa-museo-maria-reiche-4299",
 museo: "CASA MUSEO MARÍA REICHE",
 contenido: "El museo está construido al lado del lugar donde vivió María Reiche Newman en sus primeros años de estudio de las Pampas de Nasca. En el lugar se ha reconstruido un recinto que reproduce la vivienda de la investigadora y forma parte de la exhibición la mesa de trabajo, vajilla, papeles de trabajo, y otros muebles. Asimismo, se aprecian mapas, planos, fotos, material  arqueológico y una maqueta didáctica de sus diseños.",
 direccion: "Km. 425 Carretera Panamericana Sur, San Miguel de La Pascana.",
@@ -538,13 +521,15 @@ fondo: "fondo_ica",
 imagenes: ["images/reiche1.png","images/reiche2.png","images/reiche3.png"]};
 
 ica2 = {img_src: "images/ica2.png",
-museo: "MUSEO DE SITIO DE PARACAS “JULIO C. TELLO” ",
+link: "http://www.arqueotur.org/yacimientos/museo-julio-c-tello-y-paracas-necropolis.html",
+museo: "MUSEO DE SITIO DE PARACAS “JULIO C. TELLO”",
 contenido: "El museo de sitio Julio C. Tello de Paracas se encuentra ubicado dentro de la Reserva  Nacional de Paracas. Fue construido en 1965 y sufrió daños por el sismo de Pisco del 15 de agosto de 2007.   Cuenta con un área de 1,020 metros cuadrados.  Este museo alberga variadas piezas cerámicas, tejidos, momias de las culturas que se desarrollaron en la zona.<br>La cultura Paracas se caracteriza por las trepanaciones craneanas, las cuales se pueden observar en momias que se exhiben en el lugar.<br>El museo presenta una explicativa evolución de la cultura Paracas, los cuales también desarrollaron actividades como la pesca, elaboración de textiles y momificación de los muertos.",
 direccion: "Km. 27 Carretera Pisco - Puerto San Martín (Reserva Natural de Paracas).",
 telefono: "(056) 234383",
 imagenes: ["images/tello1.png","images/tello2.png","images/tello3.png"]};
 
 ica3 = {img_src: "images/ica3.png",
+link: "http://www.muniica.gob.pe/index.php/turismo/sitios-imperdibles/89-turismo/lugares/185-museo-regional-adolfo-bermudez-jenkis",
 museo: "MUSEO REGIONAL DE ICA “ ADOLFO BERMÚDEZ JENKINS”",
 contenido: "El museo presenta dos salas de exposición. La sala de Arqueología, con bienes culturales Paracas, Nasca, Wari e Inca; y la de Bioantropología, que detalla costumbres funerarias, deformaciones craneanas, trepanaciones, cabezas trofeo y restos humanos que evidencian paleopatologías. En la parte posterior del edificio se encuentra una reproducción de las Líneas de Nasca que pueden ser apreciadas desde una plataforma.",
 direccion: "Jr. Ayabaca cuadra 8 s/n. Urb. San Isidro",
@@ -558,6 +543,7 @@ ica= [ica1, ica2, ica3];
 /*Estado Junín   */
 
 junin1 = {img_src: "images/junin1.png",
+link: "http://www.peruyello.com/company/60716/MUSEO_DE_ARQUEOLOGIA_CATALINA_HUANCA",
 museo: "MUSEO DE ARQUEOLOGÍA CATALINA HUANCA",
 contenido: "El museo exhibe una colección de bienes culturales e instrumentos agrícolas de las culturas Wanka y Wari, en su mayoría líticos, además de piezas de material orgánico y cerámica.",
 direccion: "Av. Circunvalación 220 (Camino a Las Brisas).",
@@ -567,6 +553,7 @@ fondo: "fondo_junin",
 imagenes: ["images/junin1.png","images2/huanca1.jpg","images2/huanca2.jpg"]};
 
 junin2 = {img_src: "images/junin2.png",
+link: "http://www.deperu.com/cultural/museos/museo-de-la-cultura-de-tarma-4310",
 museo: "MUSEO DE LA CULTURA DE TARMA",
 contenido: "En el primer nivel se aprecian fotografías del patrimonio virreinal y republicano de la ciudad; dos de sus ambientes están dedicados al patrimonio inmaterial de la Provincia de Tarma. En el segundo nivel se exhiben bienes culturales del periodo prehispánico del Perú.",
 direccion: "Jr. Arequipa 190N°",
@@ -576,6 +563,7 @@ email: " museo.tarma@hotmail.com",
 imagenes: ["images/junin2.png","images2/tarma.jpg","images2/tarma2.jpg"]};
 
 junin3 = {img_src: "images/junin3.png",
+link: "http://www.deperu.com/cultural/museos/museo-de-sitio-de-chacamarca-4308",
 museo: "MUSEO DE SITIO DE CHACAMARCA",
 contenido: "El museo se encuentra en el interior del Monumento Vencedores de Junín, declarado Patrimonio Histórico Artístico de la Nación. Cuenta con una sala de exposición y alberga una colección de bienes culturales históricos y republicanos, entre los que destacan los pertrechos de la Batalla de Junín. Además, se exponen fotografías de la biodiversidad de la puna húmeda de los Andes centrales..",
 direccion: "Pampas de Chacamarca (Carretera Central km. 222 – Oroya – Cerro de Pasco).",
@@ -585,6 +573,7 @@ email: " rmedrano@sernanp.gob.pe",
 imagenes: ["images/chacamarca1.png","images/chacamarca2.png","images/chacamarca3.png"]};
 
 junin4 = {img_src: "images/junin4.png",
+link: "http://www.deperu.com/cultural/museos/museo-etnografico-y-pinacoteca-santa-rosa-de-ocopa-4307",
 museo: "MUSEO ETNOGRÁFICO SANTA ROSA DE OCOPA",
 contenido: "El museo se encuentra dentro del Convento de Ocopa, alberga una colección de arte religioso y bienes etnográficos, así como especies de flora y fauna de la región.",
 direccion: "Convento de Ocopa s/n.",
@@ -598,6 +587,7 @@ junin = [junin1, junin2, junin3, junin4]
 /*Estado La Libertad*/
 
 libertad1 = {img_src: "images/libertad1.png",
+link: "http://www.museoraimondi.org.pe/",
 museo: "MUSEO ANTONIO RAIMONDI",
 contenido: "Casa de estilo neoclásico que fuera habitada en el siglo XIX por el naturalista italiano Antonio Raimondi. Cuenta con una sala permanente en la que se expone sobre la vida y obra del científico a través de recursos lúdicos e interactivos.",
 direccion: "Jr. Dos de Mayo 432.",
@@ -617,6 +607,7 @@ horario: "lunes a domingo de 9:00 a.m. a 5:00 p.m.",
 imagenes: ["images/cao1.png","images/cao2.png","images/cao3.png"]};
 
 libertad3 = {img_src: "images/libertad3.png",
+link: "http://www.trujillodelperu.com/museo.htm",
 museo: "MUSEO DE SITIO DE CHAN CHAN",
 contenido: "El museo de sitio se ubica en la sección este de la Zona Arqueológica Monumental de Chan Chan. Exhibe bienes  culturales recuperados en las investigaciones realizadas. Además, se desrcibe el desarrollo cultural prehispánico de la región La Libertad, desde los primeros artefactos líticos hasta la cerámica de las culturas Moche y Chimú. Además, se exponen temas relacionados a la agricultura, técnicas de irrigación y productos cultivados en el valle de Moche. Asimismo, cuenta con una sala computarizada que narra el origen y desarrollo del señorío Chimor.",
 direccion: "Av. Chan Chan s/n<br>(Carretera a Huanchaco) Centro Poblado menor de Villa del Mar.",
@@ -641,7 +632,8 @@ fondo: "fondo_lambayeque",
 imagenes: ["images/afroperuano1.png","images/afroperuano2.png","images/afroperuano3.png"]};
 
 lambayeque2 = {img_src: "images/lambayeque2.png",
-museo: "MUSEO ARQUEOLÓGICO NACIONAL BRÜNING ",
+link: "http://www.lambayeque.net/museos/museo-arqueologico-bruning/",
+museo: "MUSEO ARQUEOLÓGICO NACIONAL BRÜNING",
 contenido: "Inaugurado en 1966 y está ubicado a dos cuadras del parque principal. Nace como fruto de la labor investigadora de 48 años del peruanista Enrique Bruning. En los jardines de este hermoso museo destaca imponente la figura de Naylamp, fundador de la dinastía de Reyes lambayecanos.",
 direccion: "Av. Huamachuco S/N.",
 telefono: "(074) 282110",
@@ -650,7 +642,8 @@ email: "museonacionalbruning@yahoo.es",
 imagenes: ["images/brunning1.png","images/brunning2.png","images/brunning3.png"]};
 
 lambayeque3 = {img_src: "images/lambayeque3.png",
-museo: "MUSEO DE SITIO HUACA RAJADA – SIPÁN ",
+link: "http://www.deperu.com/cultural/museos/museo-de-sitio-de-huaca-rajada-sipan-3859",
+museo: "MUSEO DE SITIO HUACA RAJADA – SIPÁN",
 contenido: "El Museo de Sitio de Huaca Rajada-Sipán exhibe las piezas encontradas en la tumba del sacerdote guerrero ubicado en la zona arqueológica de Sipán y materiales audiovisuales que explican el desarrollo de la cultura norteña.",
 direccion: "Campiña Huaca Rajada S/N.",
 telefono: "(074) 800048",
@@ -659,7 +652,8 @@ email: "museohrsipan@gmail.com",
 imagenes: ["images/sipan1.png","images/sipan2.png","images/sipan3.png"]};
 
 lambayeque4 = {img_src: "images/lambayeque4.png",
-museo: "MUSEO NACIONAL SICÁN ",
+link: "http://www.deperu.com/cultural/museos/museo-nacional-de-la-cultura-sican-1741",
+museo: "MUSEO NACIONAL SICÁN",
 contenido: "Aquí se exhiben los objetos hallados en Huaca Loro, sitio donde el investigador japonés Izumi Shimada descubrió dos tumbas de élite de la cultura Sicán, entre los años 1992 – 1995. El museo permite tener una visión general de lo que fue la capital de la cultura Sican en Batán Grande. Se exhibe una maqueta a escala de la Huaca Loro y también cerámica encontrada en el sitio arqueológico.",
 direccion: "Av. Batán Grande Cdra 9 Carretera Pítipo.",
 telefono: "(074) 500843",
@@ -692,6 +686,7 @@ fondo: "fondo_callao",
 imagenes: ["images/amano1.png","images/amano2.png","images/amano3.png"]};
 
 lima2 = {img_src: "images/lima2.png",
+link: "",
 museo: "MUSEO NACIONAL DE ARQUEOLOGÍA ANTROPOLOGÍA E HISTORIA DEL PERÚ.",
 contenido: "El Museo Nacional de Arqueología, Antropología e Historia del Perú fundado en 1822, es el museo más antiguos y representativos del país que expone objetos prehispánicos, artísticos, fondos documentales fotográficos y bibliográficos de la época colonial y republicana.",
 direccion: "Plaza Bolívar s/n, Pueblo Libre (frente a la Municipalidad del distrito).",
@@ -711,6 +706,7 @@ email: "museodearteitaliano@ mcultura.gob.pe",
 imagenes: ["images/italiano1.png","images/italiano2.png","images/italiano3.png"]};
 
 lima4 = {img_src: "images/lima4.png",
+link: "http://www.limacultura.pe/directorio-cultural/museo-nacional-de-la-cultura-peruana",
 museo: "Museo Nacional de la Cultura Peruana",
 contenido: "El Museo expone muestras arqueológicas, etnográficas e histórico-artística de diferentes regiones del país.",
 direccion: "Av. Alfonso Ugarte 650, Cercado de Lima.",
@@ -721,6 +717,7 @@ imagenes: ["images/cultura_peruana1.png","images/cultura_peruana2.png", "images/
 
 lima5 = {img_src: "images/lima5.png",
 museo: "Museo de Sitio de Pachacamac",
+link: "http://pachacamac.cultura.pe/",
 contenido: "El museo expone diversos objetos cerámicos y textiles encontrados durante las investigaciones realizadas en el complejo arqueológico de Pachacamac.",
 direccion: "Antigua Panamericana Sur Km. 31.5,  distrito de Lurín.",
 telefono: "(511) 430-0168 /(511) 430-2115",
@@ -729,6 +726,7 @@ email: "museopachacamac@mcultura.gob.pe",
 imagenes: ["images/pachacamac1.png","images/pachacamac2.png","images/pachacamac3.png"]};
 
 lima6 = {img_src: "images/lima6.png",
+link: "http://www.deperu.com/cultural/museos/museo-de-la-nacion-4366",
 museo: "Museo de la Nación",
 contenido: "El museo expone en sus salas variadas colecciones arqueológicas, históricas y etnográficas de nuestro país, así como obras contemporáneas de artistas nacionales.",
 direccion: "Av. Javier Prado Este 2465.",
@@ -856,7 +854,7 @@ direccion: "Jr. Benavides Nº 380, Moyobamba San Martín - Perú",
 telefono: "(042) 562281",
 horario: "Martes a domingo: 8:30 am. a 1:00 pm. 3:00 pm. a 5:00 pm.",
 email: "sanmartin@mcultura.gob.pe",
-fondo: "fondo_cusco",
+fondo: "fondo_cuzco",
 imagenes: ["images2/san_martin1.jpg","images2/san_martin2.jpg","images2/san_martin3.jpg"]}
 
 san_martin = [san_martin1]

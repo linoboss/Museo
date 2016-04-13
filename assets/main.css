@@ -24,8 +24,16 @@ margin-right: auto;
 }
 
 #head{
-	margin-top: 0.5%;
-	margin-bottom: 0.5%;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	background-color:silver;
+	background-image: 
+	radial-gradient(circle at 100% 150%, lightgrey 24%, white 25%, white 28%, lightgrey 29%, lightgrey 36%, white 36%, white 40%, transparent 40%, transparent),
+	radial-gradient(circle at 0    150%, lightgrey 24%, white 25%, white 28%, lightgrey 29%, lightgrey 36%, white 36%, white 40%, transparent 40%, transparent),
+	radial-gradient(circle at 50%  100%, white 10%, lightgrey 11%, lightgrey 23%, white 24%, white 30%, lightgrey 31%, lightgrey 43%, white 44%, white 50%, lightgrey 51%, lightgrey 63%, white 64%, white 71%, transparent 71%, transparent),
+	radial-gradient(circle at 100% 50%, white 5%, lightgrey 6%, lightgrey 15%, white 16%, white 20%, lightgrey 21%, lightgrey 30%, white 31%, white 35%, lightgrey 36%, lightgrey 45%, white 46%, white 49%, transparent 50%, transparent),
+	radial-gradient(circle at 0    50%, white 5%, lightgrey 6%, lightgrey 15%, white 16%, white 20%, lightgrey 21%, lightgrey 30%, white 31%, white 35%, lightgrey 36%, lightgrey 45%, white 46%, white 49%, transparent 50%, transparent);
+	background-size:100px 50px;
 }
 #headimg1{
 }
@@ -460,8 +468,8 @@ border-bottom-right-radius: 2em;
 .fondo_callao{
     background-image: url(../fondos/callao.png);
 }
-.fondo_cusco{
-    background-image: url(../fondos/cusco.png);
+.fondo_cuzco{
+    background-image: url(../fondos/cuzco.png);
 }
 .fondo_huancavelica{
     background-image: url(../fondos/huancavelica.png);
@@ -543,8 +551,8 @@ border-bottom-right-radius: 2em;
 #mapa_ayacucho { transition: fill 0.4s;}
 #mapa_ayacucho:hover { fill: #00BBAA; }
 
-#mapa_cusco { transition: fill 0.4s;}
-#mapa_cusco:hover { fill: #00BBAA; }
+#mapa_cuzco { transition: fill 0.4s;}
+#mapa_cuzco:hover { fill: #00BBAA; }
 
 #mapa_huancavelica { transition: fill 0.4s;}
 #mapa_huancavelica:hover { fill: #00BBAA; }
